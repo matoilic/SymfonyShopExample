@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/shopcommon/css/normalize.css') }}" media="all">
+    {% block stylesheets %}{% endblock %}
+    <title>Administration | {% block title %}{% endblock%}</title>
+</head>
+<body>
+    <header></header>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+    <footer></footer>
+    <script type="text/javascript" src="{{ asset('bundles/shopcommon/js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/shopcommon/js/common.js') }}"></script>
+    {% block javascripts %}{% endblock %}
+</body>
+</html>
