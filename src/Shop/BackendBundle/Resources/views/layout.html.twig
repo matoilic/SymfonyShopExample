@@ -1,19 +1,62 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/shopcommon/css/normalize.css') }}" media="all">
+    <!--[if lt IE 9]>
+        {% javascripts '@ShopCommonBundle/Resources/public/js/html5.js' %}
+            <script src="{{asset_url}}" type="text/javascript"></script>
+        {% endjavascripts %}
+    <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    {% block meta %}{% endblock %}
+    {% stylesheets debug=false
+        '@ShopCommonBundle/Resources/public/css/normalize.css'
+    %}
+        <link rel="stylesheet" href="{{asset_url}}" type="text/css">
+    {% endstylesheets %}
+    {% stylesheets filter='compass' debug=false
+        '@ShopBackendBundle/Resources/public/css/bundle.scss'
+    %}
+        <link rel="stylesheet" href="{{asset_url}}" type="text/css">
+    {% endstylesheets %}
     {% block stylesheets %}{% endblock %}
     <title>Administration | {% block title %}{% endblock%}</title>
 </head>
 <body>
-    <header></header>
+    <header>
+        <h1>Poster Shop Admin</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Profil</a></li>
+                <li><a href="#">{% trans %}logout{% endtrans %}</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <nav>
+        <header>
+            <h2>Navigation</h2>
+        </header>
+        <ul>
+            <li><a href="{{path("shop_backend_categories_index")}}">{% trans %}categories{% endtrans %}</a></li>
+            <li><a href="#">{% trans %}products{% endtrans %}</a></li>
+        </ul>
+    </nav>
+
     <div class="content">
         {% block content %}{% endblock %}
-    </div>
-    <footer></footer>
-    <script type="text/javascript" src="{{ asset('bundles/shopcommon/js/jquery.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/shopcommon/js/common.js') }}"></script>
+    </div><br clear="all">
+
+    {% javascripts
+        '@ShopCommonBundle/Resources/public/js/jquery.js'
+        '@ShopCommonBundle/Resources/public/js/common.js'
+    %}
+        <script src="{{asset_url}}" type="text/javascript"></script>
+    {% endjavascripts %}
+    <!--[if lt IE 9]>
+        {% javascripts '@ShopCommonBundle/Resources/public/js/selectivizr.js' %}
+            <script src="{{asset_url}}" type="text/javascript"></script>
+        {% endjavascripts %}
+    <![endif]-->
     {% block javascripts %}{% endblock %}
 </body>
 </html>

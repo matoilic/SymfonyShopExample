@@ -1,0 +1,42 @@
+{% extends "ShopBackendBundle::layout.html.twig" %}
+{% block javascripts %}
+    {% javascripts '@ShopBackendBundle/Resources/public/js/categories.js' %}
+        <script type="text/javascript" src="{{asset_url}}"></script>
+    {% endjavascripts %}
+{% endblock %}
+{% block title %}{% trans %}categories{% endtrans %}{% endblock %}
+
+{% block content %}
+    <h2>{% trans %}categories{% endtrans %}</h2>
+    <table>
+        <thead>
+            <tr>
+                <th class="sortable"><span>{% trans %}category.name{% endtrans %}</span></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>{{category.name}}</td>
+                    <td>
+                        <a href="{{path("shop_backend_categories_edit", {'id': category.id})}}" class="edit">
+                            {% trans %}edit{% endtrans %}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{path("shop_backend_categories_delete", {'id': category.id})}}" class="delete" data-confirm="{% trans with {'%name%': category.name} %}category.delete.confirm{% endtrans %}">
+                            {% trans %}delete{% endtrans %}
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>
+        <a href="{{path("shop_backend_categories_new")}}" class="button create">
+            {% trans %}category.create{% endtrans %}
+        </a>
+    </p>
+{% endblock %}

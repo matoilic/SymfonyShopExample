@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="de" datatype="plaintext" original="file.ext">
+        <body>
+            <!-- GENERAL -->
+            <trans-unit id="0.1">
+                <source>logout</source>
+                <target>Logout</target>
+            </trans-unit>
+            <trans-unit id="0.2">
+                <source>save</source>
+                <target>Speichern</target>
+            </trans-unit>
+            <trans-unit id="0.3">
+                <source>cancel</source>
+                <target>Abbrechen</target>
+            </trans-unit>
+            <trans-unit id="0.4">
+                <source>edit</source>
+                <target>Bearbeiten</target>
+            </trans-unit>
+            <trans-unit id="0.5">
+                <source>delete</source>
+                <target>Löschen</target>
+            </trans-unit>
+
+            <!-- CATEGORIES MANAGEMENT -->
+            <trans-unit id="1.1">
+                <source>categories</source>
+                <target>Kategorien</target>
+            </trans-unit>
+            <trans-unit id="1.2">
+                <source>category.name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="1.3">
+                <source>category.delete.confirm</source>
+                <target>Wollen Sie die Kategorie «%name%» wirklich löschen?</target>
+            </trans-unit>
+            <trans-unit id="1.4">
+                <source>category.create</source>
+                <target>Neue Kategorie erfassen</target>
+            </trans-unit>
+
+            <!-- PRODUCTS MANAGEMENT -->
+            <trans-unit id="2.1">
+                <source>products</source>
+                <target>Produkte</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

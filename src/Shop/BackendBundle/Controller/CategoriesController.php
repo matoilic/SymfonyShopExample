@@ -21,11 +21,35 @@ class CategoriesController extends Controller
     }
 
     /**
+     * @Route("/delete/{id}", name="shop_backend_categories_delete")
+     * @Template()
+     */
+    public function deleteAction() {
+        //TODO implement
+    }
+
+    /**
      * @Route("")
      * @Template()
      */
     public function indexAction() {
         $categories = $this->categoryRepository->findAll();
-        return array('categories' => $categories);
+        return array('categories' => $categories, 'message' => 'Hello World.');
+    }
+
+    /**
+     * @Route("/edit/{id}", name="shop_backend_categories_edit")
+     * @Template()
+     */
+    public function editAction() {
+        //TODO implement
+    }
+
+    /**
+     * @Route("/new", name="shop_backend_categories_new")
+     * @Template()
+     */
+    public function newAction() {
+        //TODO implement
     }
 }

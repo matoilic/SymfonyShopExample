@@ -20,7 +20,7 @@
 
     <services>
         <service id="shop.common.request" class="Symfony\Component\HttpFoundation\Request" />
-        <service id="shop.common.request" class="Symfony\Component\HttpFoundation\Response" />
+        <service id="shop.common.response" class="Symfony\Component\HttpFoundation\Response" />
         <service id="shop.common.repository.category" class="Shop\CommonBundle\Entity\CategoryRepository" factory-service="doctrine.orm.default_entity_manager" factory-method="getRepository">
             <argument>Shop\CommonBundle\Entity\Category</argument>
         </service>
