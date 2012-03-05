@@ -1,7 +1,7 @@
 @import "compass/css3";
 @import "compass/css3/images";
 
-@mixin bg-gradient($from, $to) {
+@mixin gradient($from, $to) {
     background: $from;
     @include background-image(linear-gradient($from, $to));
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$from}, endColorstr=#{$to});
@@ -29,14 +29,14 @@ nav ul {
 
 body {
     font-family: Helvetica, Arial, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
 
     & > header {
-        @include bg-gradient(#6a7176, #4d5256);
+        @include gradient(#6a7176, #4d5256);
         @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.37));
         border-bottom: 1px solid #44484b;
         left: 0;
-        padding: 4px 10px 4px 35px;
+        padding: 0.5em 10px 0.5em 35px;
         position: fixed;
         right: 0;
         @include text-shadow(#000 0 1px 0);
@@ -49,7 +49,7 @@ body {
             margin: 0;
         }
 
-        & > nav {
+        nav {
             float: right;
             margin-top: 0.3em;
             white-space: nowrap;
@@ -78,14 +78,14 @@ body {
     & > nav {
         @extend .default-box-border;
         @extend .default-box-shadow;
-        @include bg-gradient(#efefef, #dfe1e2);
+        @include gradient(#efefef, #dfe1e2);
         @include border-radius(8px);
         left: 15px;
         min-height: 200px;
         padding: 10px;
         position: fixed;
         @include text-shadow(#fff 0 1px 0);
-        top: 55px;
+        top: 65px;
         width: 200px;
 
         ul {
@@ -119,11 +119,11 @@ body {
 }
 
 tbody {
-    tr:nth-child(odd) {
+    tr:nth-child(2n) {
         background: #fff;
     }
 
-    tr:nth-child(even) {
+    tr:nth-child(2n+1) {
         background: #f4f5f5;
     }
 }
@@ -149,7 +149,7 @@ th {
 .default-box {
     @extend .default-box-border;
     @extend .default-box-shadow;
-    @include bg-gradient(#efefef, #dfe1e2);
+    @include gradient(#efefef, #dfe1e2);
     @include text-shadow(#fff 0 1px 0);
 }
 
@@ -172,10 +172,11 @@ th {
     border-width: 1px 0 1px 1px;
     bottom: 20px;
     left: 260px;
-    padding: 20px;
+    overflow: auto;
+    padding: 20px 10px 20px 20px;
     position: fixed;
     right: 0px;
-    top: 55px;
+    top: 65px;
 
     & > *:first-child {
         margin-top: 0;
@@ -185,7 +186,7 @@ th {
 .button,
 button,
 input[type="submit"] {
-    @include bg-gradient(#fdfdfd, #e8e8e8);
+    @include gradient(#fdfdfd, #e8e8e8);
     @include border-radius(200px);
     border: solid 1px #484e53;
     border-color: #c7c7c7;
@@ -195,8 +196,7 @@ input[type="submit"] {
     font-size: 1.0em;
     -webkit-font-smoothing: antialiased;
     font-weight: bold;
-    line-height: 12px;
-    padding: 12px 17px 10px;
+    padding: 10px 17px 8px;
     text-decoration: none;
     @include text-shadow(#fff 0 1px 0);
 }
@@ -210,7 +210,7 @@ input[type="submit"]:hover {
 .button:active,
 button:active,
 input[type="submit"]:active {
-    @include bg-gradient(#fcfcfc, #e5e4e5);
+    @include gradient(#fcfcfc, #e5e4e5);
     @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.18) inset, 0 1px 0 0px #eeeeee);
 }
 
@@ -218,16 +218,18 @@ input[type="submit"]:active {
     content: '+ ';
 }
 
-.sortable > * {
-    background: url('/bundles/shopbackend/images/icons/sortable.png') no-repeat 0 3px;
-    cursor: pointer;
-    padding-left: 10px;
-}
+.sortable {
+    & > * {
+        background: url('/bundles/shopbackend/images/icons/sortable.png') no-repeat 0 3px;
+        cursor: pointer;
+        padding-left: 10px;
+    }
 
-.sortable.asc > * {
-    background-position: 0 -28px;
-}
+    &.asc > * {
+        background-position: 0 -28px;
+    }
 
-.sortable.desc > * {
-    background-position: 0 -57px;
+    &.desc > * {
+        background-position: 0 -57px;
+    }
 }

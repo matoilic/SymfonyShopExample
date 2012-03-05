@@ -6,8 +6,10 @@
             <script src="{{asset_url}}" type="text/javascript"></script>
         {% endjavascripts %}
     <![endif]-->
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     {% block meta %}{% endblock %}
+
     {% stylesheets debug=false
         '@ShopCommonBundle/Resources/public/css/normalize.css'
     %}
@@ -19,6 +21,7 @@
         <link rel="stylesheet" href="{{asset_url}}" type="text/css">
     {% endstylesheets %}
     {% block stylesheets %}{% endblock %}
+
     <title>Administration | {% block title %}{% endblock%}</title>
 </head>
 <body>
@@ -44,7 +47,7 @@
 
     <div class="content">
         {% block content %}{% endblock %}
-    </div><br clear="all">
+    </div>
 
     {% javascripts
         '@ShopCommonBundle/Resources/public/js/jquery.js'
@@ -52,11 +55,6 @@
     %}
         <script src="{{asset_url}}" type="text/javascript"></script>
     {% endjavascripts %}
-    <!--[if lt IE 9]>
-        {% javascripts '@ShopCommonBundle/Resources/public/js/selectivizr.js' %}
-            <script src="{{asset_url}}" type="text/javascript"></script>
-        {% endjavascripts %}
-    <![endif]-->
     {% block javascripts %}{% endblock %}
 </body>
 </html>

@@ -21,6 +21,9 @@
     <services>
         <service id="shop.backend.controller.categories" class="Shop\BackendBundle\Controller\CategoriesController">
             <argument type="service" id="shop.common.repository.category" />
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
         </service>
     </services>
 </container>

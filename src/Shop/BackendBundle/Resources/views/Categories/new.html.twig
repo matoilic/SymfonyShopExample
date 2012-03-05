@@ -1,0 +1,9 @@
+{% extends "ShopBackendBundle::layout.html.twig" %}
+{% form_theme form 'ShopCommonBundle:Form:formLayout.html.twig' %}
+
+{% block title %}{% trans %}category.create{% endtrans %}{% endblock title %}
+
+{% block content%}
+    {% set action = path('shop_backend_categories_create') %}
+    {% include 'ShopBackendBundle:Categories:form.html.twig' %}
+{% endblock content %}
