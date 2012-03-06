@@ -12,6 +12,9 @@
 
     {% stylesheets debug=false
         '@ShopCommonBundle/Resources/public/css/normalize.css'
+        '@ShopCommonBundle/Resources/public/css/jquery.fancybox.css'
+        '@ShopCommonBundle/Resources/public/css/jquery.qtip.css'
+        '@ShopCommonBundle/Resources/public/css/humane.css'
     %}
         <link rel="stylesheet" href="{{asset_url}}" type="text/css">
     {% endstylesheets %}
@@ -51,6 +54,14 @@
 
     {% javascripts
         '@ShopCommonBundle/Resources/public/js/jquery.js'
+        '@ShopCommonBundle/Resources/public/js/jquery.fancybox.js'
+        '@ShopCommonBundle/Resources/public/js/jquery.h5validate.js'
+        '@ShopCommonBundle/Resources/public/js/jquery.qtip.js'
+        '@ShopCommonBundle/Resources/public/js/jquery.tip-validate.js'
+        '@ShopCommonBundle/Resources/public/js/jquery.effects.js'
+        '@ShopCommonBundle/Resources/public/js/jquery.effects.fade.js'
+        '@ShopCommonBundle/Resources/public/js/jquery.effects.highlight.js'
+        '@ShopCommonBundle/Resources/public/js/humane.js'
         '@ShopCommonBundle/Resources/public/js/common.js'
     %}
         <script src="{{asset_url}}" type="text/javascript"></script>

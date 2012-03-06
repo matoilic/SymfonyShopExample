@@ -1,0 +1,13 @@
+<tr data-category="{{category.id}}">
+    <td>{{category.name}}</td>
+    <td>
+        <a href="{{path("shop_backend_categories_edit", {'id': category.id})}}" class="edit">
+            {% trans %}edit{% endtrans %}
+        </a>
+    </td>
+    <td>
+        <a href="{{path("shop_backend_categories_delete", {'id': category.id})}}" class="delete" data-confirm="{% trans with {'%name%': category.name} %}category.delete.confirm{% endtrans %}">
+            {% trans %}delete{% endtrans %}
+        </a>
+    </td>
+</tr>

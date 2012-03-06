@@ -416,6 +416,18 @@ textarea {
     vertical-align: top; /* 2 */
 }
 
+input[type="text"],
+input[type="password"],
+textarea {
+    border: 1px solid #000;
+}
+
+input[type="text"].ui-state-error,
+input[type="password"].ui-state-error,
+textarea.ui-state-error {
+    border: 1px solid #900;
+}
+
 
 /* =============================================================================
    Tables

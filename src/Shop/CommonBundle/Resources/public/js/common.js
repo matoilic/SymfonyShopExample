@@ -1,5 +1,5 @@
 ;(function($) {
-    var $doc = $(document);
+    var $doc = $(document), loadCounter = 0;
 
     function handleConfirm(event) {
         var message = $(this).data('confirm');
@@ -40,6 +40,7 @@
     }
 
     window.Common = window.$c = Common;
+    $.tipValidate.delay = 5000;
 
     $doc.on('click', '[data-confirm]', handleConfirm);
 })(jQuery);

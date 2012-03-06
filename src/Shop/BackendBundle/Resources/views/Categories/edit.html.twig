@@ -1,0 +1,6 @@
+<h2>{% trans with {'%name%': category.name} %}category.edit{% endtrans %}</h2>
+
+{% block content%}
+    {% set action = path('shop_backend_categories_update', {'id': category.id}) %}
+    {% include 'ShopBackendBundle:Categories:form.html.twig' %}
+{% endblock content %}

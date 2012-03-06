@@ -33,6 +33,10 @@
                 <source>category.name</source>
                 <target>Name</target>
             </trans-unit>
+            <trans-unit id="1.2.1">
+                <source>category.name.hint</source>
+                <target>Bitte geben Sie den Kategorienamen ein</target>
+            </trans-unit>
             <trans-unit id="1.3">
                 <source>category.delete.confirm</source>
                 <target>Wollen Sie die Kategorie «%name%» wirklich löschen?</target>
@@ -40,6 +44,22 @@
             <trans-unit id="1.4">
                 <source>category.create</source>
                 <target>Neue Kategorie erfassen</target>
+            </trans-unit>
+            <trans-unit id="1.5">
+                <source>category.created</source>
+                <target>Die Kategorie %name% wurde erstellt</target>
+            </trans-unit>
+            <trans-unit id="1.6">
+                <source>category.deleted</source>
+                <target>Die Kategorie «%name%» wurde gelöscht?</target>
+            </trans-unit>
+            <trans-unit id="1.7">
+                <source>category.edit</source>
+                <target>Kategorie «%name%» bearbeiten</target>
+            </trans-unit>
+            <trans-unit id="1.8">
+                <source>category.updated</source>
+                <target>Die Kategorie «%name%» wurde aktualisiert</target>
             </trans-unit>
 
             <!-- PRODUCTS MANAGEMENT -->
