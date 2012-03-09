@@ -10,6 +10,11 @@
     }
 
     var Common = {
+        csrfProtection: function(xhr) {
+            var token = Common.prop('csrf-token');
+            if(token) xhr.setRequestHeader('X-CSRF-Token', token);
+        },
+
         disableForm: function(form) {
             $(form).find('input,textarea,select').attr('disabled', true);
         },
@@ -40,7 +45,14 @@
     }
 
     window.Common = window.$c = Common;
-    $.tipValidate.delay = 5000;
+
+    if($.tipValidate) $.tipValidate.delay = 5000;
+
+    $.ajaxPrefilter(function(options, originalOptions, xhr) {
+        if (!options.crossDomain) {
+            Common.csrfProtection(xhr);
+        }
+    });
 
     $doc.on('click', '[data-confirm]', handleConfirm);
 })(jQuery);
