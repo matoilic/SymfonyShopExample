@@ -119,6 +119,32 @@
                 <source>product.create</source>
                 <target>Neues Produkt erfassen</target>
             </trans-unit>
+
+            <!-- USER MANAGEMENT -->
+            <trans-unit id="3.1">
+                <source>users</source>
+                <target>Benutzer</target>
+            </trans-unit>
+            <trans-unit id="3.2.1">
+                <source>user.first_name</source>
+                <target>Vorname</target>
+            </trans-unit>
+            <trans-unit id="3.2.2">
+                <source>user.last_name</source>
+                <target>Nachname</target>
+            </trans-unit>
+            <trans-unit id="3.2.3">
+                <source>user.password</source>
+                <target>Passwort</target>
+            </trans-unit>
+            <trans-unit id="3.2.4">
+                <source>user.email</source>
+                <target>E-Mail</target>
+            </trans-unit>
+            <trans-unit id="3.2.5">
+                <source>user.create</source>
+                <target>Neuen Benutzer erstellen</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -1,0 +1,33 @@
+{% extends "ShopBackendBundle::layout.html.twig" %}
+{% block javascripts %}
+    {% javascripts '@ShopBackendBundle/Resources/public/js/categories.js' %}
+        <script type="text/javascript" src="{{asset_url}}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block title %}{% trans %}users{% endtrans %}{% endblock %}
+
+{% block content %}
+    <h2>{% trans %}users{% endtrans %}</h2>
+    <table>
+        <thead>
+        <tr>
+            <th class="sortable"><span>{% trans %}user.first_name{% endtrans %}</span></th>
+            <th class="sortable"><span>{% trans %}user.last_name{% endtrans %}</span></th>
+            <th class="sortable"><span>{% trans %}user.email{% endtrans %}</span></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody id="users">
+        {% for user in users %}
+            {% include 'ShopBackendBundle:Users:userRow.html.twig' %}
+        {% endfor %}
+        </tbody>
+    </table>
+    <p>
+        <button data-href="{{path("shop_backend_users_new")}}" class="create">
+            {% trans %}user.create{% endtrans %}
+        </button>
+    </p>
+{% endblock %}

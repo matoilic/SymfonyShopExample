@@ -10,6 +10,7 @@ use Shop\CommonBundle\Form\CategoryType;
 use Shop\CommonBundle\Configuration\CsrfProtected;
 use Shop\CommonBundle\Configuration\NotCsrfProtected;
 use Symfony\Component\HttpFoundation\Request;
+use Shop\CommonBundle\Form\CategoryType;
 
 /**
  * @Route("/categories", name="categories", service="shop.backend.controller.categories")
