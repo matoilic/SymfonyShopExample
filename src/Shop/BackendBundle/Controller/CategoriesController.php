@@ -7,10 +7,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Shop\CommonBundle\Entity\CategoryRepository;
 use Shop\CommonBundle\Form\CategoryType;
+use Shop\CommonBundle\Configuration\CsrfProtected;
+use Shop\CommonBundle\Configuration\NotCsrfProtected;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route("/categories", name="categories", service="shop.backend.controller.categories")
+ * @CsrfProtected()
  */
 class CategoriesController extends Controller
 {
@@ -65,30 +68,36 @@ class CategoriesController extends Controller
         return $this->jsonResponse(array(
             'success' => true,
             'message' => $this->translate('category.deleted', array('%name%' => $category->getName())),
-            'categoryId' => $category->getid()
+            'recordId' => $category->getid()
         ));
     }
 
     /**
      * @Route("/edit/{id}")
+     * @Method({"GET"})
      * @Template()
      * @param int $id
      */
-    public function editAction($id) {
+    public function editAction($id)
+    {
         $category = $this->categoryRepository->find($id);
         $form = $this->createForm(new CategoryType(), $category);
 
         return array(
             'form' => $form->createView(),
+            'form_action' => $this->route('shop_backend_categories_update', array('id' => $category->getId())),
             'category' => $category
         );
     }
 
     /**
      * @Route("")
+     * @Method({"GET"})
+     * @NotCsrfProtected()
      * @Template()
      */
-    public function indexAction() {
+    public function indexAction()
+    {
         $categories = $this->categoryRepository->findAll();
         return array('categories' => $categories, 'message' => 'Hello World.');
     }
@@ -97,18 +106,24 @@ class CategoriesController extends Controller
      * @Route("/new")
      * @Template()
      */
-    public function newAction() {
+    public function newAction()
+    {
         $form = $this->createForm(new CategoryType());
 
-        return array('form' => $form->createView());
+        return array(
+            'form' => $form->createView(),
+            'form_action' => $this->route('shop_backend_categories_create'),
+        );
     }
 
     /**
      * @Route("/update/{id}")
+     * @Method({"POST"})
      * @param int $id
      *
      */
-    public function updateAction($id, Request $request) {
+    public function updateAction($id, Request $request)
+    {
         $category = $this->categoryRepository->find($id);
         $form = $this->createForm(new CategoryType(), $category);
         $form->bindRequest($request);
@@ -119,7 +134,7 @@ class CategoriesController extends Controller
             return $this->jsonResponse(array(
                 'success' => true,
                 'message' => $this->translate('category.updated', array('%name%' => $category->getName())),
-                'categoryId' => $category->getId(),
+                'recordId' => $category->getId(),
                 'html' => $this->renderView(
                     'ShopBackendBundle:Categories:categoryRow.html.twig',
                     array('category' => $category)

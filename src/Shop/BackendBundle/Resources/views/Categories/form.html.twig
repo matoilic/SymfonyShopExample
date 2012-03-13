@@ -1,6 +1,5 @@
 {% form_theme form 'ShopCommonBundle:Form:formLayout.html.twig' %}
-
-<form action="{{action}}" method="post" name="category">
+<form action="{{form_action}}" method="post" name="category">
     {{form_errors(form)}}
 
     {{form_row(form.name, { 'attr': {'title': 'category.name.hint' }})}}

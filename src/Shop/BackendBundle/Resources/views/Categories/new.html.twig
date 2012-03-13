@@ -1,6 +1,3 @@
 <h2>{% trans %}category.create{% endtrans %}</h2>
 
-{% block content%}
-    {% set action = path('shop_backend_categories_create') %}
-    {% include 'ShopBackendBundle:Categories:form.html.twig' %}
-{% endblock content %}
+{% include 'ShopBackendBundle:Categories:form.html.twig' %}

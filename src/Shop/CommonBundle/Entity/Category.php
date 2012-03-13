@@ -32,6 +32,25 @@ class Category
      */
     private $name;
 
+    /**
+     * @var \Doctrine\ORM\PersistentCollection
+     *
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
+     */
+    private $products;
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
+    /**
+     * @param Product $product
+     */
+    public function addProduct(Product $product)
+    {
+        $this->products->add($product);
+    }
 
     /**
      * Get id
@@ -51,6 +70,19 @@ class Category
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @return array
+     */
+    public function getProducts()
+    {
+        return $this->products->toArray();
+    }
+
+    public function removeProduct(Product $product)
+    {
+        $this->products->add($product);
     }
 
     /**

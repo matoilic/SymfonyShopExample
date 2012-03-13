@@ -1,0 +1,1 @@
+$c.initCRUD('#products', 'product', 'product');

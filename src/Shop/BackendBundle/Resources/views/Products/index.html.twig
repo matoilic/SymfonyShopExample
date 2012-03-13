@@ -1,0 +1,37 @@
+{% extends "ShopBackendBundle::layout.html.twig" %}
+
+{% block javascripts %}
+    {% javascripts filter='?closure'
+        '@ShopBackendBundle/Resources/public/js/crud.js'
+        '@ShopBackendBundle/Resources/public/js/products.js'
+    %}
+        <script type="text/javascript" src="{{asset_url}}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block title %}{% trans %}products{% endtrans %}{% endblock %}
+
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th class="sortable"><span>{% trans %}product.name{% endtrans %}</span></th>
+                <th class="sortable"><span>{% trans %}product.category{% endtrans %}</span></th>
+                <th class="sortable"><span>{% trans %}product.price{% endtrans %}</span></th>
+                <th class="sortable"><span>{% trans %}product.stock{% endtrans %}</span></th>
+                <th class="sortable"><span>{% trans %}product.totalSales{% endtrans %}</span></th>
+                <th class="sortable"><span>{% trans %}product.totalRevenue{% endtrans %}</span></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                {% include 'ShopBackendBundle:Products:productRow.html.twig' %}
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>
+        <button class="create" data-href="{{path('shop_backend_products_new')}}">{% trans %}product.create{% endtrans %}</button>
+    </p>
+{% endblock %}

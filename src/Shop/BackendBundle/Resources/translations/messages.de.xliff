@@ -67,6 +67,58 @@
                 <source>products</source>
                 <target>Produkte</target>
             </trans-unit>
+            <trans-unit id="2.2">
+                <source>product.name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="2.2.1">
+                <source>product.name.hint</source>
+                <target>Bitte geben Sie den Produktnamen ein</target>
+            </trans-unit>
+            <trans-unit id="2.3">
+                <source>product.category</source>
+                <target>Kategorie</target>
+            </trans-unit>
+            <trans-unit id="2.3.1">
+                <source>product.category.hint</source>
+                <target>Bitte wählen Sie eine Produkt-Kategorie aus</target>
+            </trans-unit>
+            <trans-unit id="2.4">
+                <source>product.price</source>
+                <target>Preis</target>
+            </trans-unit>
+            <trans-unit id="2.4.1">
+                <source>product.price.hint</source>
+                <target>Bitte geben Sie den Preis ein</target>
+            </trans-unit>
+            <trans-unit id="2.5">
+                <source>product.stock</source>
+                <target>Bestand</target>
+            </trans-unit>
+            <trans-unit id="2.5.1">
+                <source>product.stock.hint</source>
+                <target>Bitte geben Sie den Bestand ein</target>
+            </trans-unit>
+            <trans-unit id="2.6">
+                <source>product.description</source>
+                <target>Beschreibung</target>
+            </trans-unit>
+            <trans-unit id="2.6.1">
+                <source>product.description.hint</source>
+                <target>Bitte geben Sie die Produktbeschreibung ein</target>
+            </trans-unit>
+            <trans-unit id="2.7">
+                <source>product.totalSales</source>
+                <target>Anz. Verkäufe</target>
+            </trans-unit>
+            <trans-unit id="2.8">
+                <source>product.totalRevenue</source>
+                <target>Umsatz</target>
+            </trans-unit>
+            <trans-unit id="2.9">
+                <source>product.create</source>
+                <target>Neues Produkt erfassen</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

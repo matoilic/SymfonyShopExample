@@ -1,0 +1,14 @@
+{% form_theme form 'ShopCommonBundle:Form:formLayout.html.twig' %}
+<form action="{{form_action}}" method="post" name="product">
+    {{form_errors(form)}}
+
+    {{form_row(form.name, { 'attr': {'title': 'product.name.hint' }})}}
+    {{form_row(form.description, { 'attr': {'title': 'product.description.hint' }})}}
+    {{form_row(form.stock, { 'attr': {'title': 'product.stock.hint' }})}}
+
+    <p>
+        <input type="submit" value="{% trans %}save{% endtrans %}">
+    </p>
+
+    {{form_rest(form)}}
+</form>

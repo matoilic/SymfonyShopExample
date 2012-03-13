@@ -1,0 +1,18 @@
+<tr data-product="{{product.id}}">
+    <td>{{product.name}}</td>
+    <td>{{product.category.name}}</td>
+    <td>{{product.price}}</td>
+    <td>{{product.stock}}</td>
+    <td>{{product.totalSales}}</td>
+    <td>{{product.totalRevenue}}</td>
+    <td>
+        <a class="edit" href="{{path('shop_backend_products_edit', {'id': product.id})}}">
+            {% trans %}edit{% endtrans %}
+        </a>
+    </td>
+    <td>
+        <a class="delete" href="{{path('shop_backend_products_delete', {'id': product.id})}}">
+            {% trans %}delete{% endtrans %}
+        </a>
+    </td>
+</tr>

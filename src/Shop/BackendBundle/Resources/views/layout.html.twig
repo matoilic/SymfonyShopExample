@@ -2,15 +2,16 @@
 <html lang="de">
 <head>
     <!--[if lt IE 9]>
-        {% javascripts '@ShopCommonBundle/Resources/public/js/html5.js' %}
+        {% javascripts filter='?closure' '@ShopCommonBundle/Resources/public/js/html5.js' %}
             <script src="{{asset_url}}" type="text/javascript"></script>
         {% endjavascripts %}
     <![endif]-->
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    {{csrf_meta()}}
     {% block meta %}{% endblock %}
 
-    {% stylesheets debug=false
+    {% stylesheets filter='?yui_css'
         '@ShopCommonBundle/Resources/public/css/normalize.css'
         '@ShopCommonBundle/Resources/public/css/jquery.fancybox.css'
         '@ShopCommonBundle/Resources/public/css/jquery.qtip.css'
@@ -18,7 +19,7 @@
     %}
         <link rel="stylesheet" href="{{asset_url}}" type="text/css">
     {% endstylesheets %}
-    {% stylesheets filter='compass' debug=false
+    {% stylesheets filter='compass,?yui_css'
         '@ShopBackendBundle/Resources/public/css/bundle.scss'
     %}
         <link rel="stylesheet" href="{{asset_url}}" type="text/css">
@@ -44,7 +45,7 @@
         </header>
         <ul>
             <li><a href="{{path("shop_backend_categories_index")}}">{% trans %}categories{% endtrans %}</a></li>
-            <li><a href="#">{% trans %}products{% endtrans %}</a></li>
+            <li><a href="{{path("shop_backend_products_index")}}">{% trans %}products{% endtrans %}</a></li>
         </ul>
     </nav>
 
@@ -52,7 +53,7 @@
         {% block content %}{% endblock %}
     </div>
 
-    {% javascripts
+    {% javascripts filter='?closure'
         '@ShopCommonBundle/Resources/public/js/jquery.js'
         '@ShopCommonBundle/Resources/public/js/jquery.fancybox.js'
         '@ShopCommonBundle/Resources/public/js/jquery.h5validate.js'
