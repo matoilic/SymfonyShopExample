@@ -32,9 +32,11 @@ class SessionsController extends Controller
             $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
         }
 
+        $errorMessage = $this->translate($error->getMessage(), array(), 'system_messages');
+
         return $this->jsonResponse(array(
             'success' => false,
-            'message' => $error->getMessage()
+            'message' => $errorMessage
         ));
     }
 

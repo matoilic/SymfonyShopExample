@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="de" datatype="plaintext" original="file.ext">
+        <body>
+            <!-- AUTHENTICATION -->
+            <trans-unit id="auth.password.changed">
+                <source>The credentials were changed from another session.</source>
+                <target>Die Zugangsdaten wurden geändert.</target>
+            </trans-unit>
+            <trans-unit id="auth.password.empty">
+                <source>The presented password cannot be empty.</source>
+                <target>Bitte geben Sie Ihr Passwort ein.</target>
+            </trans-unit>
+            <trans-unit id="auth.password.invalid">
+                <source>The presented password is invalid.</source>
+                <target>Das eingegebene Passwort ist ungültig.</target>
+            </trans-unit>
+            <trans-unit id="auth.vadCredentials">
+                <source>Bad credentials</source>
+                <target>E-Mail Adresse unbekannt</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
