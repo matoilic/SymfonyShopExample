@@ -1,0 +1,15 @@
+{% form_theme form 'ShopCommonBundle:Form:formLayout.html.twig' %}
+<form action="{{form_action}}" method="post" name="user">
+    {{form_errors(form)}}
+
+    {{form_row(form.firstName, { 'attr': {'title': 'user.first_name.hint' }})}}
+    {{form_row(form.lastName, { 'attr': {'title': 'user.last_name.hint' }})}}
+    {{form_row(form.email, { 'attr': {'title': 'user.email.hint' }})}}
+    {{form_row(form.plainPassword, { 'attr': {'title': 'user.password.hint' }})}}
+
+    <p>
+        <input type="submit" value="{% trans %}save{% endtrans %}">
+    </p>
+
+    {{form_rest(form)}}
+</form>

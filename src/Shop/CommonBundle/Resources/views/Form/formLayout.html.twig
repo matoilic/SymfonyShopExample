@@ -9,10 +9,16 @@
 
 {% block field_row %}
     {% spaceless %}
-        {% if errors|length > 0%}<p class="error">{% else %}<p>{% endif %}
+        <p{% if errors|length > 0%} class="error"{% endif %}>
             {{ form_label(form, label|default(null)) }}<br>
             {{ form_widget(form, attr|default([])) }}
         </p>
         {{ form_errors(form) }}
     {% endspaceless %}
 {% endblock field_row %}
+
+{% block field_label %}
+    {% spaceless %}
+        <label for="{{ id }}">{{ id|replace({'_':'.'})|trans([], 'labels') }}</label>
+    {% endspaceless %}
+{% endblock field_label %}

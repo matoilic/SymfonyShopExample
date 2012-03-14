@@ -10,7 +10,6 @@ use Shop\CommonBundle\Form\CategoryType;
 use Shop\CommonBundle\Configuration\CsrfProtected;
 use Shop\CommonBundle\Configuration\NotCsrfProtected;
 use Symfony\Component\HttpFoundation\Request;
-use Shop\CommonBundle\Form\CategoryType;
 
 /**
  * @Route("/categories", name="categories", service="shop.backend.controller.categories")
@@ -53,7 +52,10 @@ class CategoriesController extends Controller
             'success' => false,
             'html' => $this->renderView(
                 'ShopBackendBundle:Categories:form.html.twig',
-                array('form' => $form->createView(), 'action' => $this->route('shop_backend_categories_create'))
+                array(
+                    'form' => $form->createView(),
+                    'form_action' => $this->route('shop_backend_categories_create')
+                )
             )
         ));
     }
@@ -149,7 +151,7 @@ class CategoriesController extends Controller
                 'ShopBackendBundle:Categories:form.html.twig',
                 array(
                     'form' => $form->createView(),
-                    'action' => $this->route('shop_backend_categories_update', array('id' => $category->getId()))
+                    'form_action' => $this->route('shop_backend_categories_update', array('id' => $category->getId()))
                 )
             )
         ));

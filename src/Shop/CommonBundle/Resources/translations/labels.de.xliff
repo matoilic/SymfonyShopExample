@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="de" datatype="plaintext" original="file.ext">
+        <body>
+            <!-- USER -->
+            <trans-unit id="0.1">
+                <source>shop.commonbundle.usertype.firstName</source>
+                <target>Vorname</target>
+            </trans-unit>
+            <trans-unit id="0.2">
+                <source>shop.commonbundle.usertype.lastName</source>
+                <target>Nachname</target>
+            </trans-unit>
+            <trans-unit id="0.3">
+                <source>shop.commonbundle.usertype.email</source>
+                <target>E-Mail</target>
+            </trans-unit>
+            <trans-unit id="0.4">
+                <source>shop.commonbundle.usertype.plainPassword</source>
+                <target>Passwort</target>
+            </trans-unit>
+
+            <!-- ADMIN LOGIN FORM -->
+            <trans-unit id="1.1">
+                <source>shop.commonbundle.sessiontype.username</source>
+                <target>E-Mail</target>
+            </trans-unit>
+            <trans-unit id="1.2">
+                <source>shop.commonbundle.sessiontype.password</source>
+                <target>Passwort</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

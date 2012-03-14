@@ -1,0 +1,1 @@
+$c.initCRUD('#users', 'user', 'user');

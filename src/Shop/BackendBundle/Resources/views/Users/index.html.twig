@@ -1,6 +1,9 @@
 {% extends "ShopBackendBundle::layout.html.twig" %}
 {% block javascripts %}
-    {% javascripts '@ShopBackendBundle/Resources/public/js/categories.js' %}
+    {% javascripts
+        '@ShopBackendBundle/Resources/public/js/crud.js'
+        '@ShopBackendBundle/Resources/public/js/users.js'
+    %}
         <script type="text/javascript" src="{{asset_url}}"></script>
     {% endjavascripts %}
 {% endblock %}

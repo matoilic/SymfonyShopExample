@@ -1,3 +1,4 @@
+{% form_theme form 'ShopCommonBundle:Form:formLayout.html.twig' %}
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -9,7 +10,6 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     {{csrf_meta()}}
-    {% block meta %}{% endblock %}
 
     {% stylesheets filter='?yui_css'
         '@ShopCommonBundle/Resources/public/css/normalize.css'
@@ -20,37 +20,29 @@
         <link rel="stylesheet" href="{{asset_url}}" type="text/css">
     {% endstylesheets %}
     {% stylesheets filter='compass,?yui_css'
-        '@ShopBackendBundle/Resources/public/css/bundle.scss'
+        '@ShopBackendBundle/Resources/public/css/login.scss'
     %}
-        <link rel="stylesheet" href="{{asset_url}}" type="text/css">
+    <link rel="stylesheet" href="{{asset_url}}" type="text/css">
     {% endstylesheets %}
-    {% block stylesheets %}{% endblock %}
 
-    <title>Administration | {% block title %}{% endblock%}</title>
+    <title>Administration | {% trans %}login.header{% endtrans %}</title>
 </head>
 <body>
-    <header>
-        <h1>Poster Shop Admin</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Profil</a></li>
-                <li><a href="#">{% trans %}logout{% endtrans %}</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <nav>
-        <header>
-            <h2>Navigation</h2>
-        </header>
-        <ul>
-            <li><a href="{{path("shop_backend_categories_index")}}">{% trans %}categories{% endtrans %}</a></li>
-            <li><a href="{{path("shop_backend_products_index")}}">{% trans %}products{% endtrans %}</a></li>
-        </ul>
-    </nav>
+    <div class="login-box">
+        <header>{% trans %}login.header{% endtrans %}</header>
+        <form action="{{ path('shop_backend_sessions_create') }}" method="post" name="login">
+            {{form_errors(form)}}
 
-    <div class="content">
-        {% block content %}{% endblock %}
+            {{form_row(form.username, {'attr': {'title': 'login.username.hint', 'attr': {'class': 'h5-email'}}})}}
+            {{form_row(form.password, {'attr': {'title': 'login.password.hint'}})}}
+
+            <p>
+                <input type="submit" value="{% trans %}login{% endtrans %}" />
+            </p>
+
+            {{form_rest(form)}}
+        </form>
     </div>
 
     {% javascripts filter='?closure'
@@ -59,14 +51,11 @@
         '@ShopCommonBundle/Resources/public/js/jquery.h5validate.js'
         '@ShopCommonBundle/Resources/public/js/jquery.qtip.js'
         '@ShopCommonBundle/Resources/public/js/jquery.tip-validate.js'
-        '@ShopCommonBundle/Resources/public/js/jquery.effects.js'
-        '@ShopCommonBundle/Resources/public/js/jquery.effects.fade.js'
-        '@ShopCommonBundle/Resources/public/js/jquery.effects.highlight.js'
         '@ShopCommonBundle/Resources/public/js/humane.js'
         '@ShopCommonBundle/Resources/public/js/common.js'
+        '@ShopBackendBundle/Resources/public/js/session.js'
     %}
         <script src="{{asset_url}}" type="text/javascript"></script>
     {% endjavascripts %}
-    {% block javascripts %}{% endblock %}
 </body>
 </html>

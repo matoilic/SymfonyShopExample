@@ -18,8 +18,8 @@ class Version20120313184406 extends AbstractMigration
               `first_name` VARCHAR(80) NOT NULL,
               `last_name` VARCHAR(80) NOT NULL,
               `email` VARCHAR(120) NOT NULL,
-              `password` VARCHAR(255) NOT NULL,
-              `salt` VARCHAR(255) NOT NULL,
+              `password` VARCHAR(90) NOT NULL,
+              `salt` VARCHAR(32) NOT NULL,
               PRIMARY KEY(`id`),
               UNIQUE KEY `email` (`email`)
             ) ENGINE=InnoDB

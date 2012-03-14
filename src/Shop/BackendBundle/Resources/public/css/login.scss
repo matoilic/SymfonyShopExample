@@ -1,0 +1,23 @@
+@import "bundle";
+
+$boxWidth: 350px;
+
+.login-box {
+    @extend .default-box;
+    left: 50%;
+    margin-left: $boxWidth/-2;
+    position: fixed;
+    top: 150px;
+    width: $boxWidth;
+
+    header {
+        @extend .default-header;
+        font-size: 1.2em;
+        font-weight: bold;
+        padding: 10px;
+    }
+
+    form {
+        padding-left: 10px;
+    }
+}

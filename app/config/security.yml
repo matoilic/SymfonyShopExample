@@ -1,18 +1,42 @@
 security:
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext
+        Shop\CommonBundle\Entity\User:
+          algorithm:   sha512
+          iterations: 1000
+          encode_as_base64: true
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
+        backend_user:
+          entity: { class: Shop\CommonBundle\Entity\User, property: email }
         in_memory:
             users:
                 user:  { password: userpass, roles: [ 'ROLE_USER' ] }
                 admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
 
     firewalls:
+        login_firewall:
+          pattern: ^/_admin/sessions/new
+          anonymous:
+        admin:
+          pattern: ^/_admin
+          form_login:
+            login_path: /_admin/sessions/new
+            check_path: /_admin/sessions/create
+            default_target_path: /_admin/sessions/created
+            always_use_default_target_path: true
+            username_parameter: 'shop_commonbundle_sessiontype[username]'
+            password_parameter: 'shop_commonbundle_sessiontype[password]'
+            post_only: true
+            use_forward: false
+          logout:
+            path: /_admin/sessions/destroy
+            target: /_admin/sessions/new
+          provider: backend_user
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false

@@ -145,6 +145,44 @@
                 <source>user.create</source>
                 <target>Neuen Benutzer erstellen</target>
             </trans-unit>
+            <trans-unit id="3.2.6">
+                <source>user.created</source>
+                <target>Der Benutzer «%name%» wurde erstellt</target>
+            </trans-unit>
+            <trans-unit id="3.2.7">
+                <source>user.edit</source>
+                <target>Benutzer «%name%» bearbeiten</target>
+            </trans-unit>
+            <trans-unit id="3.2.8">
+                <source>user.updated</source>
+                <target>Der Benutzer «%name%» wurde aktualisiert</target>
+            </trans-unit>
+            <trans-unit id="3.2.9">
+                <source>user.delete.confirm</source>
+                <target>Wollen Sie den Benutzer «%name%» wirklich löschen?</target>
+            </trans-unit>
+            <trans-unit id="3.2.10">
+                <source>user.deleted</source>
+                <target>Der Benutzer «%name%» wurde gelöscht</target>
+            </trans-unit>
+
+            <!-- LOGIN -->
+            <trans-unit id="4.1">
+                <source>login</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="4.1.1">
+                <source>login.header</source>
+                <target>Administrator Login</target>
+            </trans-unit>
+            <trans-unit id="4.2.1">
+                <source>login.username.hint</source>
+                <target>Bitte geben Sie Ihre E-Mail Adresse ein</target>
+            </trans-unit>
+            <trans-unit id="4.3.1">
+                <source>login.password.hint</source>
+                <target>Bitte geben Sie Ihr Passwort ein</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

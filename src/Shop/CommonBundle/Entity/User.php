@@ -48,32 +48,40 @@ class User implements UserInterface
     private $lastName;
 
     /**
-     * @ORM\Column(name="password", type="string", length=255)
-     * @Assert\NotBlank()
+     * @ORM\Column(name="password", type="string", length=90)
      * @var string
      */
     private $password;
 
     /**
+     * @var string
+     */
+    private $plainPassword;
+
+    /**
      * @ORM\ManyToMany(targetEntity="Role", inversedBy="users")
-     * @ORM\JoinTable(name="roles_users", joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")}, inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")})
+     * @ORM\JoinTable(name="roles_users", joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")}, inverseJoinColumns={@ORM\JoinColumn(name="role_id", referencedColumnName="id")})
      * @var \Doctrine\ORM\PersistentCollection
      */
     private $roles;
 
     /**
-     * @ORM\Column(name="salt", type="string", length=16)
-     * @Assert\NotBlank()
+     * @ORM\Column(name="salt", type="string", length=32)
      * @var string
      */
     private $salt;
+
+    public function __construct()
+    {
+        $this->setSalt(base_convert(sha1(uniqid(mt_rand(), true)), 16, 36));
+    }
 
     /**
      * {@inheritdoc}
      */
     public function eraseCredentials()
     {
-        //nothing to do
+        $this->plainPassword = null;
     }
 
     /**
@@ -130,6 +138,14 @@ class User implements UserInterface
     }
 
     /**
+     * @return string
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function getRoles()
@@ -142,7 +158,7 @@ class User implements UserInterface
      */
     public function getSalt()
     {
-        // TODO: Implement getSalt() method.
+        return $this->salt;
     }
 
     /**
@@ -151,6 +167,15 @@ class User implements UserInterface
     public function getUsername()
     {
         return $this->email;
+    }
+
+    /**
+     * @param string $password
+     * @return bool
+     */
+    public function hasPassword($password)
+    {
+        return $this->getPassword() === $password;
     }
 
     /**
@@ -186,9 +211,17 @@ class User implements UserInterface
     }
 
     /**
+     * @param string $plainPassword
+     */
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
+    }
+
+    /**
      * @param string $salt
      */
-    public function setSalt($salt)
+    protected function setSalt($salt)
     {
         $this->salt = $salt;
     }

@@ -36,11 +36,37 @@ class UsersController extends Controller
 
     /**
      * @Route("/create")
-     * @Method({"GET"})
+     * @Method({"POST"})
      */
-    public function createAction()
+    public function createAction(Request $request)
     {
-        //TODO
+        $form = $this->createForm(new UserType());
+        $form->bindRequest($request);
+
+        if($form->isValid()) {
+            $user = $form->getData();
+
+            $encoder = $this->encoderFactory->getEncoder($user);
+            $user->setPassword($encoder->encodePassword($user->getPlainPassword(), $user->getSalt()));
+
+            $this->userRepository->persistImmediately($user);
+            return $this->jsonResponse(array(
+                'success' => true,
+                'message' => $this->translate('user.created', array('%name%' => $user->getName())),
+                'html' => $this->renderView(
+                    'ShopBackendBundle:Users:userRow.html.twig',
+                    array('user' => $user)
+                )
+            ));
+        }
+
+        return $this->jsonResponse(array(
+            'success' => false,
+            'html' => $this->renderView(
+                'ShopBackendBundle:Users:form.html.twig',
+                array('form' => $form->createView(), 'form_action' => $this->route('shop_backend_users_create'))
+            )
+        ));
     }
 
     /**
@@ -50,7 +76,18 @@ class UsersController extends Controller
      */
     public function deleteAction($id)
     {
-        //TODO
+        $user = $this->userRepository->find($id);
+        if($user === null) {
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+        }
+
+        $this->userRepository->remove($user);
+
+        return $this->jsonResponse(array(
+            'success' => true,
+            'message' => $this->translate('user.deleted', array('%name%' => $user->getName())),
+            'recordId' => $user->getid()
+        ));
     }
 
     /**
@@ -61,7 +98,18 @@ class UsersController extends Controller
      */
     public function editAction($id)
     {
-        //TODO
+        $user = $this->userRepository->find($id);
+        if($user === null) {
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+        }
+
+        $form = $this->createForm(new UserType(), $user);
+
+        return array(
+            'user' => $user,
+            'form' => $form->createView(),
+            'form_action' => $this->route('shop_backend_users_update', array('id' => $user->getId()))
+        );
     }
 
     /**
@@ -84,7 +132,12 @@ class UsersController extends Controller
      */
     public function newAction()
     {
-        //TODO
+        $form = $this->createForm(new UserType());
+
+        return array(
+            'form' => $form->createView(),
+            'form_action' => $this->route('shop_backend_users_create')
+        );
     }
 
     /**
@@ -92,8 +145,44 @@ class UsersController extends Controller
      * @Method({"POST"})
      * @param int $id
      */
-    public function updateAction($id)
+    public function updateAction($id, Request $request)
     {
-        //TODO
+        $user = $this->userRepository->find($id);
+        if($user === null) {
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+        }
+
+        $form = $this->createForm(new UserType(), $user);
+        $form->bindRequest($request);
+        if($form->isValid()) {
+            if(strlen($user->getPlainPassword()) > 0)
+            {
+                $encoder = $this->encoderFactory->getEncoder($user);
+                $user->setPassword($encoder->encodePassword($user->getPlainPassword(), $user->getSalt()));
+            }
+
+            $this->userRepository->persist($user);
+
+            return $this->jsonResponse(array(
+                'success' => true,
+                'message' => $this->translate('user.updated', array('%name%' => $user->getName())),
+                'recordId' => $user->getId(),
+                'html' => $this->renderView(
+                    'ShopBackendBundle:Users:userRow.html.twig',
+                    array('user' => $user)
+                )
+            ));
+        }
+
+        return $this->jsonResponse(array(
+            'success' => false,
+            'html' => $this->renderView(
+                'ShopBackendBundle:Users:form.html.twig',
+                array(
+                    'form' => $form->createView(),
+                    'form_action' => $this->route('shop_backend_users_update', array('id' => $user->getId()))
+                )
+            )
+        ));
     }
 }
