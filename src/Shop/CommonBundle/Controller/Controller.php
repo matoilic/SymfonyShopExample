@@ -56,7 +56,7 @@ abstract class Controller extends BaseController
         $this->router = $container->get('router');
     }
 
-    protected function translate($key, $arguments = array(), $domain = null, $locale = null)
+    protected function translate($key, $arguments = array(), $domain = 'messages', $locale = null)
     {
         return $this->translator->trans($key, $arguments, $domain, $locale);
     }

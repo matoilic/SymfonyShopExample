@@ -29,6 +29,40 @@
                 <source>shop.commonbundle.sessiontype.password</source>
                 <target>Passwort</target>
             </trans-unit>
+
+            <!-- PRODUCT -->
+            <trans-unit id="2.1">
+                <source>shop.commonbundle.producttype.name</source>
+                <target>Produktname</target>
+            </trans-unit>
+            <trans-unit id="2.2">
+                <source>shop.commonbundle.producttype.price</source>
+                <target>Preis</target>
+            </trans-unit>
+            <trans-unit id="2.3">
+                <source>shop.commonbundle.producttype.stock</source>
+                <target>Bestand</target>
+            </trans-unit>
+            <trans-unit id="2.4">
+                <source>shop.commonbundle.producttype.description</source>
+                <target>Produktbeschreibung</target>
+            </trans-unit>
+            <trans-unit id="2.5">
+                <source>shop.commonbundle.producttype.image</source>
+                <target>Produktbild</target>
+            </trans-unit>
+            <trans-unit id="2.6">
+                <source>shop.commonbundle.producttype.salesStart</source>
+                <target>Verkaufsbeginn</target>
+            </trans-unit>
+            <trans-unit id="2.7">
+                <source>shop.commonbundle.producttype.salesEnd</source>
+                <target>Verkaufsende</target>
+            </trans-unit>
+            <trans-unit id="2.8">
+                <source>shop.commonbundle.producttype.category</source>
+                <target>Kategorie</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

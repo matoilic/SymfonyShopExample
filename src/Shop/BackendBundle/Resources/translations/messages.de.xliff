@@ -119,6 +119,26 @@
                 <source>product.create</source>
                 <target>Neues Produkt erfassen</target>
             </trans-unit>
+            <trans-unit id="2.10">
+                <source>product.created</source>
+                <target>Das Produkt «%name%» wurde erstellt</target>
+            </trans-unit>
+            <trans-unit id="2.11">
+                <source>product.deleted</source>
+                <target>Das Produkt «%name%» wurde gelöscht</target>
+            </trans-unit>
+            <trans-unit id="2.12">
+                <source>product.updated</source>
+                <target>Das Produkt «%name%» wurde aktualisiert</target>
+            </trans-unit>
+            <trans-unit id="2.13">
+                <source>product.edit</source>
+                <target>Produkt «%name%» bearbeiten</target>
+            </trans-unit>
+            <trans-unit id="2.14">
+                <source>product.delete.confirm</source>
+                <target>Wollen Sie das Produkt «%name%» wirklich löschen?</target>
+            </trans-unit>
 
             <!-- USER MANAGEMENT -->
             <trans-unit id="3.1">

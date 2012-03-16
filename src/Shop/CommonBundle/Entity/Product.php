@@ -66,14 +66,14 @@ class Product
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="sales_end", type="datetime")
+     * @ORM\Column(name="sales_end", type="date")
      */
     private $salesEnd;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="sales_start", type="datetime")
+     * @ORM\Column(name="sales_start", type="date")
      * @Assert\NotBlank()
      */
     private $salesStart;
@@ -91,14 +91,14 @@ class Product
      *
      * @ORM\Column(name="total_revenue", type="decimal", precision=20, scale=2)
      */
-    private $totalRevenue;
+    private $totalRevenue = 0;
 
     /**
      * @var int
      *
      * @ORM\Column(name="total_sales", type="integer")
      */
-    private $totalSales;
+    private $totalSales = 0;
 
     /**
      * @return Category

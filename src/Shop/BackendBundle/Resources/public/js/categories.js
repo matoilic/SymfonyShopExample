@@ -1,1 +1,1 @@
-$c.initCRUD('#categories', 'category', 'category');
+$c.initCRUD('#categories', 'category');

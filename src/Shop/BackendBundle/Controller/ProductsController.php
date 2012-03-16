@@ -35,7 +35,32 @@ class ProductsController extends Controller
      */
     public function createAction(Request $request)
     {
-        //TODO implement
+        $form = $this->createForm(new ProductType());
+        $form->bindRequest($request);
+
+        if($form->isValid()) {
+            $product = $form->getData();
+            $this->productRepository->persistImmediately($product);
+            return $this->jsonResponse(array(
+                'success' => true,
+                'message' => $this->translate('product.created', array('%name%' => $product->getName())),
+                'html' => $this->renderView(
+                    'ShopBackendBundle:Products:productRow.html.twig',
+                    array('product' => $product)
+                )
+            ));
+        }
+
+        return $this->jsonResponse(array(
+            'success' => false,
+            'html' => $this->renderView(
+                'ShopBackendBundle:Products:form.html.twig',
+                array(
+                    'form' => $form->createView(),
+                    'form_action' => $this->route('shop_backend_products_create')
+                )
+            )
+        ));
     }
 
     /**
@@ -45,7 +70,18 @@ class ProductsController extends Controller
      */
     public function deleteAction($id)
     {
-        //TODO implement
+        $product = $this->productRepository->find($id);
+        if($product === null) {
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+        }
+
+        $this->productRepository->remove($product);
+
+        return $this->jsonResponse(array(
+            'success' => true,
+            'message' => $this->translate('product.deleted', array('%name%' => $product->getName())),
+            'recordId' => $product->getid()
+        ));
     }
 
     /**
@@ -69,7 +105,18 @@ class ProductsController extends Controller
      */
     public function editAction($id)
     {
-        //TODO implement
+        $product = $this->productRepository->find($id);
+        if($product === null) {
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+        }
+
+        $form = $this->createForm(new ProductType(), $product);
+
+        return array(
+            'form' => $form->createView(),
+            'form_action' => $this->route('shop_backend_products_update', array('id' => $product->getId())),
+            'product' => $product
+        );
     }
 
     /**
@@ -85,5 +132,47 @@ class ProductsController extends Controller
             'form' => $form->createView(),
             'form_action' => $this->route('shop_backend_products_create'),
         );
+    }
+
+    /**
+     * @Route("/update/{id}")
+     * @Method({"POST"})
+     * @param int $id
+     *
+     */
+    public function updateAction($id, Request $request)
+    {
+        $product = $this->productRepository->find($id);
+        if($product === null) {
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+        }
+
+        $form = $this->createForm(new ProductType(), $product);
+        $form->bindRequest($request);
+
+        if($form->isValid()) {
+            $product = $form->getData();
+            $this->productRepository->persist($product);
+            return $this->jsonResponse(array(
+                'success' => true,
+                'message' => $this->translate('product.updated', array('%name%' => $product->getName())),
+                'recordId' => $product->getId(),
+                'html' => $this->renderView(
+                    'ShopBackendBundle:Products:productRow.html.twig',
+                    array('product' => $product)
+                )
+            ));
+        }
+
+        return $this->jsonResponse(array(
+            'success' => false,
+            'html' => $this->renderView(
+                'ShopBackendBundle:Products:form.html.twig',
+                array(
+                    'form' => $form->createView(),
+                    'form_action' => $this->route('shop_backend_products_update', array('id' => $product->getId()))
+                )
+            )
+        ));
     }
 }

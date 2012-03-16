@@ -14,8 +14,14 @@ class ProductType extends AbstractType
             ->add('image')
             ->add('name')
             ->add('price')
-            ->add('salesEnd')
-            ->add('salesStart')
+            ->add('salesEnd', 'date', array(
+                'widget' => 'single_text',
+                'format' => 'dd.mm.yyyy'
+            ))
+            ->add('salesStart', 'date', array(
+                'widget' => 'single_text',
+                'format' => 'dd.mm.yyyy'
+            ))
             ->add('category')
             ->add('stock')
         ;

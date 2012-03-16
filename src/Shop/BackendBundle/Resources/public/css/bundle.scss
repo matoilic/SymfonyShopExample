@@ -237,3 +237,35 @@ input[type="submit"]:active {
         background-position: 0 -57px;
     }
 }
+
+form[name="product"] {
+    width: 700px;
+
+    p {
+        float: left;
+        margin-top: 0;
+        width: 330px;
+
+        &:nth-of-type(2n) {
+            margin-left: 40px;
+        }
+
+        &:nth-of-type(8) {
+            clear: both;
+            float: none;
+            margin: 0;
+            width: 100%;
+        }
+
+        &:last-of-type {
+            clear: both;
+            float: none;
+            margin-top: 2em;
+        }
+    }
+
+    textarea {
+        height: 20em;
+        width: 90%;
+    }
+}

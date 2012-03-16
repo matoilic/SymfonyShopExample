@@ -3,10 +3,20 @@
 {% block javascripts %}
     {% javascripts filter='?closure'
         '@ShopBackendBundle/Resources/public/js/crud.js'
+        '@ShopBackendBundle/Resources/public/js/kalendae.js'
+        '@ShopBackendBundle/Resources/public/js/kalendae/de.js'
         '@ShopBackendBundle/Resources/public/js/products.js'
     %}
         <script type="text/javascript" src="{{asset_url}}"></script>
     {% endjavascripts %}
+{% endblock %}
+
+{% block stylesheets %}
+    {% stylesheets filter='?yui_css'
+        '@ShopBackendBundle/Resources/public/css/kalendae.css'
+    %}
+        <link rel="stylesheet" href="{{asset_url}}" type="text/css">
+    {% endstylesheets %}
 {% endblock %}
 
 {% block title %}{% trans %}products{% endtrans %}{% endblock %}
@@ -25,7 +35,7 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="products">
             {% for product in products %}
                 {% include 'ShopBackendBundle:Products:productRow.html.twig' %}
             {% endfor %}

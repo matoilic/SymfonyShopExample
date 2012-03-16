@@ -66,6 +66,10 @@ class CategoriesController extends Controller
      */
     public function deleteAction($id) {
         $category = $this->categoryRepository->find($id);
+        if($category === null) {
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+        }
+
         $this->categoryRepository->remove($category);
 
         return $this->jsonResponse(array(
@@ -84,6 +88,10 @@ class CategoriesController extends Controller
     public function editAction($id)
     {
         $category = $this->categoryRepository->find($id);
+        if($category === null) {
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+        }
+
         $form = $this->createForm(new CategoryType(), $category);
 
         return array(
@@ -128,6 +136,10 @@ class CategoriesController extends Controller
     public function updateAction($id, Request $request)
     {
         $category = $this->categoryRepository->find($id);
+        if($category === null) {
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+        }
+
         $form = $this->createForm(new CategoryType(), $category);
         $form->bindRequest($request);
 

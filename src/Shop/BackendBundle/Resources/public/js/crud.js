@@ -1,10 +1,17 @@
 ;(function($) {
-    var $doc = $(document), $form, _recordContainer, _dataAttribute, _formName;
+    var $doc = $(document), $form, _recordContainer, _dataAttribute, _formName, _callbacks;
 
-    function init(recordContainer, dataAttribute, formName) {
+    function emptyCallback() { }
+
+    function init(recordContainer, entity, callbacks) {
         _recordContainer = recordContainer;
-        _dataAttribute =  'data-' + dataAttribute;
-        _formName = formName;
+        _dataAttribute =  'data-' + entity;
+        _formName = entity;
+
+        _callbacks = $.extend({
+            onFormOpen: $.noop,
+            onFormClose: $.noop
+        }, callbacks || {});
 
         $doc.on('click', '.create', onCreateRecordClick);
         $doc.on('click', _recordContainer + ' .edit', onEditRecordClick);
@@ -37,8 +44,11 @@
 
     function onFormLoaded(data) {
         $c.hideLoading();
-        $.fancybox.open(data);
+        $.fancybox.open(data, {
+            beforeClose: function() { _callbacks.onFormClose.call($form[0]); }
+        });
         setupForm(onFormSubmit);
+        _callbacks.onFormOpen.call($form[0]);
     }
 
     function onFormSubmit(event) {

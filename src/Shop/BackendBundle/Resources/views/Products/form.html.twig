@@ -2,13 +2,18 @@
 <form action="{{form_action}}" method="post" name="product">
     {{form_errors(form)}}
 
-    {{form_row(form.name, { 'attr': {'title': 'product.name.hint' }})}}
-    {{form_row(form.description, { 'attr': {'title': 'product.description.hint' }})}}
-    {{form_row(form.stock, { 'attr': {'title': 'product.stock.hint' }})}}
+    {{form_row(form.category)}}
+    {{form_row(form.name, { 'attr': { 'title': 'product.name.hint' } })}}
+    {{form_row(form.price, { 'attr': {'title': 'product.price.hint' } })}}
+    {{form_row(form.stock, { 'attr': {'title': 'product.stock.hint' } })}}
+    {{form_row(form.salesStart, { 'attr': { 'attr': { 'class': 'date' } } })}}
+    {{form_row(form.salesEnd, { 'attr': { 'attr': { 'class': 'date' } } })}}
+    {{form_row(form.image, { 'attr': {'title': 'product.image.hint' } })}}
+    {{form_row(form.description, { 'attr': {'title': 'product.description.hint' } })}}
+
+    {{form_rest(form)}}
 
     <p>
         <input type="submit" value="{% trans %}save{% endtrans %}">
     </p>
-
-    {{form_rest(form)}}
 </form>

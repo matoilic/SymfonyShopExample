@@ -11,7 +11,7 @@
         </a>
     </td>
     <td>
-        <a class="delete" href="{{path('shop_backend_products_delete', {'id': product.id})}}">
+        <a class="delete" href="{{path('shop_backend_products_delete', {'id': product.id})}}" data-confirm="{% trans with {'%name%': product.name} %}product.delete.confirm{% endtrans %}">
             {% trans %}delete{% endtrans %}
         </a>
     </td>
