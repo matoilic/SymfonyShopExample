@@ -1,3 +1,7 @@
+index:
+    pattern:  /
+    defaults: { _controller: shop.frontend.controller.index:indexAction }
+
 ShopCommonBundle:
     resource: "@ShopCommonBundle/Controller/"
     type:     annotation

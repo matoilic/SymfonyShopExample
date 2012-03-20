@@ -245,7 +245,7 @@ class Product
     /**
      * @param \DateTime $salesEnd
      */
-    public function setSalesEnd(DateTime $salesEnd)
+    public function setSalesEnd(DateTime $salesEnd = null)
     {
         $this->salesEnd = $salesEnd;
     }

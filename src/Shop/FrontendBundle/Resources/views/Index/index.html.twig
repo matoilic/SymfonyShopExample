@@ -1,0 +1,8 @@
+{% extends "ShopFrontendBundle:Layouts:default.html.twig" %}
+
+{% block content %}
+    <p>{{products|length}}</p>
+    {% for product in products %}
+        <p>{{product.name}}</p>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <!--[if lt IE 9]>
+        {% javascripts filter='?closure' '@ShopCommonBundle/Resources/public/js/html5.js' %}
+            <script src="{{asset_url}}" type="text/javascript"></script>
+        {% endjavascripts %}
+    <![endif]-->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    {{csrf_meta()}}
+    {% block meta %}{% endblock %}
+
+    {% stylesheets filter='?yui_css'
+        '@ShopCommonBundle/Resources/public/css/normalize.css'
+        '@ShopCommonBundle/Resources/public/css/jquery.fancybox.css'
+    %}
+        <link rel="stylesheet" href="{{asset_url}}" type="text/css">
+    {% endstylesheets %}
+
+    {% stylesheets filter='compass,?yui_css'
+        '@ShopFrontendBundle/Resources/public/css/bundle.scss'
+    %}
+        <link rel="stylesheet" href="{{asset_url}}" type="text/css">
+    {% endstylesheets %}
+
+    {% block stylesheets %}{% endblock %}
+
+    <title>{% block title %}{% endblock%} | Poster Shop</title>
+</head>
+<body>
+    <header>
+
+    </header>
+
+    <nav>
+
+    </nav>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    {% javascripts filter='?closure'
+        '@ShopCommonBundle/Resources/public/js/jquery.js'
+        '@ShopCommonBundle/Resources/public/js/common.js'
+    %}
+        <script src="{{asset_url}}" type="text/javascript"></script>
+    {% endjavascripts %}
+
+    {% block javascripts %}{% endblock %}
+</body>
+</html>
