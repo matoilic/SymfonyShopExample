@@ -110,7 +110,7 @@ class CategoriesController extends Controller
     public function indexAction()
     {
         $categories = $this->categoryRepository->findAll();
-        return array('categories' => $categories, 'message' => 'Hello World.');
+        return array('categories' => $categories);
     }
 
     /**

@@ -8,7 +8,7 @@
     function onFormOpen() {
         $('input.date').kalendae({
             weekStart: 1,
-            format: 'L'
+            format: 'DD.MM.YYYY'
         });
     }
 

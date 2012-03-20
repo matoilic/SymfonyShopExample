@@ -418,12 +418,16 @@ textarea {
 
 input[type="text"],
 input[type="password"],
+input[type="number"],
+input[type="email"],
 textarea {
     border: 1px solid #000;
 }
 
 input[type="text"].ui-state-error,
 input[type="password"].ui-state-error,
+input[type="number"].ui-state-error,
+input[type="email"].ui-state-error,
 textarea.ui-state-error {
     border: 1px solid #900;
 }

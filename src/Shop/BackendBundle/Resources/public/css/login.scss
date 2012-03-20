@@ -18,6 +18,19 @@ $boxWidth: 350px;
     }
 
     form {
-        padding-left: 10px;
+        padding: 10px;
+    }
+
+    p {
+        clear: both;
+        float: none;
+    }
+
+    p:nth-of-type(2n) {
+        margin-left: 0;
+    }
+
+    p:last-of-type {
+        margin-top: 1em;
     }
 }

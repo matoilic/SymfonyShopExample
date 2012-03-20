@@ -63,6 +63,12 @@
                 <source>shop.commonbundle.producttype.category</source>
                 <target>Kategorie</target>
             </trans-unit>
+
+            <!-- CATEGORIES -->
+            <trans-unit id="3.1">
+                <source>shop.commonbundle.categorytype.name</source>
+                <target>Name</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
