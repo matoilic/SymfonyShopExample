@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Shop\BackendBundle\ShopBackendBundle(),
             new Shop\CommonBundle\ShopCommonBundle(),
             new Symfony\Bundle\DoctrineMigrationsBundle\DoctrineMigrationsBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

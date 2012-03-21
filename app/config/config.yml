@@ -64,3 +64,9 @@ swiftmailer:
 jms_security_extra:
     secure_controllers:  true
     secure_all_services: false
+
+stof_doctrine_extensions:
+    default_locale: de_CH
+    orm:
+        default:
+          timestampable: true
