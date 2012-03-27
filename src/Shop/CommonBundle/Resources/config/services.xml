@@ -33,6 +33,10 @@
             <argument>Shop\CommonBundle\Entity\User</argument>
         </service>
 
+        <service id="shop.common.repository.cart" class="Shop\CommonBundle\Entity\CartRepository" factory-service="doctrine.orm.default_entity_manager" factory-method="getRepository">
+            <argument>Shop\CommonBundle\Entity\Cart</argument>
+        </service>
+
         <service id="twig.extension.csrfMeta" class="Shop\CommonBundle\Twig\Extension\CsrfMeta" public="false">
             <tag name="twig.extension" />
             <argument type="service" id="form.csrf_provider" />

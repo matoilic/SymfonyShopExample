@@ -3,6 +3,8 @@
 namespace Shop\CommonBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
@@ -33,11 +35,16 @@ class Category
     private $name;
 
     /**
-     * @var \Doctrine\ORM\PersistentCollection
+     * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
      */
     private $products;
+
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
+    }
 
     public function __toString()
     {

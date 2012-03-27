@@ -25,8 +25,8 @@ class OrderItem
     /**
      * @var Order
      *
-     * @ORM\ManyToOne(targetEntity="Order", inversedBy="items")
-     * @ORM\JoinColumn(name="order_id", referencedColumnName="id", fetch="EAGER")
+     * @ORM\ManyToOne(targetEntity="Order", inversedBy="items", fetch="EAGER")
+     * @ORM\JoinColumn(name="order_id", referencedColumnName="id")
      * @Assert\NotBlank()
      */
     private $order;
@@ -34,8 +34,8 @@ class OrderItem
     /**
      * @var Product
      *
-     * @ORM\ManyToOne(targetEntity="Product")
-     * @ORM\JoinColumn(name="product_id", referencedColumnName="id", fetch="EAGER")
+     * @ORM\ManyToOne(targetEntity="Product", fetch="EAGER")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      * @Assert\NotBlank()
      */
     private $product;

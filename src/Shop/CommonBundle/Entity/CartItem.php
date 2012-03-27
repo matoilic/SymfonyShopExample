@@ -16,8 +16,8 @@ class CartItem
     /**
      * @var Cart
      *
-     * @ORM\ManyToOne(targetEntity="Cart", inversedBy="items")
-     * @ORM\JoinColumn(name="cart_id", referencedColumnName="id", fetch="EAGER")
+     * @ORM\ManyToOne(targetEntity="Cart", inversedBy="items", fetch="EAGER")
+     * @ORM\JoinColumn(name="cart_id", referencedColumnName="id")
      * @Assert\NotBlank()
      */
     private $cart;
@@ -34,8 +34,8 @@ class CartItem
     /**
      * @var Product
      *
-     * @ORM\ManyToOne(targetEntity="Product")
-     * @ORM\JoinColumn(name="product_id", referencedColumnName="id", fetch="EAGER")
+     * @ORM\ManyToOne(targetEntity="Product", fetch="EAGER")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      * @Assert\NotBlank()
      */
     private $product;
@@ -52,7 +52,7 @@ class CartItem
      * @var float
      *
      * @ORM\Column(name="unit_discount", type="decimal", precision=20, scale=2)
-     * @Assert\NotEmpty()
+     * @Assert\NotBlank()
      */
     private $unitDiscount;
 
@@ -62,6 +62,14 @@ class CartItem
     public function getCart()
     {
         return $this->cart;
+    }
+
+    /**
+     * @return float
+     */
+    public function getFinalUnitPrice()
+    {
+        return $this->product->getPrice() - $this->getUnitDiscount();
     }
 
     /**
@@ -91,9 +99,25 @@ class CartItem
     /**
      * @return float
      */
+    public function getTotalAmount()
+    {
+        return $this->getFinalUnitPrice() * $this->getQuantity();
+    }
+
+    /**
+     * @return float
+     */
     public function getUnitDiscount()
     {
         return $this->unitDiscount;
+    }
+
+    /**
+     * @return float
+     */
+    public function getUnitPrice()
+    {
+        return $this->product->getPrice();
     }
 
     /**

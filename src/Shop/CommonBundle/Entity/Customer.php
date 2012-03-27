@@ -3,6 +3,8 @@
 namespace Shop\CommonBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -23,7 +25,7 @@ class Customer extends User
     private $address;
 
     /**
-     * @var \Doctrine\ORM\PersistentCollection
+     * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\OneToMany(targetEntity="Order", mappedBy="customer")
      */
@@ -42,6 +44,11 @@ class Customer extends User
      * @ORM\Column(name="total_revenue", type="decimal", precision=20, scale=2)
      */
     private $totalRevenue = 0;
+
+    public function __construct()
+    {
+        $this->orders = new ArrayCollection();
+    }
 
     /**
      * @return \Shop\CommonBundle\Entity\Address

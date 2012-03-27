@@ -5,7 +5,10 @@ namespace Shop\CommonBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Doctrine\ORM\PersistentCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Shop\CommonBundle\Entity\CartItem;
+use Shop\CommonBundle\Entity\Product;
 
 /**
  * Shop\CommonBundle\Entity\Order
@@ -27,7 +30,7 @@ class Cart
     /**
      * @var \Doctrine\ORM\PersistentCollection
      *
-     * @ORM\OneToMany(targetEntity="CartItem", mappedBy="cart")
+     * @ORM\OneToMany(targetEntity="CartItem", mappedBy="cart", cascade={"persist"})
      */
     private $items;
 
@@ -40,8 +43,13 @@ class Cart
      */
     private $updatedAt;
 
+    public function __construct()
+    {
+        $this->items = new ArrayCollection();
+    }
+
     /**
-     * @param CartItem $item
+     * @param \Shop\CommonBundle\Entity\CartItem $item
      */
     public function addItem(CartItem $item)
     {
@@ -53,7 +61,7 @@ class Cart
     }
 
     /**
-     * @param Product $product
+     * @param \Shop\CommonBundle\Entity\Product $product
      * @return bool
      */
     public function containsProduct(Product $product)
@@ -68,6 +76,21 @@ class Cart
     }
 
     /**
+     * @param \Shop\CommonBundle\Entity\Product $product
+     * @return null|\Shop\CommonBundle\Entity\CartItem
+     */
+    public function findItemForProduct(Product $product)
+    {
+        foreach($this->items as $item) {
+            if($item->getProduct()->getId() == $product->getId()) {
+                return $item;
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * @return int
      */
     public function getId()
@@ -76,11 +99,24 @@ class Cart
     }
 
     /**
-     * @return \Doctrine\ORM\PersistentCollection
+     * @return array
      */
     public function getItems()
     {
         return $this->items->toArray();
+    }
+
+    /**
+     * @return float
+     */
+    public function getTotalAmount()
+    {
+        $total = 0.0;
+        foreach($this->getItems() as $item) {
+            $total += $item->getTotalAmount();
+        }
+
+        return $total;
     }
 
     /**
@@ -92,7 +128,7 @@ class Cart
     }
 
     /**
-     * @param CartItem $item
+     * @param \Shop\CommonBundle\Entity\CartItem $item
      */
     public function removeItem(CartItem $item)
     {

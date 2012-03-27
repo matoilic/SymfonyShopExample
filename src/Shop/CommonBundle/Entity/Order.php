@@ -3,9 +3,10 @@
 namespace Shop\CommonBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Doctrine\ORM\PersistentCollection;
 
 /**
  * Shop\CommonBundle\Entity\Order
@@ -51,9 +52,9 @@ class Order
     private $id;
 
     /**
-     * @var \Doctrine\ORM\PersistentCollection
+     * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="OrderItem", mappedBy="order")
+     * @ORM\OneToMany(targetEntity="OrderItem", mappedBy="order", cascade={"persist"})
      */
     private $items;
 
@@ -105,6 +106,11 @@ class Order
      * @Assert\NotBlank()
      */
     private $totalAmount = 0;
+
+    public function __construct()
+    {
+        $this->items = new ArrayCollection();
+    }
 
     /**
      * @param OrderItem $item
