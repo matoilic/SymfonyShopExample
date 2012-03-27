@@ -12,8 +12,17 @@
             </call>
         </service>
 
+        <service id="shop.frontend.controller.cart" class="Shop\FrontendBundle\Controller\CartController">
+            <argument type="service" id="shop.frontend.service.cart" />
+            <argument type="service" id="shop.common.repository.product" />
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+
         <service id="shop.frontend.service.cart" class="Shop\FrontendBundle\Service\CartService">
             <argument type="service" id="session" />
+            <argument type="service" id="shop.common.repository.cart" />
         </service>
     </services>
 </container>

@@ -3,6 +3,10 @@
 {% block content %}
     <p>{{products|length}}</p>
     {% for product in products %}
-        <p>{{product.name}}</p>
+        <p>
+            {{product.name}}<br>
+            <input type="number" min="1" max="255" id="cart-{{product.id}}-quantity" value="1"><br>
+            <button data-cart="{{path('shop_frontend_cart_addproduct', {'id': product.id})}}" id="cart-{{product.id}}">add to cart</button>
+        </p>
     {% endfor %}
 {% endblock %}

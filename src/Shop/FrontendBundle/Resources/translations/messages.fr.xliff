@@ -2,9 +2,13 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
-            <trans-unit id="1">
-                <source>Symfony2 is great</source>
-                <target>J'aime Symfony2</target>
+            <trans-unit id="controller.cart.productNotFound">
+                <source>controller.cart.productNotFound</source>
+                <target>Produkt nicht gefunden</target>
+            </trans-unit>
+            <trans-unit id="controller.cart.productRemoved">
+                <source>controller.cart.productRemoved</source>
+                <target>Das Produkt «%name%» wurde aus dem Warenkorb entfernt</target>
             </trans-unit>
         </body>
     </file>

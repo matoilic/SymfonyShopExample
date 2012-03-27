@@ -27,7 +27,7 @@ class IndexController extends Controller
      * @Method({"GET"})
      * @Template()
      */
-    public function indexAction()
+    public function indexAction(\Symfony\Component\HttpFoundation\Request $request)
     {
         $products = $this->productRepository->findAllPublished();
         return array('products' => $products);
