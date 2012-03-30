@@ -1,0 +1,230 @@
+@import "compass";
+@import "compass/css3";
+
+@mixin gradient($from, $to) {
+    background: $from;
+    @include background-image(linear-gradient($from, $to));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$from}, endColorstr=#{$to});
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$from}, endColorstr=#{$to});
+}
+
+$contentWidth: 960px;
+$dark: #333;
+$light: #ffcc99;
+$metaHeight: 30px;
+$metaWidth: 200px;
+$button: lighten($dark, 15%);
+
+.clearfix {
+    zoom:1;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.container {
+    width: $contentWidth;
+    margin: 0 auto;
+}
+
+.collapsible {
+    @include transition(all 0.5s ease-in-out);
+    height: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+body {
+
+}
+
+.button,
+button,
+input[type="submit"] {
+    @include border-radius(8px);
+    @include gradient($button, darken($button, 10%));
+    border: 1px solid lighten($button, 10%);
+    color: lighten($button, 50%);
+    display: inline-block;
+    font-size: 0.9em;
+    -webkit-font-smoothing: antialiased;
+    padding: 4px 8px;
+    text-decoration: none;
+}
+
+.button:hover,
+button:hover,
+input[type="submit"]:hover {
+    color: $light;
+}
+
+.button:active,
+button:active,
+input[type="submit"]:active {
+    @include gradient(darken($button, 10%), $button);
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled,
+button:disabled {
+    cursor: default;
+    opacity: 0.5;
+}
+
+.button:disabled:hover,
+button:disabled:hover,
+input[type="submit"]:disabled:hover {
+    color: lighten($button, 50%);
+}
+
+nav {
+    ul {
+        @extend .clearfix;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        float: left;
+    }
+}
+
+header {
+    @extend .container;
+    @extend .clearfix;
+    border-bottom: 3px solid $dark;
+    margin-top: $metaHeight;
+    padding: 20px 0;
+
+    h1 {
+        float: left;
+        margin: 0;
+        width: 49%;
+    }
+
+    nav {
+        @extend .clearfix;
+        float: right;
+        font-size: 1.5em;
+        font-weight: bold;
+        height: 100%;
+        padding-top: 0.25em;
+        text-align: right;
+        width: 49%;
+
+        ul {
+            float: right;
+        }
+
+        a {
+            color: #000;
+            padding: 0 8px;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: $dark;
+        }
+
+        li:first-child a {
+            padding-left: 0;
+        }
+
+        li:last-child a {
+            border: none;
+            padding-right: 0;
+        }
+    }
+
+
+}
+
+.meta {
+    @extend .clearfix;
+    left: 50%;
+    margin-left: $contentWidth / -2;
+    position: absolute;
+    top: 0;
+    width: $contentWidth;
+
+    nav {
+        @include border-radius(0 0 5px 5px);
+        background: $dark;
+        border-top: 1px solid lighten($dark, 20%);
+        clear: both;
+        float: right;
+        font-size: 0.9em;
+        left: 50%;
+        margin-left: $contentWidth / 2 - $metaWidth;
+        min-height: $metaHeight;
+        width: $metaWidth;
+    }
+
+    a {
+        color: $light;
+        padding: 0 8px;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    li {
+        border-right: 1px solid lighten($dark, 20%);
+        padding: 8px 0;
+        text-align: center;
+        width: $metaWidth / 2 - 1px;
+    }
+
+    li:last-child {
+        border: none;
+    }
+
+    .collapsible {
+        background: $dark;
+    }
+}
+
+.login-box {
+    @extend .collapsible;
+    color: $light;
+    float: right;
+    width: $metaWidth;
+
+    input[type="text"],
+    input[type="password"] {
+        width: 90%;
+    }
+
+    form {
+        margin: 10px;
+    }
+}
+
+.login-box.active {
+    height: 150px;
+}
+
+.cart-box {
+    @extend .collapsible;
+    @include border-radius(0 0 0 5px);
+}
+
+.cart-box.active {
+    min-height: 150px;
+}
+
+.content {
+    @extend .container;
+}

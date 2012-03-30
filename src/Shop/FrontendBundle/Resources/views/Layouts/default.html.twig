@@ -29,13 +29,26 @@
     <title>{% block title %}{% endblock%} | Poster Shop</title>
 </head>
 <body>
+    <section class="meta" id="meta">
+        {% render "ShopFrontendBundle:Sessions:new" %}
+        <div class="cart-box" id="cart"></div>
+        <nav>
+            <ul>
+                <li><a href="#login" class="login">{% trans %}meta.login{% endtrans %}</a></li>
+                <li><a href="#cart" class="cart">{% trans %}meta.cart{% endtrans %}</a></li>
+            </ul>
+        </nav>
+    </section>
+
     <header>
-
+        <h1>{% trans %}site.title{% endtrans %}</h1>
+        <nav>
+            <ul>
+                <li><a href="{{path('shop_frontend_index_index')}}">{% trans %}nav.home{% endtrans %}</a></li>
+                <li><a href="#">{% trans %}nav.allProducts{% endtrans %}</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <nav>
-
-    </nav>
 
     <div class="content">
         {% block content %}{% endblock %}
@@ -45,6 +58,7 @@
         '@ShopCommonBundle/Resources/public/js/jquery.js'
         '@ShopCommonBundle/Resources/public/js/jquery.fancybox.js'
         '@ShopCommonBundle/Resources/public/js/common.js'
+        '@ShopFrontendBundle/Resources/public/js/meta.js'
         '@ShopFrontendBundle/Resources/public/js/cart.js'
     %}
         <script src="{{asset_url}}" type="text/javascript"></script>

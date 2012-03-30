@@ -17,7 +17,7 @@
             </trans-unit>
             <trans-unit id="auth.vadCredentials">
                 <source>Bad credentials</source>
-                <target>E-Mail Adresse unbekannt</target>
+                <target>E-Mail Adresse unbekannt.</target>
             </trans-unit>
         </body>
     </file>

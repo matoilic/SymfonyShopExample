@@ -1,0 +1,28 @@
+<div class="login-box" id="login">
+    <form action="{{ path('shop_backend_sessions_create') }}" method="post" name="login">
+        {{form_errors(form)}}
+
+        {{form_row(form.username, {'attr': {'title': 'login.username.hint', 'attr': {'class': 'h5-email'}}})}}
+        {{form_row(form.password, {'attr': {'title': 'login.password.hint'}})}}
+
+        <p>
+            <input type="submit" value="{% trans %}login{% endtrans %}" />
+        </p>
+
+        {{form_rest(form)}}
+    </form>
+</div>
+<!--
+    {% javascripts filter='?closure'
+        '@ShopCommonBundle/Resources/public/js/jquery.js'
+        '@ShopCommonBundle/Resources/public/js/jquery.fancybox.js'
+        '@ShopCommonBundle/Resources/public/js/jquery.h5validate.js'
+        '@ShopCommonBundle/Resources/public/js/jquery.qtip.js'
+        '@ShopCommonBundle/Resources/public/js/jquery.tip-validate.js'
+        '@ShopCommonBundle/Resources/public/js/humane.js'
+        '@ShopCommonBundle/Resources/public/js/common.js'
+        '@ShopBackendBundle/Resources/public/js/session.js'
+    %}
+        <script src="{{asset_url}}" type="text/javascript"></script>
+    {% endjavascripts %}
+-->
