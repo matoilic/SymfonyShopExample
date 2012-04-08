@@ -24,6 +24,10 @@
                 <source>meta.login.header</source>
                 <target>Login</target>
             </trans-unit>
+            <trans-unit id="meta.logout">
+                <source>meta.logout</source>
+                <target>Logout</target>
+            </trans-unit>
             <trans-unit id="meta.cart">
                 <source>meta.cart</source>
                 <target>Warenkorb</target>
@@ -36,6 +40,15 @@
             <trans-unit id="controller.cart.productRemoved">
                 <source>controller.cart.productRemoved</source>
                 <target>Das Produkt «%name%» wurde aus dem Warenkorb entfernt</target>
+            </trans-unit>
+
+            <trans-unit id="login.username.hint">
+                <source>login.username.hint</source>
+                <target>Bitte geben Sie Ihre E-Mail Adresse ein</target>
+            </trans-unit>
+            <trans-unit id="login.password.hint">
+                <source>login.password.hint</source>
+                <target>Bitte geben Sie Ihr Passwort ein</target>
             </trans-unit>
         </body>
     </file>

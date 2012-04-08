@@ -5,7 +5,7 @@ namespace Shop\BackendBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Shop\CommonBundle\Entity\ProductRepository;
+use Shop\CommonBundle\Repository\ProductRepository;
 use Shop\CommonBundle\Form\ProductType;
 use Shop\CommonBundle\Configuration\CsrfProtected;
 use Shop\CommonBundle\Configuration\NotCsrfProtected;
@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 class ProductsController extends Controller
 {
     /**
-     * @var \Shop\CommonBundle\Entity\ProductRepository
+     * @var \Shop\CommonBundle\Repository\ProductRepository
      */
     private $productRepository;
 
@@ -41,6 +41,8 @@ class ProductsController extends Controller
         if($form->isValid()) {
             $product = $form->getData();
             $this->productRepository->persistImmediately($product);
+            $product = $this->presenterFactory->present($product);
+
             return $this->jsonResponse(array(
                 'success' => true,
                 'message' => $this->translate('product.created', array('%name%' => $product->getName())),
@@ -76,6 +78,7 @@ class ProductsController extends Controller
         }
 
         $this->productRepository->remove($product);
+        $product = $this->presenterFactory->present($product);
 
         return $this->jsonResponse(array(
             'success' => true,
@@ -93,7 +96,7 @@ class ProductsController extends Controller
      */
     public function indexAction()
     {
-        $products = $this->productRepository->findAll();
+        $products = $this->presenterFactory->present($this->productRepository->findAll());
         return array('products' => $products);
     }
 
@@ -115,7 +118,7 @@ class ProductsController extends Controller
         return array(
             'form' => $form->createView(),
             'form_action' => $this->route('shop_backend_products_update', array('id' => $product->getId())),
-            'product' => $product
+            'product' => $this->presenterFactory->present($product)
         );
     }
 
@@ -153,6 +156,8 @@ class ProductsController extends Controller
         if($form->isValid()) {
             $product = $form->getData();
             $this->productRepository->persist($product);
+            $product = $this->presenterFactory->present($product);
+
             return $this->jsonResponse(array(
                 'success' => true,
                 'message' => $this->translate('product.updated', array('%name%' => $product->getName())),

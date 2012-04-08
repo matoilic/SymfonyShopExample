@@ -143,42 +143,48 @@ th {
 }
 
 form {
-    max-width: 700px;
+    padding-top: 1.5em;
+    position: relative;
 
-    p {
-        float: left;
-        margin-top: 0;
-        width: 330px;
+    .locale-switch {
+        position: absolute;
+        right: 0;
+        top: 0;
 
-        &:nth-of-type(2n) {
-            margin-left: 40px;
-        }
-
-        &:nth-of-type(8) {
-            clear: both;
-            float: none;
-            margin: 0;
-            width: 100%;
-        }
-
-        &:last-of-type {
-            clear: both;
-            float: none;
-            margin: 2em 0 0 0;
+        .active {
+            background-color: #38678B;
+            color: #fff;
+            padding: 3px;
         }
     }
+
+}
+
+form[name="product"] {
+    width: 700px;
+
+    p:nth-child(8) {
+        clear: both;
+        float: none;
+        margin: 0;
+        width: 100%;
+    }
+}
+
+form[name="category"] {
+    width: 300px;
 }
 
 textarea {
     height: 20em;
-    width: 95%;
+    width: 98%;
 }
 
 input[type="text"],
 input[type="number"],
 input[type="email"],
 input[type="password"] {
-    width: 90%;
+    width: 100%;
 }
 
 .button,
@@ -224,6 +230,22 @@ button:disabled {
 button:disabled:hover,
 input[type="submit"]:disabled:hover {
     color: #777;
+}
+
+.clearfix {
+    zoom:1;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+
+.clearfix:after {
+    clear: both;
 }
 
 .default-header {
@@ -289,4 +311,20 @@ input[type="submit"]:disabled:hover {
     &.desc > * {
         background-position: 0 -57px;
     }
+}
+
+.form-row {
+    @extend .clearfix;
+    clear: both;
+    float: none;
+    width: 100%;
+}
+
+.form-col-2 {
+    float: left;
+    width: 45%;
+}
+
+.form-col-2:nth-child(2n) {
+    margin-left: 8%;
 }

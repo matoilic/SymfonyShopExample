@@ -12,7 +12,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Shop\CommonBundle\Entity\Order
  *
  * @ORM\Table(name="orders")
- * @ORM\Entity(repositoryClass="Shop\CommonBundle\Entity\OrderRepository")
+ * @ORM\Entity(repositoryClass="Shop\CommonBundle\Repository\OrderRepository")
  */
 class Order
 {

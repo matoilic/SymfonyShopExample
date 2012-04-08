@@ -7,7 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 use Shop\FrontendBundle\Service\CartService;
-use Shop\CommonBundle\Entity\ProductRepository;
+use Shop\CommonBundle\Repository\ProductRepository;
 
 /**
  * @Route("/cart", name="cart", service="shop.frontend.controller.cart")
@@ -20,7 +20,7 @@ class CartController extends Controller
     private $cartService;
 
     /**
-     * @var \Shop\CommonBundle\Entity\ProductRepository
+     * @var \Shop\CommonBundle\Repository\ProductRepository
      */
     private $productRepository;
 

@@ -99,7 +99,7 @@
     function setupForm(callback) {
         $doc.off('submit', 'form[name="' + _formName + '"]');
         $doc.on('submit', 'form[name="' + _formName + '"]', callback);
-        $form = $('form[name="' + _formName + '"]').tipValidate();
+        $form = $('form[name="' + _formName + '"]').tipValidate().localize();
     }
 
     Common.initCRUD = init;

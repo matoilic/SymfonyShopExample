@@ -1,8 +1,12 @@
 {% form_theme form 'ShopCommonBundle:Form:formLayout.html.twig' %}
 <form action="{{form_action}}" method="post" name="category">
+    {% include 'ShopBackendBundle:Partials:formLocaleSwitch.html.twig' %}
     {{form_errors(form)}}
 
-    {{form_row(form.name, { 'attr': {'title': 'category.name.hint' }})}}
+    <div class="localized form-row">
+        {{form_row(form.deTranslation.name, { 'attr': { 'attr': { 'title': 'category.name.hint', 'data-lang': 'de' }}})}}
+        {{form_row(form.enTranslation.name, { 'attr': { 'attr': { 'title': 'category.name.hint', 'data-lang': 'en' }}})}}
+    </div>
 
     <p>
         <input type="submit" value="{% trans %}save{% endtrans %}">

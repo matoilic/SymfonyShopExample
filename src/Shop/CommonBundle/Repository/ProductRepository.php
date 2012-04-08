@@ -1,6 +1,8 @@
 <?php
 
-namespace Shop\CommonBundle\Entity;
+namespace Shop\CommonBundle\Repository;
+
+use Shop\CommonBundle\Entity\Product;
 
 class ProductRepository extends Repository
 {

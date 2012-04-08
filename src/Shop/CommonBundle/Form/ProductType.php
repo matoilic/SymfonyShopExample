@@ -10,9 +10,9 @@ class ProductType extends AbstractType
     public function buildForm(FormBuilder $builder, array $options)
     {
         $builder
-            ->add('description')
+            ->add('deTranslation', new ProductTextType())
+            ->add('enTranslation', new ProductTextType())
             ->add('image')
-            ->add('name')
             ->add('price')
             ->add('salesEnd', 'date', array(
                 'widget' => 'single_text',

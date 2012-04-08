@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Shop\CommonBundle\Entity\Address
  * TODO write migration & create repo & add company
  * @ORM\Table(name="addresses")
- * @ORM\Entity(repositoryClass="Shop\CommonBundle\Entity\AddressRepository")
+ * @ORM\Entity(repositoryClass="Shop\CommonBundle\Repository\AddressRepository")
  */
 class Address
 {

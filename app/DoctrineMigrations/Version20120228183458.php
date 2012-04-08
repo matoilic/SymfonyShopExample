@@ -13,7 +13,7 @@ class Version20120228183458 extends AbstractMigration
             CREATE TABLE `categories` (
               `id` INT(11) unsigned NOT NULL AUTO_INCREMENT,
               `name` VARCHAR(50) NOT NULL,
-              PRIMARY KEY(id),
+              PRIMARY KEY(`id`),
               UNIQUE KEY `name` (`name`)
             ) ENGINE = InnoDB
         ");

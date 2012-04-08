@@ -6,9 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller as BaseController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Translation\TranslatorInterface;
+use Shop\CommonBundle\Presenter\PresenterFactory;
 
 abstract class Controller extends BaseController
 {
+    /**
+     * @var PresenterFactory
+     */
+    protected $presenterFactory;
+
     /**
      * @var \Symfony\Component\Routing\RouterInterface
      */
@@ -56,6 +62,21 @@ abstract class Controller extends BaseController
         $this->router = $container->get('router');
     }
 
+    /**
+     * @param \Shop\CommonBundle\Presenter\PresenterFactory $factory
+     */
+    public function setPresenterFactory(PresenterFactory $factory)
+    {
+        $this->presenterFactory = $factory;
+    }
+
+    /**
+     * @param string $key
+     * @param array $arguments
+     * @param string $domain
+     * @param null|string $locale
+     * @return string
+     */
     protected function translate($key, $arguments = array(), $domain = 'messages', $locale = null)
     {
         return $this->translator->trans($key, $arguments, $domain, $locale);

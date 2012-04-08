@@ -14,6 +14,7 @@
     {% stylesheets filter='?yui_css'
         '@ShopCommonBundle/Resources/public/css/normalize.css'
         '@ShopCommonBundle/Resources/public/css/jquery.fancybox.css'
+        '@ShopCommonBundle/Resources/public/css/jquery.qtip.css'
     %}
         <link rel="stylesheet" href="{{asset_url}}" type="text/css">
     {% endstylesheets %}
@@ -34,7 +35,10 @@
         <div class="cart-box" id="cart"></div>
         <nav>
             <ul>
-                <li><a href="#login" class="login">{% trans %}meta.login{% endtrans %}</a></li>
+                <li>
+                    <a href="#login" class="login">{% trans %}meta.login{% endtrans %}</a>
+                    <a href="#login" class="logout" style="display: none;">{% trans %}meta.logout{% endtrans %}</a>
+                </li>
                 <li><a href="#cart" class="cart">{% trans %}meta.cart{% endtrans %}</a></li>
             </ul>
         </nav>
@@ -57,6 +61,9 @@
     {% javascripts filter='?closure'
         '@ShopCommonBundle/Resources/public/js/jquery.js'
         '@ShopCommonBundle/Resources/public/js/jquery.fancybox.js'
+        '@ShopCommonBundle/Resources/public/js/jquery.h5validate.js'
+        '@ShopCommonBundle/Resources/public/js/jquery.qtip.js'
+        '@ShopCommonBundle/Resources/public/js/jquery.tip-validate.js'
         '@ShopCommonBundle/Resources/public/js/common.js'
         '@ShopFrontendBundle/Resources/public/js/meta.js'
         '@ShopFrontendBundle/Resources/public/js/cart.js'

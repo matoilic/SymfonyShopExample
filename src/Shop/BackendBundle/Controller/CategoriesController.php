@@ -5,7 +5,7 @@ namespace Shop\BackendBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Shop\CommonBundle\Entity\CategoryRepository;
+use Shop\CommonBundle\Repository\CategoryRepository;
 use Shop\CommonBundle\Form\CategoryType;
 use Shop\CommonBundle\Configuration\CsrfProtected;
 use Shop\CommonBundle\Configuration\NotCsrfProtected;
@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 class CategoriesController extends Controller
 {
     /**
-     * @var \Shop\CommonBundle\Entity\CategoryRepository
+     * @var \Shop\CommonBundle\Repository\CategoryRepository
      */
     protected $categoryRepository;
 
@@ -38,6 +38,8 @@ class CategoriesController extends Controller
         if($form->isValid()) {
             $category = $form->getData();
             $this->categoryRepository->persistImmediately($category);
+            $category = $this->presenterFactory->present($category);
+
             return $this->jsonResponse(array(
                 'success' => true,
                 'message' => $this->translate('category.created', array('%name%' => $category->getName())),
@@ -71,6 +73,7 @@ class CategoriesController extends Controller
         }
 
         $this->categoryRepository->remove($category);
+        $category = $this->presenterFactory->present($category);
 
         return $this->jsonResponse(array(
             'success' => true,
@@ -93,6 +96,7 @@ class CategoriesController extends Controller
         }
 
         $form = $this->createForm(new CategoryType(), $category);
+        $category = $this->presenterFactory->present($category);
 
         return array(
             'form' => $form->createView(),
@@ -109,7 +113,7 @@ class CategoriesController extends Controller
      */
     public function indexAction()
     {
-        $categories = $this->categoryRepository->findAll();
+        $categories = $this->presenterFactory->present($this->categoryRepository->findAll());
         return array('categories' => $categories);
     }
 
@@ -146,6 +150,8 @@ class CategoriesController extends Controller
         if($form->isValid()) {
             $category = $form->getData();
             $this->categoryRepository->persistImmediately($category);
+            $category = $this->presenterFactory->present($category);
+
             return $this->jsonResponse(array(
                 'success' => true,
                 'message' => $this->translate('category.updated', array('%name%' => $category->getName())),

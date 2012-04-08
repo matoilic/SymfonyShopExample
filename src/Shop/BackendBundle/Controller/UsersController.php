@@ -7,7 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
-use Shop\CommonBundle\Entity\UserRepository;
+use Shop\CommonBundle\Repository\UserRepository;
 use Shop\CommonBundle\Form\UserType;
 use Shop\CommonBundle\Configuration\CsrfProtected;
 use Shop\CommonBundle\Configuration\NotCsrfProtected;
@@ -24,7 +24,7 @@ class UsersController extends Controller
     private $encoderFactory;
 
     /**
-     * @var \Shop\CommonBundle\Entity\UserRepository
+     * @var \Shop\CommonBundle\Repository\UserRepository
      */
     private $userRepository;
 

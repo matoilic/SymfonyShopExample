@@ -3,14 +3,18 @@
 namespace Shop\CommonBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
+use Shop\CommonBundle\Configuration\PresentedBy;
 use DateTime;
 
 /**
  * Shop\CommonBundle\Entity\Product
  *
  * @ORM\Table(name="products")
- * @ORM\Entity(repositoryClass="Shop\CommonBundle\Entity\ProductRepository")
+ * @ORM\Entity(repositoryClass="Shop\CommonBundle\Repository\ProductRepository")
+ * @PresentedBy("Shop\CommonBundle\Presenter\ProductPresenter")
  */
 class Product
 {
@@ -22,14 +26,6 @@ class Product
      * @Assert\NotBlank()
      */
     private $category;
-
-    /**
-     * @var text $description
-     *
-     * @ORM\Column(name="description", type="text")
-     * @Assert\NotBlank()
-     */
-    private $description;
 
     /**
      * @var integer $id
@@ -46,14 +42,6 @@ class Product
      * @ORM\Column(name="image", type="string", length=255)
      */
     private $image;
-
-    /**
-     * @var string $name
-     *
-     * @ORM\Column(name="name", type="string", length=255)
-     * @Assert\NotBlank()
-     */
-    private $name;
 
     /**
      * @var float
@@ -87,6 +75,13 @@ class Product
     private $stock;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="ProductText", mappedBy="product", cascade={"persist"})
+     */
+    private $texts;
+
+    /**
      * @var float
      *
      * @ORM\Column(name="total_revenue", type="decimal", precision=20, scale=2)
@@ -100,6 +95,20 @@ class Product
      */
     private $totalSales = 0;
 
+
+    public function __construct()
+    {
+        $this->texts = new ArrayCollection();
+    }
+
+    /**
+     * @param ProductText $text
+     */
+    public function addText(ProductText $text)
+    {
+        $this->texts->add($text);
+    }
+
     /**
      * @return Category
      */
@@ -109,13 +118,19 @@ class Product
     }
 
     /**
-     * Get description
-     *
-     * @return text
+     * @return ProductText
      */
-    public function getDescription()
+    public function getDeTranslation()
     {
-        return $this->description;
+        return $this->translate('de');
+    }
+
+    /**
+     * @return ProductText
+     */
+    public function getEnTranslation()
+    {
+        return $this->translate('en');
     }
 
     /**
@@ -136,16 +151,6 @@ class Product
     public function getImage()
     {
         return $this->image;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 
     /**
@@ -181,6 +186,14 @@ class Product
     }
 
     /**
+     * @return array
+     */
+    public function getTexts()
+    {
+        return $this->texts->toArray();
+    }
+
+    /**
      * @return float
      */
     public function getTotalRevenue()
@@ -197,21 +210,19 @@ class Product
     }
 
     /**
+     * @param ProductText $text
+     */
+    public function removeText(ProductText $text)
+    {
+        $this->texts->remove($text);
+    }
+
+    /**
      * @param Category $category
      */
     public function setCategory(Category $category)
     {
         $this->category = $category;
-    }
-
-    /**
-     * Set description
-     *
-     * @param text $description
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
     }
 
     /**
@@ -222,16 +233,6 @@ class Product
     public function setImage($image)
     {
         $this->image = $image;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
     }
 
     /**
@@ -280,5 +281,25 @@ class Product
     public function setTotalSales($totalSales)
     {
         $this->totalSales = $totalSales;
+    }
+
+    /**
+     * @param string $locale
+     * @return ProductText
+     */
+    public function translate($locale)
+    {
+        foreach($this->texts as $text) {
+            if($text->getLocale() == $locale) {
+                return $text;
+            }
+        }
+
+        $text = new ProductText();
+        $text->setLocale($locale);
+        $text->setProduct($this);
+        $this->texts->add($text);
+
+        return $text;
     }
 }

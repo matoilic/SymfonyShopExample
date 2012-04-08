@@ -20,7 +20,7 @@ class Version20120321132834 extends AbstractMigration
             FOREIGN KEY(`cart_id`) REFERENCES `carts`(`id`) ON UPDATE CASCADE ON DELETE CASCADE,
             FOREIGN KEY(`product_id`) REFERENCES `products`(`id`) ON UPDATE CASCADE ON DELETE CASCADE,
             UNIQUE KEY `product` (`cart_id`, `product_id`)
-          )
+          ) ENGINE=InnoDB
         ');
     }
 

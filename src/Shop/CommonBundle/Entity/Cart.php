@@ -14,7 +14,7 @@ use Shop\CommonBundle\Entity\Product;
  * Shop\CommonBundle\Entity\Order
  *
  * @ORM\Table(name="carts")
- * @ORM\Entity(repositoryClass="Shop\CommonBundle\Entity\CartRepository")
+ * @ORM\Entity(repositoryClass="Shop\CommonBundle\Repository\CartRepository")
  */
 class Cart
 {

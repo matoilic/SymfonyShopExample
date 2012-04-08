@@ -66,6 +66,11 @@ jms_security_extra:
     secure_controllers:  true
     secure_all_services: false
 
+jms_i18n_routing:
+    default_locale: de
+    locales: [de, en]
+    strategy: prefix
+
 stof_doctrine_extensions:
     default_locale: de_CH
     orm:

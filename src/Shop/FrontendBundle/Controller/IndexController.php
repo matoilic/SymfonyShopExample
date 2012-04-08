@@ -5,7 +5,7 @@ namespace Shop\FrontendBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Shop\CommonBundle\Entity\ProductRepository;
+use Shop\CommonBundle\Repository\ProductRepository;
 
 /**
  * @Route("/", name="index", service="shop.frontend.controller.index")
@@ -13,7 +13,7 @@ use Shop\CommonBundle\Entity\ProductRepository;
 class IndexController extends Controller
 {
     /**
-     * @var \Shop\CommonBundle\Entity\ProductRepository
+     * @var \Shop\CommonBundle\Repository\ProductRepository
      */
     private $productRepository;
 

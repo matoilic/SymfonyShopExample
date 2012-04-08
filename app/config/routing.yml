@@ -15,7 +15,7 @@ ShopBackendBundle:
 ShopFrontendBundle:
     resource: "@ShopFrontendBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /shop
 
 # Internal routing configuration to handle ESI
 #_internal:

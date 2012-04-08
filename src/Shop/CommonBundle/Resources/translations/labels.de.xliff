@@ -31,8 +31,12 @@
             </trans-unit>
 
             <!-- PRODUCT -->
-            <trans-unit id="2.1">
-                <source>shop.commonbundle.producttype.name</source>
+            <trans-unit id="shop.commonbundle.producttype.deTranslation.name">
+                <source>shop.commonbundle.producttype.deTranslation.name</source>
+                <target>Produktname</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.producttype.enTranslation.name">
+                <source>shop.commonbundle.producttype.enTranslation.name</source>
                 <target>Produktname</target>
             </trans-unit>
             <trans-unit id="2.2">
@@ -43,8 +47,12 @@
                 <source>shop.commonbundle.producttype.stock</source>
                 <target>Bestand</target>
             </trans-unit>
-            <trans-unit id="2.4">
-                <source>shop.commonbundle.producttype.description</source>
+            <trans-unit id="shop.commonbundle.producttype.deTranslation.description">
+                <source>shop.commonbundle.producttype.deTranslation.description</source>
+                <target>Produktbeschreibung</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.producttype.enTranslation.description">
+                <source>shop.commonbundle.producttype.enTranslation.description</source>
                 <target>Produktbeschreibung</target>
             </trans-unit>
             <trans-unit id="2.5">
@@ -65,8 +73,12 @@
             </trans-unit>
 
             <!-- CATEGORIES -->
-            <trans-unit id="3.1">
-                <source>shop.commonbundle.categorytype.name</source>
+            <trans-unit id="shop.commonbundle.categorytype.deTranslation.name">
+                <source>shop.commonbundle.categorytype.deTranslation.name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.categorytype.enTranslation.name">
+                <source>shop.commonbundle.categorytype.enTranslation.name</source>
                 <target>Name</target>
             </trans-unit>
         </body>

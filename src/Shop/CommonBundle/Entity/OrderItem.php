@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Shop\CommonBundle\Entity\Order
  *
  * @ORM\Table(name="order_items")
- * @ORM\Entity(repositoryClass="Shop\CommonBundle\Entity\OrderItemRepository")
+ * @ORM\Entity(repositoryClass="Shop\CommonBundle\Repository\OrderItemRepository")
  */
 class OrderItem
 {
@@ -52,7 +52,7 @@ class OrderItem
      * @var float
      *
      * @ORM\Column(name="total_amount", type="decimal", precision=20, scale=2)
-     * @Assert\NotEmpty()
+     * @Assert\NotBlank()
      */
     private $totalAmount;
 
@@ -60,7 +60,7 @@ class OrderItem
      * @var float
      *
      * @ORM\Column(name="unit_discount", type="decimal", precision=20, scale=2)
-     * @Assert\NotEmpty()
+     * @Assert\NotBlank()
      */
     private $unitDiscount;
 
@@ -68,7 +68,7 @@ class OrderItem
      * @var float
      *
      * @ORM\Column(name="unit_price", type="decimal", precision=20, scale=2)
-     * @Assert\NotEmpty()
+     * @Assert\NotBlank()
      */
     private $unitPrice;
 

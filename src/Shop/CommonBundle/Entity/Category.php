@@ -6,14 +6,14 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Shop\CommonBundle\Configuration\PresentedBy;
 
 /**
  * Shop\CommonBundle\Entity\Category
  *
  * @ORM\Table(name="categories")
- * @ORM\Entity(repositoryClass="Shop\CommonBundle\Entity\CategoryRepository")
- * @UniqueEntity(fields={"name"}, message="category.name.taken")
+ * @ORM\Entity(repositoryClass="Shop\CommonBundle\Repository\CategoryRepository")
+ * @PresentedBy("Shop\CommonBundle\Presenter\CategoryPresenter")
  */
 class Category
 {
@@ -27,28 +27,28 @@ class Category
     private $id;
 
     /**
-     * @var string $name
-     *
-     * @ORM\Column(name="name", type="string", length=50)
-     * @Assert\NotBlank()
-     */
-    private $name;
-
-    /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
      */
     private $products;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="CategoryText", mappedBy="category", cascade={"persist"})
+     */
+    private $texts;
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
+        $this->texts = new ArrayCollection();
     }
 
     public function __toString()
     {
-        return $this->getName();
+        return $this->getDeTranslation()->getName();
     }
 
     /**
@@ -57,6 +57,30 @@ class Category
     public function addProduct(Product $product)
     {
         $this->products->add($product);
+    }
+
+    /**
+     * @param CategoryText $text
+     */
+    public function addText(CategoryText $text)
+    {
+        $this->texts->add($text);
+    }
+
+    /**
+     * @return CategoryText
+     */
+    public function getDeTranslation()
+    {
+        return $this->translate('de');
+    }
+
+    /**
+     * @return ProductText
+     */
+    public function getEnTranslation()
+    {
+        return $this->translate('en');
     }
 
     /**
@@ -70,16 +94,6 @@ class Category
     }
 
     /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
      * @return array
      */
     public function getProducts()
@@ -87,18 +101,39 @@ class Category
         return $this->products->toArray();
     }
 
+    /**
+     * @return array
+     */
+    public function getTexts()
+    {
+        return $this->texts->toArray();
+    }
+
+    /**
+     * @param Product $product
+     */
     public function removeProduct(Product $product)
     {
         $this->products->add($product);
     }
 
     /**
-     * Set name
-     *
-     * @param string $name
+     * @param string $locale
+     * @return CategoryText
      */
-    public function setName($name)
+    public function translate($locale)
     {
-        $this->name = $name;
+        foreach($this->texts as $text) {
+            if($text->getLocale() == $locale) {
+                return $text;
+            }
+        }
+
+        $text = new CategoryText();
+        $text->setLocale($locale);
+        $text->setCategory($this);
+        $this->texts->add($text);
+
+        return $text;
     }
 }

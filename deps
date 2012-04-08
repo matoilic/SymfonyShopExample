@@ -75,3 +75,11 @@
 [StofDoctrineExtensionsBundle]
     git=http://github.com/stof/StofDoctrineExtensionsBundle.git
     target=/bundles/Stof/DoctrineExtensionsBundle
+
+[JMSI18nRoutingBundle]
+    git=git://github.com/schmittjoh/JMSI18nRoutingBundle.git
+    target=bundles/JMS/I18nRoutingBundle
+
+[JMSTranslationBundle]
+    git=git://github.com/schmittjoh/JMSTranslationBundle.git
+    target=bundles/JMS/TranslationBundle

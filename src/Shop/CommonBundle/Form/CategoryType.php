@@ -10,7 +10,8 @@ class CategoryType extends AbstractType
     public function buildForm(FormBuilder $builder, array $options)
     {
         $builder
-            ->add('name')
+            ->add('deTranslation', new CategoryTextType())
+            ->add('enTranslation', new CategoryTextType())
         ;
     }
 

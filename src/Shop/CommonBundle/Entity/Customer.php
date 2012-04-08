@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Shop\CommonBundle\Entity\Customer
  *
  * @ORM\Table(name="customers")
- * @ORM\Entity(repositoryClass="Shop\CommonBundle\Entity\CustomerRepository")
+ * @ORM\Entity(repositoryClass="Shop\CommonBundle\Repository\CustomerRepository")
  */
 class Customer extends User
 {

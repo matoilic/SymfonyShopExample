@@ -1,19 +1,46 @@
 {% form_theme form 'ShopCommonBundle:Form:formLayout.html.twig' %}
 <form action="{{form_action}}" method="post" name="product">
+    {% include 'ShopBackendBundle:Partials:formLocaleSwitch.html.twig' %}
     {{form_errors(form)}}
 
-    {{form_row(form.category)}}
-    {{form_row(form.name, { 'attr': { 'title': 'product.name.hint' } })}}
-    {{form_row(form.price, { 'attr': {'title': 'product.price.hint' } })}}
-    {{form_row(form.stock, { 'attr': {'title': 'product.stock.hint' } })}}
-    {{form_row(form.salesStart, { 'attr': { 'attr': { 'class': 'date' } } })}}
-    {{form_row(form.salesEnd, { 'attr': { 'attr': { 'class': 'date' } } })}}
-    {{form_row(form.image, { 'attr': {'title': 'product.image.hint' } })}}
-    {{form_row(form.description, { 'attr': {'title': 'product.description.hint' } })}}
+    <div class="form-row">
+        <div class="form-col-2">
+            {{form_row(form.category)}}
+        </div>
+        <div class="localized form-col-2">
+            {{form_row(form.deTranslation.name, { 'attr': { 'attr': { 'title': 'product.name.hint', 'data-lang': 'de' }}})}}
+            {{form_row(form.enTranslation.name, { 'attr': { 'attr': { 'title': 'product.name.hint', 'data-lang': 'en' }}})}}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-col-2">
+            {{form_row(form.price, { 'attr': {'title': 'product.price.hint' } })}}
+        </div>
+        <div class="form-col-2">
+            {{form_row(form.stock, { 'attr': {'title': 'product.stock.hint' } })}}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-col-2">
+            {{form_row(form.salesStart, { 'attr': { 'attr': { 'class': 'date' } } })}}
+        </div>
+        <div class="form-col-2">
+            {{form_row(form.salesEnd, { 'attr': { 'attr': { 'class': 'date' } } })}}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-col-2">
+            {{form_row(form.image, { 'attr': {'title': 'product.image.hint' } })}}
+        </div>
+    </div>
+    <div class="localized form-row">
+        {{form_row(form.deTranslation.description, { 'attr': { 'attr': { 'title': 'product.description.hint', 'data-lang': 'de' }}})}}
+        {{form_row(form.enTranslation.description, { 'attr': { 'attr': { 'title': 'product.description.hint', 'data-lang': 'en' }}})}}
+    </div>
 
     {{form_rest(form)}}
 
-    <p>
+    <p class="form-row">
         <input type="submit" value="{% trans %}save{% endtrans %}">
     </p>
 </form>
