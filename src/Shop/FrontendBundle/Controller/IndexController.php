@@ -29,7 +29,7 @@ class IndexController extends Controller
      */
     public function indexAction(\Symfony\Component\HttpFoundation\Request $request)
     {
-        $products = $this->productRepository->findAllPublished();
+        $products = $this->presenterFactory->present($this->productRepository->findAllPublished());
         return array('products' => $products);
     }
 }
