@@ -50,6 +50,65 @@
                 <source>login.password.hint</source>
                 <target>Bitte geben Sie Ihr Passwort ein</target>
             </trans-unit>
+            <trans-unit id="login.login">
+                <source>login.login</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="login.register">
+                <source>login.register</source>
+                <target>Registrieren</target>
+            </trans-unit>
+
+            <trans-unit id="controller.accounts.created">
+                <source>controller.accounts.created</source>
+                <target>Ihr Account wurde eröffnet</target>
+            </trans-unit>
+            <trans-unit id="controller.accounts.updated">
+                <source>controller.accounts.updated</source>
+                <target>Ihre Angaben wurden aktualisiert</target>
+            </trans-unit>
+
+            <trans-unit id="account.create">
+                <source>account.create</source>
+                <target>Registrieren</target>
+            </trans-unit>
+
+            <trans-unit id="customer.email.hint">
+                <source>customer.email.hint</source>
+                <target>Geben Sie hier Ihre E-Mail Adresse ein</target>
+            </trans-unit>
+            <trans-unit id="customer.password.hint">
+                <source>customer.password.hint</source>
+                <target>Bitte wählen Sie ein min. 6-stelliges Passwort</target>
+            </trans-unit>
+            <trans-unit id="customer.firstName.hint">
+                <source>customer.firstName.hint</source>
+                <target>Geben Sie hier Ihren Vornamen ein</target>
+            </trans-unit>
+            <trans-unit id="customer.lastName.hint">
+                <source>customer.lastName.hint</source>
+                <target>Geben Sie hier Ihren Nachnamen ein</target>
+            </trans-unit>
+            <trans-unit id="customer.address.company.hint">
+                <source>customer.address.company.hint</source>
+                <target>Geben Sie hier Ihren Firmennamen ein</target>
+            </trans-unit>
+            <trans-unit id="customer.address.addressLine1.hint">
+                <source>customer.address.addressLine1.hint</source>
+                <target>Geben Sie hier Ihre Adresse ein</target>
+            </trans-unit>
+            <trans-unit id="customer.address.addressLine2.hint">
+                <source>customer.address.addressLine2.hint</source>
+                <target>Geben Sie hier Ihren Adresszusatz ein</target>
+            </trans-unit>
+            <trans-unit id="customer.address.zipCode.hint">
+                <source>customer.address.zipCode.hint</source>
+                <target>Geben Sie hier Ihre PLZ ein</target>
+            </trans-unit>
+            <trans-unit id="customer.address.city.hint">
+                <source>customer.address.city.hint</source>
+                <target>Geben Sie hier Ihren Wohnort ein</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

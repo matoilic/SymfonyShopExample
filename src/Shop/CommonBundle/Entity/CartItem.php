@@ -4,12 +4,14 @@ namespace Shop\CommonBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Shop\CommonBundle\Configuration\PresentedBy;
 
 /**
  * Shop\CommonBundle\Entity\Order
  *
  * @ORM\Table(name="cart_items")
  * @ORM\Entity(repositoryClass="Shop\CommonBundle\Repository\CartItemRepository")
+ * @PresentedBy("Shop\CommonBundle\Presenter\CartItemPresenter")
  */
 class CartItem
 {

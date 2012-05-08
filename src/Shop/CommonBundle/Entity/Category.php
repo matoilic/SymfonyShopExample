@@ -36,7 +36,7 @@ class Category
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="CategoryText", mappedBy="category", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="CategoryText", mappedBy="category", orphanRemoval=true, cascade={"all"})
      */
     private $texts;
 

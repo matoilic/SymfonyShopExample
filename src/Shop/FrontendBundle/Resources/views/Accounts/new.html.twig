@@ -1,0 +1,15 @@
+{% extends "ShopFrontendBundle:Layouts:default.html.twig" %}
+
+{% block content %}
+    <h2>{% trans %}account.create{% endtrans %}</h2>
+
+    {% include 'ShopFrontendBundle:Accounts:form.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts filter='?closure'
+        '@ShopFrontendBundle/Resources/public/js/accounts.js'
+    %}
+        <script src="{{asset_url}}" type="text/javascript"></script>
+    {% endjavascripts %}
+{% endblock %}

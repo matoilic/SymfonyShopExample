@@ -54,7 +54,7 @@ class Order
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="OrderItem", mappedBy="order", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="OrderItem", mappedBy="order", orphanRemoval=true, cascade={"all"})
      */
     private $items;
 
@@ -247,7 +247,7 @@ class Order
      */
     public function removeItem(OrderItem $item)
     {
-        $this->items->remove($item);
+        $this->items->removeElement($item);
     }
 
     /**

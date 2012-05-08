@@ -8,7 +8,7 @@
         }
     }
 
-    function onLinkClick(event) {
+    function onMetaLinkClick(event) {
         event.preventDefault();
         var $targetContainer = $($(this).attr('href')), $active = $('#meta').find('.active');
 
@@ -36,8 +36,15 @@
         }
     }
 
+    $c.openCart = function() {
+        var $cartLink = $('#meta').find('.cart');
+        if(!$cartLink.hasClass('active')) {
+            $cartLink.click();
+        }
+    }
+
     $(function() {
-        $doc.on('click', '#meta a', onLinkClick);
+        $doc.on('click', '#meta nav a', onMetaLinkClick);
 
         //use "native" JavaScript since jquery does not yet support transition events
         var meta = document.getElementById('meta');

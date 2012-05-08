@@ -77,7 +77,7 @@ class Product
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="ProductText", mappedBy="product", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="ProductText", mappedBy="product", orphanRemoval=true, cascade={"all"})
      */
     private $texts;
 
@@ -214,7 +214,7 @@ class Product
      */
     public function removeText(ProductText $text)
     {
-        $this->texts->remove($text);
+        $this->texts->removeElement($text);
     }
 
     /**

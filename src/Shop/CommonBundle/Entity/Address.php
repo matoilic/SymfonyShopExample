@@ -7,7 +7,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Shop\CommonBundle\Entity\Address
- * TODO write migration & create repo & add company
+ *
  * @ORM\Table(name="addresses")
  * @ORM\Entity(repositoryClass="Shop\CommonBundle\Repository\AddressRepository")
  */
@@ -17,6 +17,7 @@ class Address
      * @var string
      *
      * @ORM\Column(name="address_line1", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $addressLine1;
 
@@ -31,6 +32,7 @@ class Address
      * @var string
      *
      * @ORM\Column(name="city", type="string", length=120)
+     * @Assert\NotBlank()
      */
     private $city;
 
@@ -45,6 +47,7 @@ class Address
      * @var string
      *
      * @ORM\Column(name="first_name", type="string", length=80)
+     * @Assert\NotBlank()
      */
     private $firstName;
 
@@ -61,6 +64,7 @@ class Address
      * @var string
      *
      * @ORM\Column(name="last_name", type="string", length=80)
+     * @Assert\NotBlank()
      */
     private $lastName;
 
@@ -68,6 +72,8 @@ class Address
      * @var int
      *
      * @ORM\Column(name="zip_code", type="integer")
+     * @Assert\NotBlank()
+     * @Assert\Regex(pattern="/^([1-9])([0-9]{3})$/")
      */
     private $zipCode;
 

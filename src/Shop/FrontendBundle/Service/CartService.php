@@ -4,7 +4,7 @@ namespace Shop\FrontendBundle\Service;
 
 use Symfony\Component\HttpFoundation\Session;
 use Shop\CommonBundle\Entity\Cart;
-use Shop\CommonBundle\Entity\CartRepository;
+use Shop\CommonBundle\Repository\CartRepository;
 use Shop\CommonBundle\Entity\CartItem;
 use Shop\CommonBundle\Entity\Product;
 
@@ -18,7 +18,7 @@ class CartService
     private $cart;
 
     /**
-     * @var \Shop\CommonBundle\Entity\CartRepository
+     * @var \Shop\CommonBundle\Repository\CartRepository
      */
     private $cartRepository;
 

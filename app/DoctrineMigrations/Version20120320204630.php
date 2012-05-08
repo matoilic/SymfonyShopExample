@@ -18,7 +18,7 @@ class Version20120320204630 extends AbstractMigration
               `email` VARCHAR(120) NOT NULL,
               `password` VARCHAR(90) NOT NULL,
               `salt` VARCHAR(32) NOT NULL,
-              `total_revenues` DECIMAL(20,2) NOT NULL DEFAULT 0,
+              `total_revenue` DECIMAL(20,2) NOT NULL DEFAULT 0,
               `total_orders` INT(11) UNSIGNED NOT NULL DEFAULT 0,
               PRIMARY KEY(`id`),
               UNIQUE KEY `email` (`email`),

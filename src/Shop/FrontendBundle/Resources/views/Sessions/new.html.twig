@@ -5,9 +5,9 @@
 
         {{form_row(form.username, {'attr': {'title': 'login.username.hint', 'attr': {'class': 'h5-email'}}})}}
         {{form_row(form.password, {'attr': {'title': 'login.password.hint'}})}}
-
         <p>
-            <input type="submit" value="{% trans %}login{% endtrans %}" />
+            <input type="submit" value="{% trans %}login.login{% endtrans %}" />
+            <a href="{{path('shop_frontend_accounts_new')}}">{% trans %}login.register{% endtrans %}</a>
         </p>
 
         {{form_rest(form)}}

@@ -30,7 +30,7 @@ class Cart
     /**
      * @var \Doctrine\ORM\PersistentCollection
      *
-     * @ORM\OneToMany(targetEntity="CartItem", mappedBy="cart", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="CartItem", mappedBy="cart", orphanRemoval=true, cascade={"all"})
      */
     private $items;
 
@@ -132,6 +132,6 @@ class Cart
      */
     public function removeItem(CartItem $item)
     {
-        $this->items->remove($item);
+        $this->items->removeElement($item);
     }
 }

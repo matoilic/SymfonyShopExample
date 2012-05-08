@@ -1,0 +1,22 @@
+{% form_theme form 'ShopCommonBundle:Form:formLayout.html.twig' %}
+<form action="{{form_action}}" method="post" name="account">
+    {{form_errors(form)}}
+
+    {{form_row(form.email, { 'attr': { 'title': 'customer.email.hint', attr: { 'class': 'h5-email' }}})}}
+    {{form_row(form.plainPassword, { 'attr': { 'title': 'customer.password.hint'}})}}
+    {{form_row(form.firstName, { 'attr': { 'title': 'customer.firstName.hint'}})}}
+    {{form_row(form.lastName, { 'attr': { 'title': 'customer.lastName.hint'}})}}
+    {{form_row(form.address.company, { 'attr': { 'title': 'customer.address.company.hint'}})}}
+    {{form_row(form.address.addressLine1, { 'attr': { 'title': 'customer.address.addressLine1.hint'}})}}
+    {{form_row(form.address.addressLine2, { 'attr': { 'title': 'customer.address.addressLine2.hint'}})}}
+    {{form_row(form.address.zipCode, { 'attr': { 'title': 'customer.address.zipCode.hint'}})}}
+    {{form_row(form.address.city, { 'attr': { 'title': 'customer.address.city.hint'}})}}
+
+    <p>
+        <input type="submit" value="{% trans %}save{% endtrans %}">
+    </p>
+
+    <div style="display: none;">
+        {{form_rest(form)}}
+    </div>
+</form>

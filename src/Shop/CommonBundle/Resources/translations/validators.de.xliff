@@ -2,10 +2,14 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="de" datatype="plaintext" original="file.ext">
         <body>
-            <!-- CATEGORY -->
-            <trans-unit id="1.1.1">
+            <trans-unit id="category.name.taken">
                 <source>category.name.taken</source>
                 <target>Dieser Name ist bereits vergeben</target>
+            </trans-unit>
+
+            <trans-unit id="address.zip_code.invalid">
+                <source>address.zip_code.invalid</source>
+                <target>Bitte geben Sie eine gültige PLZ ein</target>
             </trans-unit>
         </body>
     </file>

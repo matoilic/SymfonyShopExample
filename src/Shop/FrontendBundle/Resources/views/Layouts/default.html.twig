@@ -32,7 +32,7 @@
 <body>
     <section class="meta" id="meta">
         {% render "ShopFrontendBundle:Sessions:new" %}
-        <div class="cart-box" id="cart"></div>
+        {% render "shop.frontend.controller.cart:indexAction" %}
         <nav>
             <ul>
                 <li>
@@ -67,6 +67,7 @@
         '@ShopCommonBundle/Resources/public/js/common.js'
         '@ShopFrontendBundle/Resources/public/js/meta.js'
         '@ShopFrontendBundle/Resources/public/js/cart.js'
+        '@ShopFrontendBundle/Resources/public/js/login.js'
     %}
         <script src="{{asset_url}}" type="text/javascript"></script>
     {% endjavascripts %}

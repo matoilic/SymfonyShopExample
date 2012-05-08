@@ -45,9 +45,10 @@ class CartController extends Controller
 
         if($product != null) {
             $this->cartService->addToCart($product, $quantity);
-            //TODO return updated cart
+
             return $this->jsonResponse(array(
-                'success' => true
+                'success' => true,
+                'html' => $this->renderIndexView()
             ));
         }
 
@@ -55,6 +56,19 @@ class CartController extends Controller
             'success' => false,
             'message' => $this->translate('controller.cart.productNotFound')
         ));
+    }
+
+    /**
+     * @Route("")
+     * @Method({"GET"})
+     * @Template()
+     */
+    public function indexAction()
+    {
+        return array(
+            'cart' => $this->cartService,
+            'cartItems' => $this->presenterFactory->present($this->cartService->getItems())
+        );
     }
 
     /**
@@ -68,10 +82,18 @@ class CartController extends Controller
         if($product != null) {
             $this->cartService->removeFromCart($product);
         }
-        //TODO return updated cart
+
         return $this->jsonResponse(array(
             'success' => true,
-            'message' => $this->translate('controller.cart.productRemoved', array('%name%', $product->getName()))
+            'html' => $this->renderIndexView()
         ));
+    }
+
+    private function renderIndexView()
+    {
+        return $this->renderView(
+            'ShopFrontendBundle:Cart:index.html.twig',
+            $this->indexAction()
+        );
     }
 }

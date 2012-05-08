@@ -13,12 +13,12 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="customers")
  * @ORM\Entity(repositoryClass="Shop\CommonBundle\Repository\CustomerRepository")
  */
-class Customer extends User
+class Customer extends AbstractUser
 {
     /**
      * @var Address
      *
-     * @ORM\ManyToOne(targetEntity="Address")
+     * @ORM\ManyToOne(targetEntity="Address", cascade={"all"})
      * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
      * @Assert\NotBlank()
      */
@@ -47,6 +47,7 @@ class Customer extends User
 
     public function __construct()
     {
+        parent::__construct();
         $this->orders = new ArrayCollection();
     }
 
@@ -87,8 +88,10 @@ class Customer extends User
      */
     public function setAddress($address)
     {
-        $address->setFirstName($this->getFirstName());
-        $address->setLastName($this->getLastName());
+        if($address != null) {
+            $address->setFirstName($this->getFirstName());
+            $address->setLastName($this->getLastName());
+        }
 
         $this->address = $address;
     }

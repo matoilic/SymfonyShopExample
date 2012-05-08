@@ -81,6 +81,52 @@
                 <source>shop.commonbundle.categorytype.enTranslation.name</source>
                 <target>Name</target>
             </trans-unit>
+
+            <!-- CUSTOMERS -->
+            <trans-unit id="shop.commonbundle.customertype.email">
+                <source>shop.commonbundle.customertype.email</source>
+                <target>E-Mail</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.customertype.plainPassword">
+                <source>shop.commonbundle.customertype.plainPassword</source>
+                <target>Passwort</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.customertype.firstName">
+                <source>shop.commonbundle.customertype.firstName</source>
+                <target>Vorname</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.customertype.lastName">
+                <source>shop.commonbundle.customertype.lastName</source>
+                <target>Nachname</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.customertype.address.firstName">
+                <source>shop.commonbundle.customertype.address.firstName</source>
+                <target>Vorname</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.customertype.address.lastName">
+                <source>shop.commonbundle.customertype.address.lastName</source>
+                <target>Nachname</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.customertype.address.company">
+                <source>shop.commonbundle.customertype.address.company</source>
+                <target>Firma</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.customertype.address.addressLine1">
+                <source>shop.commonbundle.customertype.address.addressLine1</source>
+                <target>Adresse</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.customertype.address.addressLine2">
+                <source>shop.commonbundle.customertype.address.addressLine2</source>
+                <target>Adresszusatz</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.customertype.address.zipCode">
+                <source>shop.commonbundle.customertype.address.zipCode</source>
+                <target>PLZ</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.customertype.address.city">
+                <source>shop.commonbundle.customertype.address.city</source>
+                <target>Ort</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

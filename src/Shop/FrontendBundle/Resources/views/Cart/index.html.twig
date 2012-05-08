@@ -1,0 +1,10 @@
+<div class="cart-box" id="cart">
+    {% for item in cartItems %}
+        <article class="cart-item">
+            {{item.product.name}}
+            <button class="remove" data-href="{{path('shop_frontend_cart_removeproduct', {'id': item.product.id})}}">
+                {% trans %}cart.removeItem{% endtrans %}
+            </button>
+        </article>
+    {% endfor %}
+</div>
