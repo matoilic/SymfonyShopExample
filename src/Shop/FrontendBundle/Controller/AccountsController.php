@@ -53,10 +53,17 @@ class AccountsController extends Controller
             $customer->setPassword($encoder->encodePassword($customer->getPlainPassword(), $customer->getSalt()));
             $this->customerRepository->persistImmediately($customer);
 
+            if($request->getSession()->get('afterRegistration') != null) {
+                $redirect = $request->getSession()->get('afterRegistration');
+            } else {
+                $redirect = $this->route('shop_frontend_accounts_success');
+            }
+
+
             return $this->jsonResponse(array(
                 'success' => true,
                 'message' => $this->translate('controller.accounts.created'),
-                'redirect' => $this->route('shop_frontend_index_index')
+                'redirect' => $redirect
             ));
         }
 
@@ -106,6 +113,30 @@ class AccountsController extends Controller
         return array(
             'form' => $form->createView(),
             'form_action' => $this->route('shop_frontend_accounts_create')
+        );
+    }
+
+    /**
+     * @Route("/success")
+     * @Method({"GET"})
+     * @NotCsrfProtected
+     * @Template()
+     */
+    public function successAction()
+    {
+
+    }
+
+    /**
+     * @Route("/summary")
+     * @Method({"GET"})
+     * @NotCsrfProtected
+     * @Template()
+     */
+    public function summaryAction()
+    {
+        return array(
+            'customer' => $this->getCustomer()
         );
     }
 

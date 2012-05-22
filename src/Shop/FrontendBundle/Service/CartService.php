@@ -73,7 +73,7 @@ class CartService
      */
     public function getIsCartEmpty()
     {
-        return $this->cart->getItems() > 0;
+        return count($this->cart->getItems()) == 0;
     }
 
     /**

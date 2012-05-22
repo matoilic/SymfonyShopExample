@@ -82,7 +82,7 @@ class SessionsController extends Controller
     {
         return $this->jsonResponse(array(
             'success' => true,
-            'redirect' => $this->route('shop_backend_products_index')
+            'redirect' => $this->route('shop_frontend_index_index')
         ));
     }
 }

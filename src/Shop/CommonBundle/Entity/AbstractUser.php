@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * Shop\CommonBundle\Entity\Category
+ * Shop\CommonBundle\Entity\AbstractUser
  *
  * @ORM\MappedSuperclass
  * @UniqueEntity(fields={"email"}, message="user.email.taken")
@@ -20,14 +20,14 @@ abstract class AbstractUser implements UserInterface
      * @Assert\NotBlank()
      * @var string
      */
-    private $email;
+    protected $email;
 
     /**
      * @ORM\Column(name="first_name", type="string", length=80)
      * @Assert\NotBlank()
      * @var string
      */
-    private $firstName;
+    protected $firstName;
 
     /**
      * @var integer $id
@@ -36,35 +36,40 @@ abstract class AbstractUser implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\Column(name="last_name", type="string", length=80)
      * @Assert\NotBlank()
      * @var string
      */
-    private $lastName;
+    protected $lastName;
 
     /**
      * @ORM\Column(name="password", type="string", length=90)
      * @var string
      */
-    private $password;
+    protected $password;
 
     /**
      * @var string
      */
-    private $plainPassword;
+    protected $plainPassword;
 
     /**
      * @ORM\Column(name="salt", type="string", length=32)
      * @var string
      */
-    private $salt;
+    protected $salt;
 
     public function __construct()
     {
         $this->setSalt(base_convert(sha1(uniqid(mt_rand(), true)), 16, 36));
+    }
+
+    public function __sleep()
+    {
+        return array('email', 'firstName', 'id', 'lastName');
     }
 
     /**

@@ -15,6 +15,7 @@
         '@ShopCommonBundle/Resources/public/css/normalize.css'
         '@ShopCommonBundle/Resources/public/css/jquery.fancybox.css'
         '@ShopCommonBundle/Resources/public/css/jquery.qtip.css'
+        '@ShopCommonBundle/Resources/public/css/humane.css'
     %}
         <link rel="stylesheet" href="{{asset_url}}" type="text/css">
     {% endstylesheets %}
@@ -31,13 +32,22 @@
 </head>
 <body>
     <section class="meta" id="meta">
-        {% render "ShopFrontendBundle:Sessions:new" %}
+        {% if is_granted('ROLE_IS_AUTHENTICATED') %}
+            {% render "shop.frontend.controller.accounts:summaryAction" %}
+        {% else %}
+            {% render "ShopFrontendBundle:Sessions:new" %}
+        {% endif %}
         {% render "shop.frontend.controller.cart:indexAction" %}
         <nav>
             <ul>
                 <li>
-                    <a href="#login" class="login">{% trans %}meta.login{% endtrans %}</a>
-                    <a href="#login" class="logout" style="display: none;">{% trans %}meta.logout{% endtrans %}</a>
+                    {% if is_granted('ROLE_IS_AUTHENTICATED') %}
+                        <a href="#login" class="login" style="display: none;">{% trans %}meta.login{% endtrans %}</a>
+                        <a href="#login" class="account">{% trans %}meta.account{% endtrans %}</a>
+                    {% else %}
+                        <a href="#login" class="login">{% trans %}meta.login{% endtrans %}</a>
+                        <a href="#login" class="account" style="display: none;">{% trans %}meta.account{% endtrans %}</a>
+                    {% endif %}
                 </li>
                 <li><a href="#cart" class="cart">{% trans %}meta.cart{% endtrans %}</a></li>
             </ul>
@@ -64,6 +74,7 @@
         '@ShopCommonBundle/Resources/public/js/jquery.h5validate.js'
         '@ShopCommonBundle/Resources/public/js/jquery.qtip.js'
         '@ShopCommonBundle/Resources/public/js/jquery.tip-validate.js'
+        '@ShopCommonBundle/Resources/public/js/humane.js'
         '@ShopCommonBundle/Resources/public/js/common.js'
         '@ShopFrontendBundle/Resources/public/js/meta.js'
         '@ShopFrontendBundle/Resources/public/js/cart.js'

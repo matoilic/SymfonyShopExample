@@ -3,7 +3,9 @@
 
     function onLoginResponse(data) {
         if(data.success) {
-            $.get(data.profileUrl, {}, onProfileResponse, 'json');
+            //TODO
+            //$.get(data.profileUrl, {}, onProfileResponse, 'json');
+            location.href = data.redirect;
         } else {
             var $form = $('form[name="login"]');
             $c.enableForm($form);
@@ -31,7 +33,7 @@
 
     function onProfileResponse(data) {
         $('#login').html(data.profile);
-        $('#meta').find('.login').hide().stop().find('.logout').show();
+        $('#meta').find('.login').hide().end().find('.account').show();
         $p.hideLoading();
     }
 

@@ -25,7 +25,7 @@ security:
           pattern: ^/((de|en)/)?(_admin/)?sessions/new
           anonymous:
         admin:
-          pattern: ^/((de|en)/)?_admin
+          pattern: ^/(de|en)/_admin
           form_login:
             login_path: shop_backend_sessions_new
             check_path: shop_backend_sessions_create
@@ -40,19 +40,19 @@ security:
             target: shop_backend_sessions_new
           provider: backend_user
         frontend:
-          pattern: ^/((de|en)/)?shop
+          pattern: ^/(de|en)/(shop)?
           form_login:
-            login_path: shop_backend_sessions_new
-            check_path: shop_backend_sessions_create
-            default_target_path: shop_backend_sessions_created
+            login_path: shop_frontend_sessions_new
+            check_path: shop_frontend_sessions_create
+            default_target_path: shop_frontend_sessions_created
             always_use_default_target_path: true
             username_parameter: 'shop_commonbundle_sessiontype[username]'
             password_parameter: 'shop_commonbundle_sessiontype[password]'
             post_only: true
             use_forward: false
           logout:
-            path: shop_backend_sessions_destroy
-            target: shop_backend_sessions_new
+            path: shop_frontend_sessions_destroy
+            target: shop_frontend_sessions_new
           provider: customer
           anonymous: ~
         dev:
@@ -60,5 +60,5 @@ security:
             security: false
 
     access_control:
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        #- { path: ^/(de|en)/(shop)?, roles: IS_AUTHENTICATED }
         #- { path: ^/_internal, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }

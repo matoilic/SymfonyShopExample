@@ -1,6 +1,6 @@
 {% form_theme form 'ShopCommonBundle:Form:formLayout.html.twig' %}
 <div class="login-box" id="login">
-    <form action="{{ path('shop_backend_sessions_create') }}" method="post" name="login">
+    <form action="{{ path('shop_frontend_sessions_create') }}" method="post" name="login">
         {{form_errors(form)}}
 
         {{form_row(form.username, {'attr': {'title': 'login.username.hint', 'attr': {'class': 'h5-email'}}})}}

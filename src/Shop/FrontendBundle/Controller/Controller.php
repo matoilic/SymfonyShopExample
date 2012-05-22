@@ -6,6 +6,8 @@ use Shop\CommonBundle\Controller\Controller as BaseController;
 
 abstract class Controller extends BaseController
 {
+    private $currentCustomer;
+
     /**
      * @return \Shop\CommonBundle\Entity\Customer
      */
@@ -13,7 +15,13 @@ abstract class Controller extends BaseController
     {
         /** @var \Symfony\Component\Security\Core\SecurityContext $context */
         $context = $this->get('security.context');
-        return $context->getToken()->getUser();
+        if($this->currentCustomer == null && $context->getToken()->getUser() != null) {
+            /** @var \Shop\CommonBundle\Repository\CustomerRepository $repo */
+            $repo = $this->get('shop.common.repository.customer');
+            $this->currentCustomer = $repo->find($context->getToken()->getUser()->getId());
+        }
+
+        return $this->currentCustomer;
     }
 
     /**

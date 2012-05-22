@@ -52,4 +52,12 @@
         meta.addEventListener('transitionend', onTransitionEnded);
         meta.addEventListener('oTransitionEnd', onTransitionEnded);
     });
+
+    $(window).load(function() {
+        $('#meta').children().each(function(i, element) {
+            var $element = $(element);
+            //TODO
+            //$element.data('')
+        });
+    });
 })(jQuery);

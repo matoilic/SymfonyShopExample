@@ -1,10 +1,40 @@
 <div class="cart-box" id="cart">
-    {% for item in cartItems %}
+    {% if cart.isCartEmpty %}
         <article class="cart-item">
-            {{item.product.name}}
-            <button class="remove" data-href="{{path('shop_frontend_cart_removeproduct', {'id': item.product.id})}}">
-                {% trans %}cart.removeItem{% endtrans %}
-            </button>
+            <p>{% trans %}cart.empty{% endtrans %}</p>
         </article>
-    {% endfor %}
+    {% else %}
+        {% for item in cartItems %}
+            <article class="cart-item">
+                <div class="cart-item-column">
+                    <p><img src="{{ asset('uploads/' ~ item.product.image) }}" /></p>
+                    <p>{{item.product.name}}</p>
+                </div>
+                <div class="cart-item-column">
+                    <p>
+                        {% if item.quantity > 1 %}
+                            {{item.totalAmount|currency}}<br>
+                            ({{item.quantity}} x {{item.finalUnitPrice|currency}})
+                        {% else %}
+                            CHF {{item.totalAmount|currency}}
+                        {% endif %}
+                    </p>
+
+                    <p>
+                        <button class="remove" data-href="{{path('shop_frontend_cart_removeproduct', {'id': item.product.id})}}">
+                            {% trans %}cart.removeItem{% endtrans %}
+                        </button>
+                    </p>
+                </div>
+            </article>
+        {% endfor %}
+        <article class="cart-total">
+            <div class="cart-item-column">
+                <strong>{% trans %}cart.total{% endtrans%}</strong>
+            </div>
+            <div class="cart-item-column">
+                <strong>{{cart.totalAmount|currency}}</strong>
+            </div>
+        </article>
+    {% endif %}
 </div>

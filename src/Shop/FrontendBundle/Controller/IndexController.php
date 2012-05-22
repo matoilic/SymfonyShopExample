@@ -7,6 +7,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Shop\CommonBundle\Repository\ProductRepository;
 
+//TODO receipt PDF
+
 /**
  * @Route("/", name="index", service="shop.frontend.controller.index")
  */
@@ -29,6 +31,9 @@ class IndexController extends Controller
      */
     public function indexAction(\Symfony\Component\HttpFoundation\Request $request)
     {
+        /** @var \Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken $token */
+        $token = $this->get('security.context')->getToken();
+        $roles = $token->getRoles();
         $products = $this->presenterFactory->present($this->productRepository->findAllPublished());
         return array('products' => $products);
     }

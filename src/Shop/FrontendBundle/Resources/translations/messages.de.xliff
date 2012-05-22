@@ -32,6 +32,10 @@
                 <source>meta.cart</source>
                 <target>Warenkorb</target>
             </trans-unit>
+            <trans-unit id="meta.account">
+                <source>meta.account</source>
+                <target>Account</target>
+            </trans-unit>
 
             <trans-unit id="controller.cart.productNotFound">
                 <source>controller.cart.productNotFound</source>
@@ -72,6 +76,13 @@
                 <source>account.create</source>
                 <target>Registrieren</target>
             </trans-unit>
+            <trans-unit id="account.created">
+                <source>account.created</source>
+                <target>
+                    Sie haben sich erfolgreich registriert und können sich nun mit den von Ihnen gewählten
+                    Zugangsdaten einloggen.
+                </target>
+            </trans-unit>
 
             <trans-unit id="customer.email.hint">
                 <source>customer.email.hint</source>
@@ -108,6 +119,19 @@
             <trans-unit id="customer.address.city.hint">
                 <source>customer.address.city.hint</source>
                 <target>Geben Sie hier Ihren Wohnort ein</target>
+            </trans-unit>
+
+            <trans-unit id="cart.removeItem">
+                <source>cart.removeItem</source>
+                <target>entfernen</target>
+            </trans-unit>
+            <trans-unit id="cart.total">
+                <source>cart.total</source>
+                <target>Total</target>
+            </trans-unit>
+            <trans-unit id="cart.empty">
+                <source>cart.empty</source>
+                <target>Ihr Warenkorb ist leer</target>
             </trans-unit>
         </body>
     </file>
