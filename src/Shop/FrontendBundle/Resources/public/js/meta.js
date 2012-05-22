@@ -1,9 +1,13 @@
 ;(function($) {
     var $next = null, $doc = $(document);
 
+    function closeElement($element) {
+        $element.css({minHeight: 0, maxHeight: 0}).addClass('closing');
+    }
+
     function onAnyClick(event) {
         if($(event.target).closest('#meta').length == 0) {
-            $('#meta').find('.active').removeClass('active');
+            closeElement($('#meta').find('.active'));
             $doc.off('click', '*', onAnyClick);
         }
     }
@@ -19,17 +23,23 @@
         }
 
         if($targetContainer.hasClass('active')) {
-            $targetContainer.removeClass('active');
+            closeElement($targetContainer);
             $doc.off('click', '*', onAnyClick);
             $next = null;
             return;
         }
 
-        $active.removeClass('active');
+        closeElement($active);
         $next = $targetContainer;
     }
 
     function onTransitionEnded() {
+        var $target = $(this);
+
+        if($target.hasClass('closing')) {
+            $target.removeClass('active closing').css({minHeight: '', maxHeight: ''});
+        }
+
         if($next != null) {
             $next.addClass('active');
             $next = null;
@@ -43,21 +53,7 @@
         }
     }
 
-    $(function() {
-        $doc.on('click', '#meta nav a', onMetaLinkClick);
 
-        //use "native" JavaScript since jquery does not yet support transition events
-        var meta = document.getElementById('meta');
-        meta.addEventListener('webkitTransitionEnd', onTransitionEnded);
-        meta.addEventListener('transitionend', onTransitionEnded);
-        meta.addEventListener('oTransitionEnd', onTransitionEnded);
-    });
-
-    $(window).load(function() {
-        $('#meta').children().each(function(i, element) {
-            var $element = $(element);
-            //TODO
-            //$element.data('')
-        });
-    });
+    $doc.on('click', '#meta nav a', onMetaLinkClick);
+    $doc.on('transitionEnd transitionend webkitTransitionEnd oTransitionEnd msTransitionEnd', '#meta > *', onTransitionEnded);
 })(jQuery);

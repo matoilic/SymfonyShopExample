@@ -239,7 +239,9 @@ header {
 }
 
 .profile-box.active {
-    height: 100px;
+    height: auto;
+    max-height: 100px;
+    min-height: 100px;
 }
 
 .cart-box {
@@ -251,8 +253,9 @@ header {
 }
 
 .cart-box.active {
-    min-height: 150px;
     height: auto;
+    max-height: 750px;
+    min-height: 150px;
 }
 
 .cart-item {
