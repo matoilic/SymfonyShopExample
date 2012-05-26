@@ -73,7 +73,7 @@ class Address
      *
      * @ORM\Column(name="zip_code", type="integer")
      * @Assert\NotBlank()
-     * @Assert\Regex(pattern="/^([1-9])([0-9]{3})$/")
+     * @Assert\Regex(pattern="/^([1-9]\d{3})$/", message="address.zip_code.invalid")
      */
     private $zipCode;
 

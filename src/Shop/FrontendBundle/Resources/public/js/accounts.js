@@ -16,14 +16,23 @@
 
     function onResponse(data) {
         if(data.success) {
-            location.href = data.redirect;
+            if(data.redirect) {
+                location.href = data.redirect;
+            } else {
+                $('form[name="account"]').replaceWith(data.html);
+                $c.hideLoading();
+                humane.success(data.message);
+            }
         } else {
+            $('form[name="account"]').replaceWith(data.html);
             $c.hideLoading();
-            $c.enableForm($form);
-            humane.error(data.message);
+            if(data.message) humane.error(data.message);
         }
     }
 
 
     $(document).on('submit', 'form[name="account"]', onFormSubmit);
+    $.h5Validate.addPatterns({
+        'zip-code': '^[1-9]\\d{3}$'
+    });
 })(jQuery);

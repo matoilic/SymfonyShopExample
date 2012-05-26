@@ -15,7 +15,7 @@ abstract class Controller extends BaseController
     {
         /** @var \Symfony\Component\Security\Core\SecurityContext $context */
         $context = $this->get('security.context');
-        if($this->currentCustomer == null && $context->getToken()->getUser() != null) {
+        if($this->currentCustomer == null && is_object($context->getToken()->getUser())) {
             /** @var \Shop\CommonBundle\Repository\CustomerRepository $repo */
             $repo = $this->get('shop.common.repository.customer');
             $this->currentCustomer = $repo->find($context->getToken()->getUser()->getId());
@@ -31,6 +31,6 @@ abstract class Controller extends BaseController
     {
         /** @var \Symfony\Component\Security\Core\SecurityContext $context */
         $context = $this->get('security.context');
-        return $context->getToken()->isAuthenticated();
+        return is_object($context->getToken()->getUser());
     }
 }

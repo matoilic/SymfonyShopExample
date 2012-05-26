@@ -40,7 +40,7 @@ security:
             target: shop_backend_sessions_new
           provider: backend_user
         frontend:
-          pattern: ^/(de|en)/(shop)?
+          pattern: ^/(de|en)/(?!_admin)
           form_login:
             login_path: shop_frontend_sessions_new
             check_path: shop_frontend_sessions_create
@@ -52,7 +52,7 @@ security:
             use_forward: false
           logout:
             path: shop_frontend_sessions_destroy
-            target: shop_frontend_sessions_new
+            target: shop_frontend_index_index
           provider: customer
           anonymous: ~
         dev:

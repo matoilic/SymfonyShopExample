@@ -62,6 +62,14 @@
                 <source>login.register</source>
                 <target>Registrieren</target>
             </trans-unit>
+            <trans-unit id="login.loggedInAs">
+                <source>login.loggedInAs</source>
+                <target>Angemeldet als</target>
+            </trans-unit>
+            <trans-unit id="login.editAccount">
+                <source>login.editAccount</source>
+                <target>Konto bearbeiten</target>
+            </trans-unit>
 
             <trans-unit id="controller.accounts.created">
                 <source>controller.accounts.created</source>
@@ -82,6 +90,10 @@
                     Sie haben sich erfolgreich registriert und können sich nun mit den von Ihnen gewählten
                     Zugangsdaten einloggen.
                 </target>
+            </trans-unit>
+            <trans-unit id="account.edit">
+                <source>account.edit</source>
+                <target>Konto bearbeiten</target>
             </trans-unit>
 
             <trans-unit id="customer.email.hint">

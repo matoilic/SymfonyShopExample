@@ -19,6 +19,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(name="email", type="string", length=120)
      * @Assert\NotBlank()
+     * @Assert\Email()
      * @var string
      */
     protected $email;

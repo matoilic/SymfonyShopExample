@@ -152,6 +152,7 @@ header {
 
 .meta {
     @extend .clearfix;
+    font-size: 0.8em;
     left: 50%;
     margin-left: $contentWidth / -2;
     position: absolute;
@@ -169,11 +170,14 @@ header {
         margin-left: $contentWidth / 2 - $metaWidth;
         min-height: $metaHeight;
         width: $metaWidth;
+
+        a {
+            padding: 0 8px;
+        }
     }
 
     a {
         color: $light;
-        padding: 0 8px;
     }
 
     a:hover {
@@ -236,12 +240,16 @@ header {
     color: $light;
     float: right;
     width: $metaWidth;
+
+    .inner {
+        padding: 10px;
+    }
 }
 
 .profile-box.active {
     height: auto;
-    max-height: 100px;
-    min-height: 100px;
+    max-height: 130px;
+    min-height: 130px;
 }
 
 .cart-box {
@@ -254,14 +262,13 @@ header {
 
 .cart-box.active {
     height: auto;
-    max-height: 750px;
+    max-height: 950px;
     min-height: 150px;
 }
 
 .cart-item {
     @extend .clearfix;
     border-bottom: 1px dotted $light;
-    font-size: 0.8em;
     margin: 0 10px;
     padding: 0.5em 0;
 
@@ -282,9 +289,8 @@ header {
 }
 
 .cart-total {
-    font-size: 1em;
     font-weight: bold;
-    margin: 0 10px 1em 10px;
+    margin: 0 10px 2em 10px;
     padding: 0.5em 0;
 }
 

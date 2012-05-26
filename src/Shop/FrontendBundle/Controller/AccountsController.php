@@ -97,7 +97,7 @@ class AccountsController extends Controller
             );
         }
 
-        return $this->redirect($this->route('shop_frontend_index_index'), 401);
+        return $this->redirect($this->route('shop_frontend_index_index'));
     }
 
     /**
@@ -154,21 +154,32 @@ class AccountsController extends Controller
 
             if($form->isValid()) {
                 $customer = $form->getData();
+                if(strlen($customer->getPlainPassword()) > 0) {
+                    $encoder = $this->encoderFactory->getEncoder($customer);
+                    $customer->setPassword($encoder->encodePassword($customer->getPlainPassword(), $customer->getSalt()));
+                }
                 $this->customerRepository->persist($customer);
 
                 return $this->jsonResponse(array(
                     'success' => true,
-                    'message' => $this->translate('controller.accounts.updated')
+                    'message' => $this->translate('controller.accounts.updated'),
+                    'html' => $this->renderView(
+                        'ShopFrontendBundle:Accounts:form.html.twig',
+                        array (
+                            'form' => $form->createView(),
+                            'form_action' => $this->route('shop_frontend_accounts_update')
+                        )
+                    )
                 ));
             }
 
             return $this->jsonResponse(array(
                 'success' => false,
                 'html' => $this->renderView(
-                    'ShopBackendBundle:Accounts:form.html.twig',
+                    'ShopFrontendBundle:Accounts:form.html.twig',
                     array (
                         'form' => $form->createView(),
-                        'form_action' => $this->route('shop_backend_accounts_update')
+                        'form_action' => $this->route('shop_frontend_accounts_update')
                     )
                 )
             ));

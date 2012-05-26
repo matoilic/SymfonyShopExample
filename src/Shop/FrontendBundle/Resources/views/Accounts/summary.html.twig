@@ -1,3 +1,17 @@
 <div class="profile-box" id="login">
-    TODO
+    <div class="inner">
+        <p>
+            <strong>{% trans %}login.loggedInAs{% endtrans %}</strong>
+        </p>
+
+        <p>
+            {{customer.name}}<br>
+            {{customer.email}}
+        </p>
+
+        <p>
+            <a href="{{path('shop_frontend_accounts_edit')}}">{% trans %}login.editAccount{% endtrans %}</a>
+            <a href="{{path('shop_frontend_sessions_destroy')}}">{% trans %}login.logout{% endtrans %}</a>
+        </p>
+    </div>
 </div>
