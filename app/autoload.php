@@ -18,6 +18,8 @@ $loader->registerNamespaces(array(
     'Doctrine\\DBAL'                => __DIR__.'/../vendor/doctrine-dbal/lib',
     'Stof'                          => __DIR__.'/../vendor/bundles',
     'Gedmo'                         => __DIR__.'/../vendor/gedmo-doctrine-extensions/lib',
+    'Imagine'                       => __DIR__.'/../vendor/imagine/lib',
+    'Avalanche'                     => __DIR__.'/../vendor/bundles',
 ));
 $loader->registerPrefixes(array(
     'Twig_Extensions_' => __DIR__.'/../vendor/twig-extensions/lib',

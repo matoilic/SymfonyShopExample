@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Shop\CommonBundle\Configuration\PresentedBy;
 use DateTime;
 
@@ -14,6 +15,7 @@ use DateTime;
  *
  * @ORM\Table(name="products")
  * @ORM\Entity(repositoryClass="Shop\CommonBundle\Repository\ProductRepository")
+ * @ORM\HasLifecycleCallbacks
  * @PresentedBy("Shop\CommonBundle\Presenter\ProductPresenter")
  */
 class Product
@@ -42,6 +44,18 @@ class Product
      * @ORM\Column(name="image", type="string", length=255)
      */
     private $image;
+
+    /**
+     * @var string used to handle the deletion of the image
+     */
+    private $_image;
+
+    /**
+     * @var UploadedFile
+     *
+     * @Assert\File(maxSize="6000000")
+     */
+    private $imageHandle;
 
     /**
      * @var float
@@ -153,6 +167,42 @@ class Product
         return $this->image;
     }
 
+    public function getImageDirectory()
+    {
+        return __DIR__ . '/../../../../web/' . $this->getImageWebDirectory();
+    }
+
+    /**
+     * @return string
+     */
+    public function getImagePath()
+    {
+        if(count($this->getImage()) == 0) return null;
+        $this->getImagePath() . $this->getImageWebPath();
+    }
+
+    public function getImageWebDirectory()
+    {
+        return 'uploads/products/';
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageWebPath()
+    {
+        if(count($this->getImage()) == 0) return null;
+        return $this->getImageWebDirectory() . $this->id . '-' . $this->getImage();
+    }
+
+    /**
+     * @return UploadedFile
+     */
+    public function getImageHandle()
+    {
+        return $this->imageHandle;
+    }
+
     /**
      * @return float
      */
@@ -210,6 +260,51 @@ class Product
     }
 
     /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
+    public function handleUpload()
+    {
+        if ($this->imageHandle === null) {
+            return;
+        }
+
+        @mkdir($this->getImageDirectory(), 0755, true);
+        $this->imageHandle->move($this->getImageDirectory(), $this->id . '-' . $this->getImage());
+
+        unset($this->imageHandle);
+    }
+
+    /**
+     * @ORM\PreRemove()
+     */
+    public function prepareImageDeletion()
+    {
+        $this->_image = $this->getImagePath();
+    }
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload()
+    {
+        if ($this->imageHandle !== null) {
+            $this->setImage($this->imageHandle->getClientOriginalName());
+        }
+    }
+
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeImage()
+    {
+        if ($this->_image) {
+            unlink($this->_image);
+        }
+    }
+
+    /**
      * @param ProductText $text
      */
     public function removeText(ProductText $text)
@@ -226,13 +321,37 @@ class Product
     }
 
     /**
+     * @param ProductText $newText
+     */
+    public function setDeTranslation(ProductText $newText)
+    {
+        $this->updateTranslation('de', $newText);
+    }
+
+    /**
+     * @param ProductText $newText
+     */
+    public function setEnTranslation(ProductText $newText)
+    {
+        $this->updateTranslation('en', $newText);
+    }
+
+    /**
      * Set image
      *
      * @param string $image
      */
     public function setImage($image)
     {
-        $this->image = $image;
+        $this->image = htmlentities($image);
+    }
+
+    /**
+     * @param UploadedFile $handle
+     */
+    public function setImageHandle(UploadedFile $handle)
+    {
+        $this->imageHandle = $handle;
     }
 
     /**
@@ -301,5 +420,16 @@ class Product
         $this->texts->add($text);
 
         return $text;
+    }
+
+    /**
+     * @param string $locale
+     * @param ProductText $newText
+     */
+    public function updateTranslation($locale, ProductText $newText)
+    {
+        $text = $this->translate($locale);
+        $text->setName($newText->getName());
+        $text->setDescription($newText->getDescription());
     }
 }

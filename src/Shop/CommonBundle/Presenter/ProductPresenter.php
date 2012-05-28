@@ -70,6 +70,14 @@ class ProductPresenter
     /**
      * @return string
      */
+    public function getImageWebPath()
+    {
+        return $this->product->getImageWebPath();
+    }
+
+    /**
+     * @return string
+     */
     public function getName()
     {
         return $this->text->getName();

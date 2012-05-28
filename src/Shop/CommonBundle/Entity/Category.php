@@ -118,6 +118,22 @@ class Category
     }
 
     /**
+     * @param CategoryText $newText
+     */
+    public function setDeTranslation(CategoryText $newText)
+    {
+        $this->updateTranslation('de', $newText);
+    }
+
+    /**
+     * @param CategoryText $newText
+     */
+    public function setEnTranslation(CategoryText $newText)
+    {
+        $this->updateTranslation('en', $newText);
+    }
+
+    /**
      * @param string $locale
      * @return CategoryText
      */
@@ -135,5 +151,15 @@ class Category
         $this->texts->add($text);
 
         return $text;
+    }
+
+    /**
+     * @param string $locale
+     * @param CategoryText $newText
+     */
+    public function updateTranslation($locale, CategoryText $newText)
+    {
+        $text = $this->translate($locale);
+        $text->setName($newText->getName());
     }
 }

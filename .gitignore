@@ -2,6 +2,7 @@
 /web/js/
 /web/css/
 /web/uploads/
+/web/cache/
 /app/bootstrap*
 /app/cache/*
 /app/logs/*

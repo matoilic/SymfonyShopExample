@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
             new JMS\TranslationBundle\JMSTranslationBundle(),
+            new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

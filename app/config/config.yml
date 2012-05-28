@@ -76,3 +76,13 @@ stof_doctrine_extensions:
     orm:
         default:
           timestampable: true
+
+avalanche_imagine:
+    source_root:  %kernel.root_dir%/../web
+    web_root:     %kernel.root_dir%/../web
+    cache_prefix: cache/media
+    driver:       gd
+    filters:
+         product_preview:
+             type:    thumbnail
+             options: { size: [200, 350], mode: inset, quality: 60, format: jpeg }

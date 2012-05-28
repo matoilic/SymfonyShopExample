@@ -1,5 +1,5 @@
 {% form_theme form 'ShopCommonBundle:Form:formLayout.html.twig' %}
-<form action="{{form_action}}" method="post" name="product">
+<form action="{{form_action}}" method="post" name="product" {{ form_enctype(form) }}>
     {% include 'ShopBackendBundle:Partials:formLocaleSwitch.html.twig' %}
     {{form_errors(form)}}
 
@@ -30,7 +30,7 @@
     </div>
     <div class="form-row">
         <div class="form-col-2">
-            {{form_row(form.image, { 'attr': {'title': 'product.image.hint' } })}}
+            {{form_row(form.imageHandle, { 'attr': {'title': 'product.image.hint' } })}}
         </div>
     </div>
     <div class="localized form-row">

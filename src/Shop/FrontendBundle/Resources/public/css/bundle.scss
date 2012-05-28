@@ -232,7 +232,9 @@ header {
 }
 
 .login-box.active {
-    height: 170px;
+    height: auto;
+    max-height: 150px;
+    min-height: 150px;
 }
 
 .profile-box {

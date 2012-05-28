@@ -18,17 +18,22 @@ class CategoryText
      *
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="texts")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
-     * @ORM\Id
-     * @Assert\NotBlank()
      */
     private $category;
+
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
 
     /**
      * @var string $locale
      *
      * @ORM\Column(name="locale", type="string", length=2)
-     * @ORM\Id
-     * @Assert\NotBlank()
      */
     private $locale;
 
@@ -45,6 +50,14 @@ class CategoryText
     public function getCategory()
     {
         return $this->product;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

@@ -56,7 +56,7 @@
                 <target>Produktbeschreibung</target>
             </trans-unit>
             <trans-unit id="2.5">
-                <source>shop.commonbundle.producttype.image</source>
+                <source>shop.commonbundle.producttype.imageHandle</source>
                 <target>Produktbild</target>
             </trans-unit>
             <trans-unit id="2.6">

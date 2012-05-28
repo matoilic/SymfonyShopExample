@@ -1,6 +1,6 @@
 [symfony]
     git=http://github.com/symfony/symfony.git
-    version=v2.0.11
+    version=v2.0.14
 
 [twig]
     git=http://github.com/fabpot/Twig.git
@@ -83,3 +83,11 @@
 [JMSTranslationBundle]
     git=git://github.com/schmittjoh/JMSTranslationBundle.git
     target=bundles/JMS/TranslationBundle
+
+[Imagine]
+    git=http://github.com/avalanche123/Imagine.git
+    target=imagine
+
+[AvalancheImagineBundle]
+    git=http://github.com/avalanche123/AvalancheImagineBundle.git
+    target=bundles/Avalanche/Bundle/ImagineBundle

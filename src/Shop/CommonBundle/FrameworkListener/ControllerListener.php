@@ -60,7 +60,7 @@ class ControllerListener
         if($request->headers->has('X-Csrf-Token')) {
             $token = $request->headers->get('X-Csrf-Token');
         } else {
-            $token = $request->get('_token');
+            $token = $request->request->get('_token', null, true);
         }
 
         if(!$this->csrfProvider->isCsrfTokenValid('unknown', $token)) {

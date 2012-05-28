@@ -21,11 +21,18 @@ class ProductText
     private $description;
 
     /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
      * @var string $locale
      *
      * @ORM\Column(name="locale", type="string", length=2)
-     * @ORM\Id
-     * @Assert\NotBlank()
      */
     private $locale;
 
@@ -41,8 +48,6 @@ class ProductText
      *
      * @ORM\ManyToOne(targetEntity="Product", inversedBy="texts")
      * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
-     * @ORM\Id
-     * @Assert\NotBlank()
      */
     private $product;
 
@@ -52,6 +57,14 @@ class ProductText
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

@@ -12,7 +12,7 @@ class ProductType extends AbstractType
         $builder
             ->add('deTranslation', new ProductTextType())
             ->add('enTranslation', new ProductTextType())
-            ->add('image')
+            ->add('imageHandle')
             ->add('price')
             ->add('salesEnd', 'date', array(
                 'widget' => 'single_text',

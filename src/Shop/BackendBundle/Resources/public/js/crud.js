@@ -55,9 +55,15 @@
         event.preventDefault();
         var data = $form.serialize();
 
-        $c.disableForm($form);
         $c.showLoading();
-        $.post($form.attr('action'), data, onRecordCreatedOrUpdated, 'json');
+        $form.append('<input type="hidden" name="' + $c.prop('csrf-field') + '" value="' + $c.prop('csrf-token') + '">');
+        $form.ajaxSubmit({
+            success: onRecordCreatedOrUpdated,
+            iframe: true,
+            dataType: 'json'
+        });
+        //$c.disableForm($form);
+        //$.post($form.attr('action'), data, onRecordCreatedOrUpdated, 'json');
     }
 
     function onRecordCreatedOrUpdated(data) {
