@@ -7,7 +7,7 @@
         {% for item in cartItems %}
             <article class="cart-item">
                 <div class="cart-item-column">
-                    <p><img src="{{ asset('uploads/' ~ item.product.image) }}" /></p>
+                    <p><img src="{{ item.product.imageWebPath | apply_filter('cart') }}" /></p>
                     <p>{{item.product.name}}</p>
                 </div>
                 <div class="cart-item-column">

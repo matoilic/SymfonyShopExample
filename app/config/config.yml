@@ -83,6 +83,9 @@ avalanche_imagine:
     cache_prefix: cache/media
     driver:       gd
     filters:
-         product_preview:
-             type:    thumbnail
-             options: { size: [200, 350], mode: inset, quality: 60, format: jpeg }
+        cart:
+            type:    thumbnail
+            options: { size: [150, 150], mode: inset, quality: 60, format: jpeg }
+        product_preview:
+            type:    thumbnail
+            options: { size: [200, 350], mode: inset, quality: 60, format: jpeg }
