@@ -13,6 +13,7 @@
 
         quantity = $('#' + $target.attr('id') + '-quantity').val();
 
+        $.fancybox.close();
         $c.showLoading();
         $.post($target.data('cart'), 'quantity=' + quantity, onCartResponse, 'json');
     }

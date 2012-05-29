@@ -1,0 +1,17 @@
+<section id="product" class="product-details">
+    <h1>{{ product.name }}</h1>
+
+    <div class="left">
+        <img src="{{ product.imageWebPath | apply_filter('product_detail') }}">
+        <footer>
+            <div class="price">{{ product.price | currency }}</div>
+            <button data-cart="{{path('shop_frontend_cart_addproduct', {'id': product.id})}}" id="cart-{{product.id}}">
+                {% trans %}cart.add{% endtrans %}
+            </button>
+        </footer>
+    </div>
+
+    <div class="right">
+        {{ product.description | raw }}
+    </div>
+</section>

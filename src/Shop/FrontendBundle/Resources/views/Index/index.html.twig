@@ -2,9 +2,13 @@
 
 {% block content %}
     {% for product in products %}
-        <article>
+<article xmlns="http://www.w3.org/1999/html">
             <h3>{{product.name}}</h3>
-            <p><img src="{{ product.imageWebPath | apply_filter('product_preview') }}" /></p>
+            <p>
+                <a class="fancybox" href="{{path('shop_frontend_products_show', {'id': product.id})}}">
+                    <img src="{{product.imageWebPath | apply_filter('product_preview')}}">
+                </a>
+            </p>
             <p>{{product.description}}</p>
             <input type="number" min="1" max="255" id="cart-{{product.id}}-quantity" value="1"><br>
             <button data-cart="{{path('shop_frontend_cart_addproduct', {'id': product.id})}}" id="cart-{{product.id}}">add to cart</button>

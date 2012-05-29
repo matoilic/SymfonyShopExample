@@ -9,6 +9,15 @@
         }
     }
 
+    function openInFancybox(event) {
+        event.preventDefault();
+
+        $.fancybox.open({
+            type: 'ajax',
+            href: this.href
+        });
+    }
+
     var Common = {
         csrfProtection: function(xhr) {
             var token = Common.prop('csrf-token');
@@ -55,4 +64,5 @@
     });
 
     $doc.on('click', '[data-confirm]', handleConfirm);
+    $doc.on('click', '.fancybox', openInFancybox);
 })(jQuery);

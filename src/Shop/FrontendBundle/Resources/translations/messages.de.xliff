@@ -145,6 +145,10 @@
                 <source>cart.empty</source>
                 <target>Ihr Warenkorb ist leer</target>
             </trans-unit>
+            <trans-unit id="cart.add">
+                <source>cart.add</source>
+                <target>In den Warenkorb</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
