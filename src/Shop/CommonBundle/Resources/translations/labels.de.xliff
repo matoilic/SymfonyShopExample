@@ -59,6 +59,10 @@
                 <source>shop.commonbundle.producttype.imageHandle</source>
                 <target>Produktbild</target>
             </trans-unit>
+            <trans-unit id="shop.commonbundle.producttype.isFeatured">
+                <source>shop.commonbundle.producttype.isFeatured</source>
+                <target>Sonderprodukt</target>
+            </trans-unit>
             <trans-unit id="2.6">
                 <source>shop.commonbundle.producttype.salesStart</source>
                 <target>Verkaufsbeginn</target>

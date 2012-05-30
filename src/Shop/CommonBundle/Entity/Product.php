@@ -58,6 +58,13 @@ class Product
     private $imageHandle;
 
     /**
+     * @var bool
+     *
+     * @ORM\Column(name="is_featured", type="boolean")
+     */
+    private $isFeatured = false;
+
+    /**
      * @var float
      *
      * @ORM\Column(name="price", type="decimal", precision=20, scale=2)
@@ -167,6 +174,9 @@ class Product
         return $this->image;
     }
 
+    /**
+     * @return string
+     */
     public function getImageDirectory()
     {
         return __DIR__ . '/../../../../web/' . $this->getImageWebDirectory();
@@ -181,6 +191,9 @@ class Product
         $this->getImagePath() . $this->getImageWebPath();
     }
 
+    /**
+     * @return string
+     */
     public function getImageWebDirectory()
     {
         return 'uploads/products/';
@@ -201,6 +214,14 @@ class Product
     public function getImageHandle()
     {
         return $this->imageHandle;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsFeatured()
+    {
+        return $this->isFeatured;
     }
 
     /**
@@ -352,6 +373,14 @@ class Product
     public function setImageHandle(UploadedFile $handle)
     {
         $this->imageHandle = $handle;
+    }
+
+    /**
+     * @param bool $isFeatured
+     */
+    public function setIsFeatured($isFeatured)
+    {
+        $this->isFeatured = $isFeatured;
     }
 
     /**

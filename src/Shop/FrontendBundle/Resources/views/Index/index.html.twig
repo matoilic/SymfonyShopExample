@@ -1,17 +1,29 @@
 {% extends "ShopFrontendBundle:Layouts:default.html.twig" %}
 
 {% block content %}
-    {% for product in products %}
-<article xmlns="http://www.w3.org/1999/html">
-            <h3>{{product.name}}</h3>
-            <p>
+    <section class="featured-products">
+        {% for product in featured %}
+            <article class="product featured-product">
+                <h2>{{product.name}}</h2>
+                <p>
+                    <a class="fancybox" href="{{path('shop_frontend_products_show', {'id': product.id})}}">
+                        <img src="{{product.imageWebPath | apply_filter('featured_product')}}">
+                    </a>
+                </p>
+            </article>
+        {% endfor %}
+    </section>
+
+    <section class="newest-products">
+        <h2>{% trans %}products.newest{% endtrans %}</h2>
+
+        {% for product in newest %}
+            <article class="product">
+                <h3>{{product.name}}</h3>
                 <a class="fancybox" href="{{path('shop_frontend_products_show', {'id': product.id})}}">
                     <img src="{{product.imageWebPath | apply_filter('product_preview')}}">
                 </a>
-            </p>
-            <p>{{product.description}}</p>
-            <input type="number" min="1" max="255" id="cart-{{product.id}}-quantity" value="1"><br>
-            <button data-cart="{{path('shop_frontend_cart_addproduct', {'id': product.id})}}" id="cart-{{product.id}}">add to cart</button>
-        </article>
-    {% endfor %}
+            </article>
+        {% endfor %}
+    </section>
 {% endblock %}

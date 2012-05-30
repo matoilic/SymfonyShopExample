@@ -15,6 +15,7 @@ $metaHeight: 30px;
 $metaWidth: 220px;
 $button: lighten($dark, 15%);
 $cornerRadius: 5px;
+$imageTitleBackground: rgba(80, 82, 84, 0.75);
 
 .clearfix {
     zoom:1;
@@ -322,7 +323,7 @@ header {
         margin-right: 10px;
 
         footer {
-            background: rgba(80, 82, 84, 0.75);
+            background: $imageTitleBackground;
             bottom: 0;
             height: 40px;
             left: 0;
@@ -353,4 +354,21 @@ header {
     background: $dark url('/bundles/shopfrontend/images/icons/cart.png') no-repeat 5px center;
     color: $light;
     padding-left: $cornerRadius + 20px;
+}
+
+.product {
+    display: inline-block;
+    margin: 0 8px 8px 0;
+    position: relative;
+
+    h3 {
+        background: $imageTitleBackground;
+        bottom: 4px;
+        color: $light;
+        left: 0;
+        margin: 0;
+        padding: 0.5em;
+        position: absolute;
+        right: 0;
+    }
 }

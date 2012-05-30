@@ -32,6 +32,9 @@
         <div class="form-col-2">
             {{form_row(form.imageHandle, { 'attr': {'title': 'product.image.hint' } })}}
         </div>
+        <div class="form-col-2">
+            {{form_row(form.isFeatured, { 'attr': {'title': '' } })}}
+        </div>
     </div>
     <div class="localized form-row">
         {{form_row(form.deTranslation.description, { 'attr': { 'attr': { 'title': 'product.description.hint', 'data-lang': 'de' }}})}}

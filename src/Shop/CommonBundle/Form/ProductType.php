@@ -13,7 +13,12 @@ class ProductType extends AbstractType
             ->add('deTranslation', new ProductTextType())
             ->add('enTranslation', new ProductTextType())
             ->add('imageHandle')
-            ->add('price')
+            ->add('isFeatured', null, array(
+                'required' => false
+            ))
+            ->add('price', 'number', array(
+                'attr' => array('type' => 'number', 'step' => '0.05')
+            ))
             ->add('salesEnd', 'date', array(
                 'widget' => 'single_text',
                 'format' => 'dd.MM.yyyy',

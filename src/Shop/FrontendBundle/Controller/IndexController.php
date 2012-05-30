@@ -28,10 +28,13 @@ class IndexController extends Controller
      * @Route("")
      * @Method({"GET"})
      * @Template()
+     * @return array
      */
-    public function indexAction(\Symfony\Component\HttpFoundation\Request $request)
+    public function indexAction()
     {
-        $products = $this->presenterFactory->present($this->productRepository->findAllPublished());
-        return array('products' => $products);
+        return array(
+            'newest' => $this->presenterFactory->present($this->productRepository->findNewest(12)),
+            'featured' => $this->presenterFactory->present($this->productRepository->findFeatured())
+        );
     }
 }

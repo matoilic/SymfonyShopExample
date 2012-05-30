@@ -85,10 +85,13 @@ avalanche_imagine:
     filters:
         cart:
             type:    thumbnail
-            options: { size: [150, 150], mode: inset, quality: 60, format: jpeg }
+            options: { size: [150, 150], mode: inbound, quality: 60, format: jpeg }
+        featured_product:
+            type:    thumbnail
+            options: { size: [300, 475], mode: inbound, quality: 60, format: jpeg }
         product_preview:
             type:    thumbnail
-            options: { size: [200, 350], mode: inset, quality: 60, format: jpeg }
+            options: { size: [200, 350], mode: inbound, quality: 60, format: jpeg }
         product_detail:
             type:    thumbnail
             options: { size: [400, 600], mode: inset, quality: 60, format: jpeg }
