@@ -2,6 +2,12 @@ imports:
     - { resource: parameters.ini }
     - { resource: security.yml }
 
+parameters:
+    cash_on_delivery_fee: 20
+    priority_shipment_fee: 9
+    economy_shipment_fee: 7
+    newest_products_count: 12
+
 framework:
     #esi:             ~
     translator:      { fallback: de }
@@ -86,6 +92,9 @@ avalanche_imagine:
         cart:
             type:    thumbnail
             options: { size: [150, 150], mode: inbound, quality: 60, format: jpeg }
+        checkout:
+            type:    thumbnail
+            options: { size: [75, 75], mode: inbound, quality: 60, format: jpeg }
         featured_product:
             type:    thumbnail
             options: { size: [300, 475], mode: inbound, quality: 60, format: jpeg }

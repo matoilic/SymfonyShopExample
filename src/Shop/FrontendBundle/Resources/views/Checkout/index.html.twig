@@ -1,0 +1,15 @@
+{% extends "ShopFrontendBundle:Layouts:default.html.twig" %}
+
+{% block content %}
+    <section class="checkout-login">
+        <p>{% trans %}checkout.loginMessage{% endtrans %}</p>
+        {% include 'ShopFrontendBundle:Sessions:form.html.twig' %}
+    </section>
+
+    <section class="checkout-register">
+        <p>
+            {% trans %}checkout.registrationMessage{% endtrans %}<br>
+            <a href="{{path('shop_frontend_accounts_new')}}">{% trans %}login.register{% endtrans %}</a>
+        </p>
+    </section>
+{% endblock %}

@@ -8,7 +8,17 @@
     <![endif]-->
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    {{csrf_meta()}}
+
+    {% if app.session.hasFlash('notice') %}
+        <meta name="flash:notice" content="{{ app.session.flash('notice') }}">
+    {% endif %}
+
+    {% if app.session.hasFlash('error') %}
+        <meta name="flash:error" content="{{ app.session.flash('error') }}">
+    {% endif %}
+
+    {{ csrf_meta() }}
+
     {% block meta %}{% endblock %}
 
     {% stylesheets filter='?yui_css'

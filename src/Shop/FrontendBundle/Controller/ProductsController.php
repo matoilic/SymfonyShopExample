@@ -5,6 +5,7 @@ namespace Shop\FrontendBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\Request;
 use Shop\CommonBundle\Repository\ProductRepository;
 
 /**
@@ -30,10 +31,11 @@ class ProductsController extends Controller
      * @Method({"GET"})
      * @Template()
      * @param int $id
+     * @param Request $request
      * @return array
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
-    public function showAction($id)
+    public function showAction($id, Request $request)
     {
         $product = $this->productRepository->find($id);
 
@@ -42,7 +44,8 @@ class ProductsController extends Controller
         }
 
         return array(
-            'product' => $this->presenterFactory->present($product)
+            'product' => $this->presenterFactory->present($product),
+            'hideCartButton' => $request->get('hideCartButton', false)
         );
     }
 }

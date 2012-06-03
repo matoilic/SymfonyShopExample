@@ -33,7 +33,7 @@ class IndexController extends Controller
     public function indexAction()
     {
         return array(
-            'newest' => $this->presenterFactory->present($this->productRepository->findNewest(12)),
+            'newest' => $this->presenterFactory->present($this->productRepository->findNewest($this->container->getParameter('newest_products_count'))),
             'featured' => $this->presenterFactory->present($this->productRepository->findFeatured())
         );
     }

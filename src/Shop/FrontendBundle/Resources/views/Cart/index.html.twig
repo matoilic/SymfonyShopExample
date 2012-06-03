@@ -36,5 +36,11 @@
                 <strong>{{cart.totalAmount|currency}}</strong>
             </div>
         </article>
+
+        <p class="cart-checkout">
+            <a href="{{ path('shop_frontend_checkout_index') }}" class="button">
+                {% trans %}cart.checkout{% endtrans %}
+            </a>
+        </p>
     {% endif %}
 </div>

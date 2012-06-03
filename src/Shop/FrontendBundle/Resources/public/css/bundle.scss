@@ -89,6 +89,14 @@ input[type="submit"]:disabled:hover {
     color: lighten($button, 50%);
 }
 
+a {
+    color: $button;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
 nav {
     ul {
         @extend .clearfix;
@@ -160,6 +168,7 @@ header {
     position: absolute;
     top: 0;
     width: $contentWidth;
+    z-index: 2;
 
     nav {
         @include border-radius(0 0 $cornerRadius $cornerRadius);
@@ -231,12 +240,16 @@ header {
     form {
         margin: 10px;
     }
+
+    p:last-child {
+        margin-left: 10px;
+    }
 }
 
 .login-box.active {
     height: auto;
-    max-height: 150px;
-    min-height: 150px;
+    max-height: 170px;
+    min-height: 170px;
 }
 
 .profile-box {
@@ -293,9 +306,16 @@ header {
 }
 
 .cart-total {
+    @extend .clearfix;
+    border-bottom: 1px dotted $light;
     font-weight: bold;
     margin: 0 10px 2em 10px;
     padding: 0.5em 0;
+}
+
+.cart-checkout {
+    margin: 0 10px 10px 0;
+    text-align: right;
 }
 
 .content {
@@ -370,5 +390,49 @@ header {
         padding: 0.5em;
         position: absolute;
         right: 0;
+    }
+}
+
+.order-overview  {
+    margin-top: 1em;
+
+    table {
+        width: 100%;
+    }
+
+    td, th {
+        text-align: center;
+    }
+
+    td {
+        padding: 0.5em 0.5em 0 0;
+    }
+
+    td:last-child {
+        padding: 0;
+    }
+
+    td:first-child {
+        text-align: left;
+    }
+
+    td:last-child,
+    th:last-child {
+        text-align: right;
+    }
+
+    tbody {
+        tr {
+            border-bottom: 1px dotted $dark;
+        }
+    }
+
+    tfoot {
+        font-weight: bold;
+        text-transform: uppercase;
+
+        td:last-child {
+            padding-top: 1em;
+        }
     }
 }

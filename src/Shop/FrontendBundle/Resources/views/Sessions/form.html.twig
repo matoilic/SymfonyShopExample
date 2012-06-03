@@ -1,0 +1,12 @@
+{% form_theme form 'ShopCommonBundle:Form:formLayout.html.twig' %}
+<form action="{{ path('shop_frontend_sessions_create') }}" method="post" name="login">
+    {{form_errors(form)}}
+
+    {{form_row(form.username, {'attr': {'title': 'login.username.hint', 'attr': {'class': 'h5-email'}}})}}
+    {{form_row(form.password, {'attr': {'title': 'login.password.hint'}})}}
+    <p>
+        <input type="submit" value="{% trans %}login.login{% endtrans %}" />
+    </p>
+
+    {{form_rest(form)}}
+</form>

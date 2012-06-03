@@ -47,6 +47,16 @@
             </call>
         </service>
 
+        <service id="shop.frontend.controller.checkout" class="Shop\FrontendBundle\Controller\CheckoutController">
+            <argument type="service" id="shop.frontend.service.cart" />
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+            <call method="setPresenterFactory">
+                <argument type="service" id="shop.common.presenter_factory" />
+            </call>
+        </service>
+
         <service id="shop.frontend.service.cart" class="Shop\FrontendBundle\Service\CartService">
             <argument type="service" id="session" />
             <argument type="service" id="shop.common.repository.cart" />

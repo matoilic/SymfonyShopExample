@@ -70,6 +70,10 @@
                 <source>login.editAccount</source>
                 <target>Konto bearbeiten</target>
             </trans-unit>
+            <trans-unit id="login.logout">
+                <source>login.logout</source>
+                <target>Abmelden</target>
+            </trans-unit>
 
             <trans-unit id="controller.accounts.created">
                 <source>controller.accounts.created</source>
@@ -148,6 +152,88 @@
             <trans-unit id="cart.add">
                 <source>cart.add</source>
                 <target>In den Warenkorb</target>
+            </trans-unit>
+            <trans-unit id="cart.checkout">
+                <source>cart.checkout</source>
+                <target>zur Kasse</target>
+            </trans-unit>
+
+            <trans-unit id="products.newest">
+                <source>products.newest</source>
+                <target>Neuste Produkte</target>
+            </trans-unit>
+
+            <trans-unit id="checkout.loginMessage">
+                <source>checkout.loginMessage</source>
+                <target>Bevor Sie Ihre Bestellung abschliessen können, müssen Sie sich einloggen.</target>
+            </trans-unit>
+            <trans-unit id="checkout.registrationMessage">
+                <source>checkout.registrationMessage</source>
+                <target>Wenn Sie sich bei uns noch nicht registriert haben, dann können Sie dies hier tun.</target>
+            </trans-unit>
+            <trans-unit id="checkout.unitPrice">
+                <source>checkout.unitPrice</source>
+                <target>Stückpreis</target>
+            </trans-unit>
+            <trans-unit id="checkout.quantity">
+                <source>checkout.quantity</source>
+                <target>Menge</target>
+            </trans-unit>
+            <trans-unit id="checkout.total">
+                <source>checkout.total</source>
+                <target>Total</target>
+            </trans-unit>
+            <trans-unit id="checkout.head">
+                <source>checkout.head</source>
+                <target>Bestellung abschliessen</target>
+            </trans-unit>
+            <trans-unit id="checkout.shipment">
+                <source>checkout.shipment</source>
+                <target>Versand</target>
+            </trans-unit>
+            <trans-unit id="checkout.shipment.priority">
+                <source>checkout.shipment.priority</source>
+                <target>Priority</target>
+            </trans-unit>
+            <trans-unit id="checkout.shipment.economy">
+                <source>checkout.shipment.economy</source>
+                <target>Economy</target>
+            </trans-unit>
+            <trans-unit id="checkout.payment">
+                <source>checkout.payment</source>
+                <target>Bezahlung</target>
+            </trans-unit>
+            <trans-unit id="checkout.payment.invoice">
+                <source>checkout.payment.invoice</source>
+                <target>Rechnung</target>
+            </trans-unit>
+            <trans-unit id="checkout.payment.cod">
+                <source>checkout.payment.cod</source>
+                <target>Nachnahme</target>
+            </trans-unit>
+            <trans-unit id="checkout.terms">
+                <source>checkout.terms</source>
+                <target>AGB</target>
+            </trans-unit>
+            <trans-unit id="checkout.terms.label">
+                <source>checkout.terms.label</source>
+                <target>
+                    <![CDATA[
+                        Ich habe die <a href="#terms" class="fancybox">AGB</a> gelesen und akzeptiert.
+                    ]]>
+                </target>
+            </trans-unit>
+            <trans-unit id="checkout.terms.required">
+                <source>checkout.terms.required</source>
+                <target>Sie müssen die AGB lesen und akzeptieren</target>
+            </trans-unit>
+            <trans-unit id="checkout.submit">
+                <source>checkout.submit</source>
+                <target>Bestellung abschliessen</target>
+            </trans-unit>
+            <trans-unit id="checkout.error.cartEmpty">
+                <source>checkout.error.cartEmpty</source>
+                <target>Ihr Warenkorb ist leer</target>
             </trans-unit>
         </body>
     </file>

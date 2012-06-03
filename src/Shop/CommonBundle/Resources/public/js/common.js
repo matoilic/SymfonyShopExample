@@ -11,10 +11,11 @@
 
     function openInFancybox(event) {
         event.preventDefault();
+        var $target = $(this);
 
         $.fancybox.open({
-            type: 'ajax',
-            href: this.href
+            type: $target.attr('href').indexOf('#') != 0 ? 'ajax' : 'inline',
+            href: $target.attr('href')
         });
     }
 
@@ -65,4 +66,9 @@
 
     $doc.on('click', '[data-confirm]', handleConfirm);
     $doc.on('click', '.fancybox', openInFancybox);
+
+    $(function() {
+        if(Common.prop('flash:error')) humane.error(Common.prop('flash:error'));
+        if(Common.prop('flash:notice')) humane.success(Common.prop('flash:notice'));
+    });
 })(jQuery);
