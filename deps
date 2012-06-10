@@ -93,6 +93,5 @@
     target=bundles/Avalanche/Bundle/ImagineBundle
 
 [dompdf]
-    git=git://github.com/matoilic/dompdf.git
+    git=https://github.com/matoilic/dompdf.git
     target=dompdf
-    version=v0.5.2
