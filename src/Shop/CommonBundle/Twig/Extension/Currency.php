@@ -12,7 +12,7 @@ class Currency extends \Twig_Extension
      * @return string
      */
     public function format($value) {
-        return ($value % 1 < 0.001) ? "CHF $value.&ndash;" : "CHF $value";
+        return ($value % 1 < 0.001) ? "CHF $value.–" : "CHF $value";
     }
 
     /**

@@ -9,25 +9,25 @@
             </trans-unit>
             <trans-unit id="0.2">
                 <source>save</source>
-                <target>Speichern</target>
+                <target>Save</target>
             </trans-unit>
             <trans-unit id="0.3">
                 <source>cancel</source>
-                <target>Abbrechen</target>
+                <target>Cancel</target>
             </trans-unit>
             <trans-unit id="0.4">
                 <source>edit</source>
-                <target>Bearbeiten</target>
+                <target>Edit</target>
             </trans-unit>
             <trans-unit id="0.5">
                 <source>delete</source>
-                <target>Löschen</target>
+                <target>Delete</target>
             </trans-unit>
 
             <!-- CATEGORIES MANAGEMENT -->
             <trans-unit id="1.1">
                 <source>categories</source>
-                <target>Kategorien</target>
+                <target>Categoried</target>
             </trans-unit>
             <trans-unit id="1.2">
                 <source>category.name</source>
@@ -35,37 +35,37 @@
             </trans-unit>
             <trans-unit id="1.2.1">
                 <source>category.name.hint</source>
-                <target>Bitte geben Sie den Kategorienamen ein</target>
+                <target>Please enter the category name</target>
             </trans-unit>
             <trans-unit id="1.3">
                 <source>category.delete.confirm</source>
-                <target>Wollen Sie die Kategorie «%name%» wirklich löschen?</target>
+                <target>Do you realy want to delete the category «%name%»?</target>
             </trans-unit>
             <trans-unit id="1.4">
                 <source>category.create</source>
-                <target>Neue Kategorie erfassen</target>
+                <target>Create new category</target>
             </trans-unit>
             <trans-unit id="1.5">
                 <source>category.created</source>
-                <target>Die Kategorie %name% wurde erstellt</target>
+                <target>Category «%name%» successfully created</target>
             </trans-unit>
             <trans-unit id="1.6">
                 <source>category.deleted</source>
-                <target>Die Kategorie «%name%» wurde gelöscht</target>
+                <target>Category «%name%» was deleted</target>
             </trans-unit>
             <trans-unit id="1.7">
                 <source>category.edit</source>
-                <target>Kategorie «%name%» bearbeiten</target>
+                <target>Edit category «%name%»</target>
             </trans-unit>
             <trans-unit id="1.8">
                 <source>category.updated</source>
-                <target>Die Kategorie «%name%» wurde aktualisiert</target>
+                <target>The category «%name%» was updated</target>
             </trans-unit>
 
             <!-- PRODUCTS MANAGEMENT -->
             <trans-unit id="2.1">
                 <source>products</source>
-                <target>Produkte</target>
+                <target>Products</target>
             </trans-unit>
             <trans-unit id="2.2">
                 <source>product.name</source>
@@ -73,117 +73,117 @@
             </trans-unit>
             <trans-unit id="2.2.1">
                 <source>product.name.hint</source>
-                <target>Bitte geben Sie den Produktnamen ein</target>
+                <target>Please enter the product name</target>
             </trans-unit>
             <trans-unit id="2.3">
                 <source>product.category</source>
-                <target>Kategorie</target>
+                <target>Category</target>
             </trans-unit>
             <trans-unit id="2.3.1">
                 <source>product.category.hint</source>
-                <target>Bitte wählen Sie eine Produkt-Kategorie aus</target>
+                <target>Please choose a category</target>
             </trans-unit>
             <trans-unit id="2.4">
                 <source>product.price</source>
-                <target>Preis</target>
+                <target>Price</target>
             </trans-unit>
             <trans-unit id="2.4.1">
                 <source>product.price.hint</source>
-                <target>Bitte geben Sie den Preis ein</target>
+                <target>Please enter a price</target>
             </trans-unit>
             <trans-unit id="2.5">
                 <source>product.stock</source>
-                <target>Bestand</target>
+                <target>Stock</target>
             </trans-unit>
             <trans-unit id="2.5.1">
                 <source>product.stock.hint</source>
-                <target>Bitte geben Sie den Bestand ein</target>
+                <target>Please enter a stock</target>
             </trans-unit>
             <trans-unit id="2.6">
                 <source>product.description</source>
-                <target>Beschreibung</target>
+                <target>Description</target>
             </trans-unit>
             <trans-unit id="2.6.1">
                 <source>product.description.hint</source>
-                <target>Bitte geben Sie die Produktbeschreibung ein</target>
+                <target>Please enter a description</target>
             </trans-unit>
             <trans-unit id="2.7">
                 <source>product.totalSales</source>
-                <target>Anz. Verkäufe</target>
+                <target>Units sold</target>
             </trans-unit>
             <trans-unit id="2.8">
                 <source>product.totalRevenue</source>
-                <target>Umsatz</target>
+                <target>Revenue</target>
             </trans-unit>
             <trans-unit id="2.9">
                 <source>product.create</source>
-                <target>Neues Produkt erfassen</target>
+                <target>Create new product</target>
             </trans-unit>
             <trans-unit id="2.10">
                 <source>product.created</source>
-                <target>Das Produkt «%name%» wurde erstellt</target>
+                <target>Product «%name%» created</target>
             </trans-unit>
             <trans-unit id="2.11">
                 <source>product.deleted</source>
-                <target>Das Produkt «%name%» wurde gelöscht</target>
+                <target>Product «%name%» deleted</target>
             </trans-unit>
             <trans-unit id="2.12">
                 <source>product.updated</source>
-                <target>Das Produkt «%name%» wurde aktualisiert</target>
+                <target>Product «%name%» updated</target>
             </trans-unit>
             <trans-unit id="2.13">
                 <source>product.edit</source>
-                <target>Produkt «%name%» bearbeiten</target>
+                <target>Edit «%name%»</target>
             </trans-unit>
             <trans-unit id="2.14">
                 <source>product.delete.confirm</source>
-                <target>Wollen Sie das Produkt «%name%» wirklich löschen?</target>
+                <target>Do you realy want to delete «%name%»?</target>
             </trans-unit>
 
             <!-- USER MANAGEMENT -->
             <trans-unit id="3.1">
                 <source>users</source>
-                <target>Benutzer</target>
+                <target>User</target>
             </trans-unit>
             <trans-unit id="3.2.1">
                 <source>user.first_name</source>
-                <target>Vorname</target>
+                <target>First name</target>
             </trans-unit>
             <trans-unit id="3.2.2">
                 <source>user.last_name</source>
-                <target>Nachname</target>
+                <target>Last name</target>
             </trans-unit>
             <trans-unit id="3.2.3">
                 <source>user.password</source>
-                <target>Passwort</target>
+                <target>Password</target>
             </trans-unit>
             <trans-unit id="3.2.4">
                 <source>user.email</source>
-                <target>E-Mail</target>
+                <target>Email</target>
             </trans-unit>
             <trans-unit id="3.2.5">
                 <source>user.create</source>
-                <target>Neuen Benutzer erstellen</target>
+                <target>Create new user</target>
             </trans-unit>
             <trans-unit id="3.2.6">
                 <source>user.created</source>
-                <target>Der Benutzer «%name%» wurde erstellt</target>
+                <target>User «%name%» created</target>
             </trans-unit>
             <trans-unit id="3.2.7">
                 <source>user.edit</source>
-                <target>Benutzer «%name%» bearbeiten</target>
+                <target>Edit «%name%»</target>
             </trans-unit>
             <trans-unit id="3.2.8">
                 <source>user.updated</source>
-                <target>Der Benutzer «%name%» wurde aktualisiert</target>
+                <target>User «%name%» updated</target>
             </trans-unit>
             <trans-unit id="3.2.9">
                 <source>user.delete.confirm</source>
-                <target>Wollen Sie den Benutzer «%name%» wirklich löschen?</target>
+                <target>Do you really want to delete «%name%»?</target>
             </trans-unit>
             <trans-unit id="3.2.10">
                 <source>user.deleted</source>
-                <target>Der Benutzer «%name%» wurde gelöscht</target>
+                <target>User «%name%» deleted</target>
             </trans-unit>
 
             <!-- LOGIN -->
@@ -197,11 +197,11 @@
             </trans-unit>
             <trans-unit id="4.2.1">
                 <source>login.username.hint</source>
-                <target>Bitte geben Sie Ihre E-Mail Adresse ein</target>
+                <target>Please enter your email address</target>
             </trans-unit>
             <trans-unit id="4.3.1">
                 <source>login.password.hint</source>
-                <target>Bitte geben Sie Ihr Passwort ein</target>
+                <target>Please enter you password</target>
             </trans-unit>
         </body>
     </file>

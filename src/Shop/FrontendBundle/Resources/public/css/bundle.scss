@@ -436,3 +436,22 @@ header {
         }
     }
 }
+
+form[name="checkout"] {
+    section {
+        float: left;
+        margin-right: 1em;
+        width: 30%;
+    }
+
+    section:nth-child(2n+1) {
+        clear: both;
+    }
+
+    .checkout-terms {
+        clear: both;
+        float: none;
+        width: 100%;
+    }
+}
+

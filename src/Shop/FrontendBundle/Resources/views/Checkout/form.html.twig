@@ -1,0 +1,94 @@
+{% form_theme form.billingAddress 'ShopCommonBundle:Form:formLayout.html.twig' %}
+{% form_theme form.shippingAddress 'ShopCommonBundle:Form:formLayout.html.twig' %}
+
+<form action="{{ path('shop_frontend_checkout_finalize') }}" method="post" name="checkout">
+    <section id="shipment" class="checkout-shipment">
+        <h3>{% trans %}checkout.shipment{% endtrans %}</h3>
+        <p>
+            {{ form_widget(form.shipment.p) }}
+            {{ form_label(form.shipment.p, 'checkout.shipment.priority' | trans ~ ' (' ~ priorityShipmentFee | currency ~ ')') }}
+        </p>
+        <p>
+            {{ form_widget(form.shipment.e) }}
+            {{ form_label(form.shipment.e, 'checkout.shipment.economy' | trans ~ ' (' ~ economyShipmentFee | currency ~ ')') }}
+        </p>
+    </section>
+
+    <section id="payment" class="checkout-payment">
+        <h3>{% trans %}checkout.payment{% endtrans %}</h3>
+        <p>
+            {{ form_widget(form.payment.i) }}
+            {{ form_label(form.payment.i, 'checkout.payment.invoice' | trans) }}
+        </p>
+        <p>
+            {{ form_widget(form.payment.c) }}
+            {{ form_label(form.payment.c, 'checkout.payment.cod' | trans ~ ' (' ~ cashOnDeliveryFee | currency ~ ')') }}
+        </p>
+    </section>
+
+    <section id="billingAddress" class="checkout-billing-address">
+        <h3>{% trans %}checkout.billingAddress{% endtrans %}</h3>
+        {{ form_row(form.billingAddress.firstName) }}
+        {{ form_row(form.billingAddress.lastName) }}
+        {{ form_row(form.billingAddress.company) }}
+        {{ form_row(form.billingAddress.addressLine1) }}
+        {{ form_row(form.billingAddress.addressLine2) }}
+        {{ form_row(form.billingAddress.zipCode) }}
+        {{ form_row(form.billingAddress.city) }}
+
+        <p>
+            {{ form_widget(form.differentShippingAddress)}}
+            {{ form_label(form.differentShippingAddress)}}
+        </p>
+    </section>
+
+    <section id="shippingAddress" class="checkout-shipping-address" style="display: none;">
+        <h3>{% trans %}checkout.shippingAddress{% endtrans %}</h3>
+        {{ form_row(form.shippingAddress.firstName) }}
+        {{ form_row(form.shippingAddress.lastName) }}
+        {{ form_row(form.shippingAddress.company) }}
+        {{ form_row(form.shippingAddress.addressLine1) }}
+        {{ form_row(form.shippingAddress.addressLine2) }}
+        {{ form_row(form.shippingAddress.zipCode) }}
+        {{ form_row(form.shippingAddress.city) }}
+    </section>
+
+    <section id="terms" class="checkout-terms">
+        <h3>{% trans %}checkout.terms{% endtrans %}</h3>
+        <p>
+            {{ form_widget(form.termsAccepted, {'attr': { 'title': 'checkout.terms.required'|trans }}) }}
+            {% trans %}checkout.terms.label{% endtrans %}
+        </p>
+    </section>
+
+    <p>
+        <input type="submit" value="{% trans %}checkout.submit{% endtrans %}">
+    </p>
+
+    {{ form_rest(form) }}
+</form>
+
+<div style="display: none;">
+    <section id="termsDetails" class="checkout-terms-details">
+        <h2>{% trans %}checkout.terms{% endtrans %}</h2>
+        <p>Ich bin Blindtext. Von Geburt an. Es hat lange gedauert, bis ich begriffen habe, was es bedeutet, ein blinder Text zu sein: Man macht keinen Sinn.</p>
+
+        <p>Man wirkt hier und da aus dem Zusammenhang gerissen. Oft wird man gar nicht erst gelesen. Aber bin ich deshalb ein schlechter Text?</p>
+
+        <p>Ich weiß, dass ich nie die Chance haben werde im Stern zu erscheinen. Aber bin ich darum weniger wichtig? Ich bin blind! Aber ich bin gerne Text.</p>
+
+        <p>Und sollten Sie mich jetzt tatsächlich zu Ende lesen, dann habe ich etwas geschafft, was den meisten "normalen" Texten nicht gelingt. Ich bin Blindtext. Von Geburt an.</p>
+
+        <p>Es hat lange gedauert, bis ich begriffen habe, was es bedeutet, ein blinder Text zu sein: Man macht keinen Sinn. Man wirkt hier und da aus dem Zusammenhang gerissen.</p>
+
+        <p>Oft wird man gar nicht erst gelesen. Aber bin ich deshalb ein schlechter Text? Ich weiß, dass ich nie die Chance haben werde im Stern zu erscheinen.</p>
+
+        <p>Aber bin ich darum weniger wichtig? Ich bin blind! Aber ich bin gerne Text.</p>
+
+        <p>Und sollten Sie mich jetzt tatsächlich zu Ende lesen, dann habe ich etwas geschafft, was den meisten "normalen" Texten nicht gelingt. Ich bin Blindtext. Von Geburt an.</p>
+
+        <p>Es hat lange gedauert, bis ich begriffen habe, was es bedeutet, ein blinder Text zu sein: Man macht keinen Sinn. Man wirkt hier und da aus dem Zusammenhang gerissen. Oft wird man gar nicht erst gelesen.</p>
+
+        <p>Aber bin ich deshalb ein schlechter Text? Ich weiß, dass ich nie die Chance haben werde im Stern zu erscheinen. Aber bin ich darum weniger wichtig? Ich bin blind! Aber ich bin gerne Text. Und sollten Sie mich jetzt tatsächlich zu Ende lesen, dann habe ich etwas geschafft, was den meisten "normalen" Texten nicht gelingt. Ich bin Blindtext. Von Geburt an.</p>
+    </section>
+</div>

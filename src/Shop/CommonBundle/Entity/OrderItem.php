@@ -25,7 +25,7 @@ class OrderItem
     /**
      * @var Order
      *
-     * @ORM\ManyToOne(targetEntity="Order", inversedBy="items", fetch="EAGER")
+     * @ORM\ManyToOne(targetEntity="Order", inversedBy="items", fetch="EAGER", cascade={"all"})
      * @ORM\JoinColumn(name="order_id", referencedColumnName="id")
      * @Assert\NotBlank()
      */
@@ -62,7 +62,7 @@ class OrderItem
      * @ORM\Column(name="unit_discount", type="decimal", precision=20, scale=2)
      * @Assert\NotBlank()
      */
-    private $unitDiscount;
+    private $unitDiscount = 0;
 
     /**
      * @var float
@@ -150,12 +150,13 @@ class OrderItem
     public function setQuantity($quantity)
     {
         $this->quantity = $quantity;
+        $this->updateTotalAmount();
     }
 
     /**
      * @param float $totalAmount
      */
-    public function setTotalAmount($totalAmount)
+    protected function setTotalAmount($totalAmount)
     {
         $this->totalAmount = $totalAmount;
     }
@@ -166,6 +167,7 @@ class OrderItem
     public function setUnitDiscount($unitDiscount)
     {
         $this->unitDiscount = $unitDiscount;
+        $this->updateTotalAmount();
     }
 
     /**
@@ -174,5 +176,12 @@ class OrderItem
     public function setUnitPrice($unitPrice)
     {
         $this->unitPrice = $unitPrice;
+        $this->updateTotalAmount();
+    }
+
+    protected function updateTotalAmount()
+    {
+        $this->setTotalAmount(($this->getUnitPrice() - $this->getUnitDiscount()) * $this->getQuantity());
+        if($this->getOrder() != null) $this->getOrder()->__updateTotalAmount();
     }
 }

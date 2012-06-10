@@ -40,74 +40,13 @@
         </table>
     </section>
 
-    <form action="{{ path('shop_frontend_checkout_finalize') }}" method="post">
-        <section>
-            <h3>{% trans %}checkout.shipment{% endtrans %}</h3>
-            <p>
-                <input type="radio" name="shipment" value="P" id="shipment-p" checked>
-                <label for="shipment-p">
-                    {% trans %}checkout.shipment.priority{% endtrans %} ({{ priorityShipmentFee | currency }})
-                </label>
-            </p>
-            <p>
-                <input type="radio" name="shipment" value="E" id="shipment-e">
-                <label for="shipment-e">
-                    {% trans %}checkout.shipment.economy{% endtrans %} ({{ economyShipmentFee | currency }})
-                </label>
-            </p>
-        </section>
+    {% include 'ShopFrontendBundle:Checkout:form.html.twig' %}
+{% endblock %}
 
-        <section>
-            <h3>{% trans %}checkout.payment{% endtrans %}</h3>
-            <p>
-                <input type="radio" name="payment" value="I" id="payment-i" checked>
-                <label for="payment-i">
-                    {% trans %}checkout.payment.invoice{% endtrans %}
-                </label>
-            </p>
-            <p>
-                <input type="radio" name="payment" value="C" id="payment-c">
-                <label for="payment-c">
-                    {% trans %}checkout.payment.cod{% endtrans %} ({{ cashOnDeliveryFee | currency }})
-                </label>
-            </p>
-        </section>
-
-        <section>
-            <h3>{% trans %}checkout.terms{% endtrans %}</h3>
-            <p>
-                <input type="checkbox" name="terms" value="1" title="{% trans %}checkout.terms.required{% endtrans %}">
-                {% trans %}checkout.terms.label{% endtrans %}
-            </p>
-        </section>
-
-        <p>
-            <input type="submit" value="{% trans %}checkout.submit{% endtrans %}">
-        </p>
-    </form>
-
-    <div style="display: none;">
-        <section id="terms" class="terms">
-            <h2>{% trans %}checkout.terms{% endtrans %}</h2>
-            <p>Ich bin Blindtext. Von Geburt an. Es hat lange gedauert, bis ich begriffen habe, was es bedeutet, ein blinder Text zu sein: Man macht keinen Sinn.</p>
-
-            <p>Man wirkt hier und da aus dem Zusammenhang gerissen. Oft wird man gar nicht erst gelesen. Aber bin ich deshalb ein schlechter Text?</p>
-
-            <p>Ich weiß, dass ich nie die Chance haben werde im Stern zu erscheinen. Aber bin ich darum weniger wichtig? Ich bin blind! Aber ich bin gerne Text.</p>
-
-            <p>Und sollten Sie mich jetzt tatsächlich zu Ende lesen, dann habe ich etwas geschafft, was den meisten "normalen" Texten nicht gelingt. Ich bin Blindtext. Von Geburt an.</p>
-
-            <p>Es hat lange gedauert, bis ich begriffen habe, was es bedeutet, ein blinder Text zu sein: Man macht keinen Sinn. Man wirkt hier und da aus dem Zusammenhang gerissen.</p>
-
-            <p>Oft wird man gar nicht erst gelesen. Aber bin ich deshalb ein schlechter Text? Ich weiß, dass ich nie die Chance haben werde im Stern zu erscheinen.</p>
-
-            <p>Aber bin ich darum weniger wichtig? Ich bin blind! Aber ich bin gerne Text.</p>
-
-            <p>Und sollten Sie mich jetzt tatsächlich zu Ende lesen, dann habe ich etwas geschafft, was den meisten "normalen" Texten nicht gelingt. Ich bin Blindtext. Von Geburt an.</p>
-
-            <p>Es hat lange gedauert, bis ich begriffen habe, was es bedeutet, ein blinder Text zu sein: Man macht keinen Sinn. Man wirkt hier und da aus dem Zusammenhang gerissen. Oft wird man gar nicht erst gelesen.</p>
-
-            <p>Aber bin ich deshalb ein schlechter Text? Ich weiß, dass ich nie die Chance haben werde im Stern zu erscheinen. Aber bin ich darum weniger wichtig? Ich bin blind! Aber ich bin gerne Text. Und sollten Sie mich jetzt tatsächlich zu Ende lesen, dann habe ich etwas geschafft, was den meisten "normalen" Texten nicht gelingt. Ich bin Blindtext. Von Geburt an.</p>
-        </section>
-    </div>
+{% block javascripts %}
+    {% javascripts filter='?closure'
+        '@ShopFrontendBundle/Resources/public/js/checkout.js'
+    %}
+        <script src="{{asset_url}}" type="text/javascript"></script>
+    {% endjavascripts %}
 {% endblock %}

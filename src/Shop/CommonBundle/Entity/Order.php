@@ -16,10 +16,18 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Order
 {
+    const PAY_CASH_ON_DELIVERY = 'c';
+
+    const PAY_INVOICE = 'i';
+
+    const SHIP_ECONOMY = 'e';
+
+    const SHIP_PRIORITY = 'p';
+
     /**
      * @var Address
      *
-     * @ORM\ManyToOne(targetEntity="Address")
+     * @ORM\ManyToOne(targetEntity="Address", cascade={"all"})
      * @ORM\JoinColumn(name="billing_address_id", referencedColumnName="id")
      * @Assert\NotBlank()
      */
@@ -83,13 +91,47 @@ class Order
     private $paymentDue;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="payment_fee", type="decimal", precision=20, scale=2)
+     * @Assert\NotBlank()
+     */
+    private $paymentFee;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="payment_type", type="string")
+     * @Assert\NotBlank()
+     * @Assert\Regex(pattern="/^(i|c)$/", message="order.payment_type.invalid")
+     */
+    private $paymentType;
+
+    /**
      * @var Address
      *
-     * @ORM\ManyToOne(targetEntity="Address")
+     * @ORM\ManyToOne(targetEntity="Address", cascade={"all"})
      * @ORM\JoinColumn(name="shipping_address_id", referencedColumnName="id")
      * @Assert\NotBlank()
      */
     private $shippingAddress;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="shipping_type", type="string")
+     * @Assert\NotBlank()
+     * @Assert\Regex(pattern="/^(i|c)$/", message="order.payment_type.invalid")
+     */
+    private $shippingType;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="shipping_fee", type="decimal", precision=20, scale=2)
+     * @Assert\NotBlank()
+     */
+    private $shippingFee;
 
     /**
      * @var float
@@ -122,6 +164,7 @@ class Order
         }
 
         $this->items->add($item);
+        $this->__updateTotalAmount();
     }
 
     /**
@@ -219,11 +262,43 @@ class Order
     }
 
     /**
+     * @return boolean
+     */
+    public function getPaymentFee()
+    {
+        return $this->paymentFee;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getPaymentType()
+    {
+        return $this->paymentType;
+    }
+
+    /**
      * @return \Shop\CommonBundle\Entity\Address
      */
     public function getShippingAddress()
     {
         return $this->shippingAddress;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getShippingFee()
+    {
+        return $this->shippingFee;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getShippingType()
+    {
+        return $this->shippingType;
     }
 
     /**
@@ -248,6 +323,7 @@ class Order
     public function removeItem(OrderItem $item)
     {
         $this->items->removeElement($item);
+        $this->__updateTotalAmount();
     }
 
     /**
@@ -291,11 +367,53 @@ class Order
     }
 
     /**
+     * @param boolean $paymentFee
+     */
+    public function setPaymentFee($paymentFee)
+    {
+        if(!!$this->paymentFee) {
+            $this->totalAmount -= $this->paymentFee;
+        }
+
+        $this->paymentFee = $paymentFee;
+        $this->totalAmount += $paymentFee;
+    }
+
+    /**
+     * @param boolean $paymentType
+     */
+    public function setPaymentType($paymentType)
+    {
+        $this->paymentType = $paymentType;
+    }
+
+    /**
      * @param \Shop\CommonBundle\Entity\Address $shippingAddress
      */
     public function setShippingAddress($shippingAddress)
     {
         $this->shippingAddress = $shippingAddress;
+    }
+
+    /**
+     * @param boolean $shippingFee
+     */
+    public function setShippingFee($shippingFee)
+    {
+        if(!!$this->shippingFee) {
+            $this->totalAmount -= $this->shippingFee;
+        }
+
+        $this->shippingFee = $shippingFee;
+        $this->totalAmount += $shippingFee;
+    }
+
+    /**
+     * @param boolean $shippingType
+     */
+    public function setShippingType($shippingType)
+    {
+        $this->shippingType = $shippingType;
     }
 
     /**
@@ -309,8 +427,18 @@ class Order
     /**
      * @param float $totalAmount
      */
-    public function setTotalAmount($totalAmount)
+    protected function setTotalAmount($totalAmount)
     {
         $this->totalAmount = $totalAmount;
+    }
+
+    public function __updateTotalAmount()
+    {
+        $amount = $this->getShippingFee() + $this->getPaymentFee();
+        foreach($this->getItems() as $item) {
+            $amount += $item->getTotalAmount();
+        }
+
+        $this->setTotalAmount($amount);
     }
 }

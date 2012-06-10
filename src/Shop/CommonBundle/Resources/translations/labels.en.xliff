@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="de" datatype="plaintext" original="file.ext">
+        <body>
+            <!-- USER -->
+            <trans-unit id="0.1">
+                <source>shop.commonbundle.usertype.firstName</source>
+                <target>First name</target>
+            </trans-unit>
+            <trans-unit id="0.2">
+                <source>shop.commonbundle.usertype.lastName</source>
+                <target>Last name</target>
+            </trans-unit>
+            <trans-unit id="0.3">
+                <source>shop.commonbundle.usertype.email</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="0.4">
+                <source>shop.commonbundle.usertype.plainPassword</source>
+                <target>Password</target>
+            </trans-unit>
+
+            <!-- ADMIN LOGIN FORM -->
+            <trans-unit id="1.1">
+                <source>shop.commonbundle.sessiontype.username</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="1.2">
+                <source>shop.commonbundle.sessiontype.password</source>
+                <target>Password</target>
+            </trans-unit>
+
+            <!-- PRODUCT -->
+            <trans-unit id="shop.commonbundle.producttype.deTranslation.name">
+                <source>shop.commonbundle.producttype.deTranslation.name</source>
+                <target>Product name</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.producttype.enTranslation.name">
+                <source>shop.commonbundle.producttype.enTranslation.name</source>
+                <target>Product name</target>
+            </trans-unit>
+            <trans-unit id="2.2">
+                <source>shop.commonbundle.producttype.price</source>
+                <target>Price</target>
+            </trans-unit>
+            <trans-unit id="2.3">
+                <source>shop.commonbundle.producttype.stock</source>
+                <target>Stock</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.producttype.deTranslation.description">
+                <source>shop.commonbundle.producttype.deTranslation.description</source>
+                <target>Product description</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.producttype.enTranslation.description">
+                <source>shop.commonbundle.producttype.enTranslation.description</source>
+                <target>Product description</target>
+            </trans-unit>
+            <trans-unit id="2.5">
+                <source>shop.commonbundle.producttype.imageHandle</source>
+                <target>Image</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.producttype.isFeatured">
+                <source>shop.commonbundle.producttype.isFeatured</source>
+                <target>Featured product</target>
+            </trans-unit>
+            <trans-unit id="2.6">
+                <source>shop.commonbundle.producttype.salesStart</source>
+                <target>Sales start</target>
+            </trans-unit>
+            <trans-unit id="2.7">
+                <source>shop.commonbundle.producttype.salesEnd</source>
+                <target>Sales end</target>
+            </trans-unit>
+            <trans-unit id="2.8">
+                <source>shop.commonbundle.producttype.category</source>
+                <target>Category</target>
+            </trans-unit>
+
+            <!-- CATEGORIES -->
+            <trans-unit id="shop.commonbundle.categorytype.deTranslation.name">
+                <source>shop.commonbundle.categorytype.deTranslation.name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.categorytype.enTranslation.name">
+                <source>shop.commonbundle.categorytype.enTranslation.name</source>
+                <target>Name</target>
+            </trans-unit>
+
+            <!-- CUSTOMERS -->
+            <trans-unit id="shop.commonbundle.customertype.email">
+                <source>shop.commonbundle.customertype.email</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.customertype.plainPassword">
+                <source>shop.commonbundle.customertype.plainPassword</source>
+                <target>Password</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.customertype.firstName">
+                <source>shop.commonbundle.customertype.firstName</source>
+                <target>First name</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.customertype.lastName">
+                <source>shop.commonbundle.customertype.lastName</source>
+                <target>Last name</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.customertype.address.firstName">
+                <source>shop.commonbundle.customertype.address.firstName</source>
+                <target>First name</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.customertype.address.lastName">
+                <source>shop.commonbundle.customertype.address.lastName</source>
+                <target>Last name</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.customertype.address.company">
+                <source>shop.commonbundle.customertype.address.company</source>
+                <target>Company</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.customertype.address.addressLine1">
+                <source>shop.commonbundle.customertype.address.addressLine1</source>
+                <target>Address line 1</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.customertype.address.addressLine2">
+                <source>shop.commonbundle.customertype.address.addressLine2</source>
+                <target>Address line 2</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.customertype.address.zipCode">
+                <source>shop.commonbundle.customertype.address.zipCode</source>
+                <target>ZIP code</target>
+            </trans-unit>
+            <trans-unit id="shop.commonbundle.customertype.address.city">
+                <source>shop.commonbundle.customertype.address.city</source>
+                <target>City</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

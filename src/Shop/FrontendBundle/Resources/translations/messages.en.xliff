@@ -13,7 +13,7 @@
             </trans-unit>
             <trans-unit id="nav.allProducts">
                 <source>nav.allProducts</source>
-                <target>Alle Produkte</target>
+                <target>All products</target>
             </trans-unit>
 
             <trans-unit id="meta.login">
@@ -30,7 +30,7 @@
             </trans-unit>
             <trans-unit id="meta.cart">
                 <source>meta.cart</source>
-                <target>Warenkorb</target>
+                <target>Cart</target>
             </trans-unit>
             <trans-unit id="meta.account">
                 <source>meta.account</source>
@@ -39,20 +39,20 @@
 
             <trans-unit id="controller.cart.productNotFound">
                 <source>controller.cart.productNotFound</source>
-                <target>Produkt nicht gefunden</target>
+                <target>Product not found</target>
             </trans-unit>
             <trans-unit id="controller.cart.productRemoved">
                 <source>controller.cart.productRemoved</source>
-                <target>Das Produkt «%name%» wurde aus dem Warenkorb entfernt</target>
+                <target>«%name%» was removed from your cart</target>
             </trans-unit>
 
             <trans-unit id="login.username.hint">
                 <source>login.username.hint</source>
-                <target>Bitte geben Sie Ihre E-Mail Adresse ein</target>
+                <target>Please enter you email address</target>
             </trans-unit>
             <trans-unit id="login.password.hint">
                 <source>login.password.hint</source>
-                <target>Bitte geben Sie Ihr Passwort ein</target>
+                <target>Please enter your password</target>
             </trans-unit>
             <trans-unit id="login.login">
                 <source>login.login</source>
@@ -60,86 +60,85 @@
             </trans-unit>
             <trans-unit id="login.register">
                 <source>login.register</source>
-                <target>Registrieren</target>
+                <target>Register</target>
             </trans-unit>
             <trans-unit id="login.loggedInAs">
                 <source>login.loggedInAs</source>
-                <target>Angemeldet als</target>
+                <target>Logged in as</target>
             </trans-unit>
             <trans-unit id="login.editAccount">
                 <source>login.editAccount</source>
-                <target>Konto bearbeiten</target>
+                <target>Edit account</target>
             </trans-unit>
             <trans-unit id="login.logout">
                 <source>login.logout</source>
-                <target>Abmelden</target>
+                <target>Logout</target>
             </trans-unit>
 
             <trans-unit id="controller.accounts.created">
                 <source>controller.accounts.created</source>
-                <target>Ihr Account wurde eröffnet</target>
+                <target>Your account was successfully created</target>
             </trans-unit>
             <trans-unit id="controller.accounts.updated">
                 <source>controller.accounts.updated</source>
-                <target>Ihre Angaben wurden aktualisiert</target>
+                <target>Your account data has been updated</target>
             </trans-unit>
 
             <trans-unit id="account.create">
                 <source>account.create</source>
-                <target>Registrieren</target>
+                <target>Register</target>
             </trans-unit>
             <trans-unit id="account.created">
                 <source>account.created</source>
                 <target>
-                    Sie haben sich erfolgreich registriert und können sich nun mit den von Ihnen gewählten
-                    Zugangsdaten einloggen.
+                    You have successfully signed up. You may now log in with the previously entered credentials.
                 </target>
             </trans-unit>
             <trans-unit id="account.edit">
                 <source>account.edit</source>
-                <target>Konto bearbeiten</target>
+                <target>Edit account</target>
             </trans-unit>
 
             <trans-unit id="customer.email.hint">
                 <source>customer.email.hint</source>
-                <target>Geben Sie hier Ihre E-Mail Adresse ein</target>
+                <target>Please enter your email address</target>
             </trans-unit>
             <trans-unit id="customer.password.hint">
                 <source>customer.password.hint</source>
-                <target>Bitte wählen Sie ein min. 6-stelliges Passwort</target>
+                <target>Please choose a password with at least 6 characters</target>
             </trans-unit>
             <trans-unit id="customer.firstName.hint">
                 <source>customer.firstName.hint</source>
-                <target>Geben Sie hier Ihren Vornamen ein</target>
+                <target>Please enter you first name</target>
             </trans-unit>
             <trans-unit id="customer.lastName.hint">
                 <source>customer.lastName.hint</source>
-                <target>Geben Sie hier Ihren Nachnamen ein</target>
+                <target>Please enter your last name</target>
             </trans-unit>
             <trans-unit id="customer.address.company.hint">
                 <source>customer.address.company.hint</source>
-                <target>Geben Sie hier Ihren Firmennamen ein</target>
+                <target>Please enter your company name</target>
             </trans-unit>
             <trans-unit id="customer.address.addressLine1.hint">
                 <source>customer.address.addressLine1.hint</source>
-                <target>Geben Sie hier Ihre Adresse ein</target>
+                <target>Please enter you address</target>
             </trans-unit>
             <trans-unit id="customer.address.addressLine2.hint">
                 <source>customer.address.addressLine2.hint</source>
-                <target>Geben Sie hier Ihren Adresszusatz ein</target>
+                <target>Please enter you address</target>
             </trans-unit>
             <trans-unit id="customer.address.zipCode.hint">
                 <source>customer.address.zipCode.hint</source>
-                <target>Geben Sie hier Ihre PLZ ein</target>
+                <target>Please enter you ZIP code</target>
             </trans-unit>
             <trans-unit id="customer.address.city.hint">
                 <source>customer.address.city.hint</source>
-                <target>Geben Sie hier Ihren Wohnort ein</target>
+                <target>Please enter you city</target>
             </trans-unit>
 
             <trans-unit id="cart.removeItem">
                 <source>cart.removeItem</source>
-                <target>entfernen</target>
+                <target>remove</target>
             </trans-unit>
             <trans-unit id="cart.total">
                 <source>cart.total</source>
@@ -147,37 +146,37 @@
             </trans-unit>
             <trans-unit id="cart.empty">
                 <source>cart.empty</source>
-                <target>Ihr Warenkorb ist leer</target>
+                <target>Your cart ist empty</target>
             </trans-unit>
             <trans-unit id="cart.add">
                 <source>cart.add</source>
-                <target>In den Warenkorb</target>
+                <target>Add to cart</target>
             </trans-unit>
             <trans-unit id="cart.checkout">
                 <source>cart.checkout</source>
-                <target>zur Kasse</target>
+                <target>checkout</target>
             </trans-unit>
 
             <trans-unit id="products.newest">
                 <source>products.newest</source>
-                <target>Neuste Produkte</target>
+                <target>Newest products</target>
             </trans-unit>
 
             <trans-unit id="checkout.loginMessage">
                 <source>checkout.loginMessage</source>
-                <target>Bevor Sie Ihre Bestellung abschliessen können, müssen Sie sich einloggen.</target>
+                <target>You must log in before you can proceed to the checkout.</target>
             </trans-unit>
             <trans-unit id="checkout.registrationMessage">
                 <source>checkout.registrationMessage</source>
-                <target>Wenn Sie sich bei uns noch nicht registriert haben, dann können Sie dies hier tun.</target>
+                <target>If you have not signed up yet you may do it here.</target>
             </trans-unit>
             <trans-unit id="checkout.unitPrice">
                 <source>checkout.unitPrice</source>
-                <target>Stückpreis</target>
+                <target>Unit price</target>
             </trans-unit>
             <trans-unit id="checkout.quantity">
                 <source>checkout.quantity</source>
-                <target>Menge</target>
+                <target>Quantity</target>
             </trans-unit>
             <trans-unit id="checkout.total">
                 <source>checkout.total</source>
@@ -185,11 +184,11 @@
             </trans-unit>
             <trans-unit id="checkout.head">
                 <source>checkout.head</source>
-                <target>Bestellung abschliessen</target>
+                <target>Confirm order</target>
             </trans-unit>
             <trans-unit id="checkout.shipment">
                 <source>checkout.shipment</source>
-                <target>Versand</target>
+                <target>Shipping</target>
             </trans-unit>
             <trans-unit id="checkout.shipment.priority">
                 <source>checkout.shipment.priority</source>
@@ -201,64 +200,64 @@
             </trans-unit>
             <trans-unit id="checkout.payment">
                 <source>checkout.payment</source>
-                <target>Bezahlung</target>
+                <target>Payment</target>
             </trans-unit>
             <trans-unit id="checkout.payment.invoice">
                 <source>checkout.payment.invoice</source>
-                <target>Rechnung</target>
+                <target>Invoice</target>
             </trans-unit>
             <trans-unit id="checkout.payment.cod">
                 <source>checkout.payment.cod</source>
-                <target>Nachnahme</target>
+                <target>Cash on Delivery</target>
             </trans-unit>
             <trans-unit id="checkout.terms">
                 <source>checkout.terms</source>
-                <target>AGB</target>
+                <target>Term and Conditions</target>
             </trans-unit>
             <trans-unit id="checkout.terms.label">
                 <source>checkout.terms.label</source>
                 <target>
                     <![CDATA[
-                        Ich habe die <a href="#termsDetails" class="fancybox">AGB</a> gelesen und akzeptiert.
+                        I have read and accept the <a href="#termsDetails" class="fancybox">Terms and Conditions</a>.
                     ]]>
                 </target>
             </trans-unit>
             <trans-unit id="checkout.terms.required">
                 <source>checkout.terms.required</source>
-                <target>Sie müssen die AGB lesen und akzeptieren</target>
+                <target>You must read and accept the Terms and Conditions</target>
             </trans-unit>
             <trans-unit id="checkout.submit">
                 <source>checkout.submit</source>
-                <target>Bestellung abschliessen</target>
+                <target>Confirm order</target>
             </trans-unit>
             <trans-unit id="checkout.error.cartEmpty">
                 <source>checkout.error.cartEmpty</source>
-                <target>Ihr Warenkorb ist leer</target>
+                <target>Your cart is empty</target>
             </trans-unit>
             <trans-unit id="checkout.billingAddress">
                 <source>checkout.billingAddress</source>
-                <target>Rechnungsadresse</target>
+                <target>Billing address</target>
             </trans-unit>
             <trans-unit id="checkout.shippingAddress">
                 <source>checkout.shippingAddress</source>
-                <target>Lieferadresse</target>
+                <target>Shipping address</target>
             </trans-unit>
             <trans-unit id="checkout.differentShippingAddress">
                 <source>checkout.differentShippingAddress</source>
-                <target>Abweichende Lieferadresse</target>
+                <target>Different shipping adddress</target>
             </trans-unit>
             <trans-unit id="checkout.confirmation">
                 <source>checkout.confirmation</source>
-                <target>Vielen Dank für Ihre Bestellung. Sie erhalten in kürze eine Bestellbestätigung per E-Mail.</target>
+                <target>Thank you for your order. You will receive an order confirmation by email shortly.</target>
             </trans-unit>
             <trans-unit id="checkout.confirmation.header">
                 <source>checkout.confirmation.header</source>
-                <target>Bestellung abgeschlossen.</target>
+                <target>Order submitted</target>
             </trans-unit>
 
             <trans-unit id="orderConfirmation.subject">
                 <source>orderConfirmation.subject</source>
-                <target>Bestellbestätigung</target>
+                <target>Order confirmation</target>
             </trans-unit>
         </body>
     </file>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="de" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="category.name.taken">
+                <source>category.name.taken</source>
+                <target>This name ist already taken</target>
+            </trans-unit>
+
+            <trans-unit id="address.zip_code.invalid">
+                <source>address.zip_code.invalid</source>
+                <target>Please enter a valid zip code</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="shop.frontendbundle.checkouttype.billingAddress.firstName">
+                <source>shop.frontendbundle.checkouttype.billingAddress.firstName</source>
+                <target>First name</target>
+            </trans-unit>
+            <trans-unit id="shop.frontendbundle.checkouttype.billingAddress.lastName">
+                <source>shop.frontendbundle.checkouttype.billingAddress.lastName</source>
+                <target>Lastn ame</target>
+            </trans-unit>
+            <trans-unit id="shop.frontendbundle.checkouttype.billingAddress.company">
+                <source>shop.frontendbundle.checkouttype.billingAddress.company</source>
+                <target>Company</target>
+            </trans-unit>
+            <trans-unit id="shop.frontendbundle.checkouttype.billingAddress.addressLine1">
+                <source>shop.frontendbundle.checkouttype.billingAddress.addressLine1</source>
+                <target>Address line 1</target>
+            </trans-unit>
+            <trans-unit id="shop.frontendbundle.checkouttype.billingAddress.addressLine2">
+                <source>shop.frontendbundle.checkouttype.billingAddress.addressLine2</source>
+                <target>Address line 2</target>
+            </trans-unit>
+            <trans-unit id="shop.frontendbundle.checkouttype.billingAddress.zipCode">
+                <source>shop.frontendbundle.checkouttype.billingAddress.zipCode</source>
+                <target>ZIP code</target>
+            </trans-unit>
+            <trans-unit id="shop.frontendbundle.checkouttype.billingAddress.city">
+                <source>shop.frontendbundle.checkouttype.billingAddress.city</source>
+                <target>City</target>
+            </trans-unit>
+
+            <trans-unit id="shop.frontendbundle.checkouttype.shippingAddress.firstName">
+                <source>shop.frontendbundle.checkouttype.shippingAddress.firstName</source>
+                <target>First name</target>
+            </trans-unit>
+            <trans-unit id="shop.frontendbundle.checkouttype.shippingAddress.lastName">
+                <source>shop.frontendbundle.checkouttype.shippingAddress.lastName</source>
+                <target>Last name</target>
+            </trans-unit>
+            <trans-unit id="shop.frontendbundle.checkouttype.shippingAddress.company">
+                <source>shop.frontendbundle.checkouttype.shippingAddress.company</source>
+                <target>Company</target>
+            </trans-unit>
+            <trans-unit id="shop.frontendbundle.checkouttype.shippingAddress.addressLine1">
+                <source>shop.frontendbundle.checkouttype.shippingAddress.addressLine1</source>
+                <target>Address line 1</target>
+            </trans-unit>
+            <trans-unit id="shop.frontendbundle.checkouttype.shippingAddress.addressLine2">
+                <source>shop.frontendbundle.checkouttype.shippingAddress.addressLine2</source>
+                <target>Address line 2</target>
+            </trans-unit>
+            <trans-unit id="shop.frontendbundle.checkouttype.shippingAddress.zipCode">
+                <source>shop.frontendbundle.checkouttype.shippingAddress.zipCode</source>
+                <target>ZIP code</target>
+            </trans-unit>
+            <trans-unit id="shop.frontendbundle.checkouttype.shippingAddress.city">
+                <source>shop.frontendbundle.checkouttype.shippingAddress.city</source>
+                <target>City</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

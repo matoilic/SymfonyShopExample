@@ -123,11 +123,35 @@ class Product
     }
 
     /**
+     * @param int $quantity
+     */
+    public function addStock($quantity)
+    {
+        $this->stock += $quantity;
+    }
+
+    /**
      * @param ProductText $text
      */
     public function addText(ProductText $text)
     {
         $this->texts->add($text);
+    }
+
+    /**
+     * @param float $amount
+     */
+    public function addTotalRevenue($amount)
+    {
+        $this->totalRevenue = $amount;
+    }
+
+    /**
+     * @param int $quantity
+     */
+    public function addTotalSales($quantity)
+    {
+        $this->totalSales += $quantity;
     }
 
     /**

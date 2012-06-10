@@ -69,6 +69,16 @@ class CartService
     }
 
     /**
+     * For internal use only
+     *
+     * @return \Shop\CommonBundle\Entity\Cart
+     */
+    public function __exportCart()
+    {
+        return $this->cart;
+    }
+
+    /**
      * @return bool
      */
     public function getIsCartEmpty()
