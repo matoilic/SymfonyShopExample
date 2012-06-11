@@ -41,6 +41,13 @@
     <title>{% block title %}{% endblock%} | Poster Shop</title>
 </head>
 <body>
+    <section class="langauge-switch">
+        <nav>
+            <a href="{{path('shop_frontend_index_index', {'_locale': 'de'})}}">de</a>
+            <a href="{{path('shop_frontend_index_index', {'_locale': 'en'})}}">en</a>
+        </nav>
+    </section>
+
     <section class="meta" id="meta">
         {% if is_granted('ROLE_IS_AUTHENTICATED') %}
             {% render "shop.frontend.controller.accounts:summaryAction" %}
@@ -66,7 +73,7 @@
 
     <header>
         <h1>{% trans %}site.title{% endtrans %}</h1>
-        <nav>
+        <nav class="main">
             <ul>
                 <li><a href="{{path('shop_frontend_index_index')}}">{% trans %}nav.home{% endtrans %}</a></li>
                 {% for category in categories %}

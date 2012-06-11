@@ -1,19 +1,21 @@
 <section id="product" class="product-details">
     <h1>{{ product.name }}</h1>
 
-    <div class="left">
-        <img src="{{ product.imageWebPath | apply_filter('product_detail') }}">
-        <footer>
-            <div class="price">{{ product.price | currency }}</div>
-            {% if not hideCartButton %}
-                <button data-cart="{{path('shop_frontend_cart_addproduct', {'id': product.id})}}" id="cart-{{product.id}}">
-                    {% trans %}cart.add{% endtrans %}
-                </button>
-            {% endif %}
-        </footer>
-    </div>
+    <div class="inner">
+        <div class="left">
+            <img src="{{ product.imageWebPath | apply_filter('product_detail') }}">
+            <footer>
+                <div class="price">{{ product.price | currency }}</div>
+                {% if not hideCartButton %}
+                    <button data-cart="{{path('shop_frontend_cart_addproduct', {'id': product.id})}}" id="cart-{{product.id}}">
+                        {% trans %}cart.add{% endtrans %}
+                    </button>
+                {% endif %}
+            </footer>
+        </div>
 
-    <div class="right">
-        {{ product.description | raw }}
+        <div class="right">
+            {{ product.description | raw }}
+        </div>
     </div>
 </section>
