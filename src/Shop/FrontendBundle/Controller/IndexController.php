@@ -7,8 +7,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Shop\CommonBundle\Repository\ProductRepository;
 
-//TODO receipt PDF
-
 /**
  * @Route("/", name="index", service="shop.frontend.controller.index")
  */

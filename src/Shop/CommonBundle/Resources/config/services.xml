@@ -19,7 +19,7 @@
     -->
 
     <services>
-        <service id="shop.common.request" class="Symfony\Component\HttpFoundation\Request" />
+
 
         <service id="shop.common.repository.category" class="Shop\CommonBundle\Repository\CategoryRepository" factory-service="doctrine.orm.default_entity_manager" factory-method="getRepository">
             <argument>Shop\CommonBundle\Entity\Category</argument>
@@ -65,6 +65,8 @@
         <service id="twig.extension.shop.common.globals" class="Shop\CommonBundle\Twig\Extension\Globals" public="false">
             <tag name="twig.extension" />
             <argument type="service" id="session" />
+            <argument type="service" id="shop.common.repository.category" />
+            <argument type="service" id="shop.common.presenter_factory" />
         </service>
 
         <service id="twig.extension.shop.common.currency" class="Shop\CommonBundle\Twig\Extension\Currency" public="false">
@@ -91,6 +93,7 @@
         <service id="shop.common.presenter_factory" class="Shop\CommonBundle\Presenter\PresenterFactory">
             <argument type="service" id="annotation_reader" />
             <argument type="service" id="session" />
+            <argument type="service" id="service_container" />
         </service>
     </services>
 </container>

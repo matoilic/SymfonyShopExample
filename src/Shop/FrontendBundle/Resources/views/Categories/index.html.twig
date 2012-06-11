@@ -1,0 +1,17 @@
+{% extends "ShopFrontendBundle:Layouts:default.html.twig" %}
+{% block title %}{{category.name}}{% endblock%}
+
+{% block content %}
+    <section class="products">
+        <h2>{{category.name}}</h2>
+
+        {% for product in products %}
+            <article class="product">
+                <h3>{{product.name}}</h3>
+                <a class="fancybox" href="{{path('shop_frontend_products_show', {'id': product.id})}}">
+                    <img src="{{product.imageWebPath | apply_filter('product_preview')}}">
+                </a>
+            </article>
+        {% endfor %}
+    </section>
+{% endblock %}

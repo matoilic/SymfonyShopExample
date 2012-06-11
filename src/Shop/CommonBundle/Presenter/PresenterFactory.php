@@ -4,6 +4,8 @@ namespace Shop\CommonBundle\Presenter;
 
 use Doctrine\Common\Annotations\Reader;
 use Symfony\Component\HttpFoundation\Session;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Shop\CommonBundle\Configuration\PresentedBy;
 
 class PresenterFactory
@@ -27,10 +29,14 @@ class PresenterFactory
      * @param \Doctrine\Common\Annotations\Reader $annotationReader
      * @param \Symfony\Component\HttpFoundation\Session $session
      */
-    public function __construct(Reader $annotationReader, Session $session)
+    public function __construct(Reader $annotationReader, Session $session, ContainerInterface $container)
     {
         $this->annotationReader = $annotationReader;
-        $this->locale = $session->getLocale();
+        if(strpos($_SERVER['PATH_INFO'], '/en/') > -1) {
+            $this->locale = 'en';
+        } else {
+            $this->locale = 'de';
+        }
     }
 
     /**

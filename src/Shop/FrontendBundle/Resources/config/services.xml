@@ -15,6 +15,17 @@
             </call>
         </service>
 
+        <service id="shop.frontend.controller.categories" class="Shop\FrontendBundle\Controller\CategoriesController">
+            <argument type="service" id="shop.common.repository.product" />
+            <argument type="service" id="shop.common.repository.category" />
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+            <call method="setPresenterFactory">
+                <argument type="service" id="shop.common.presenter_factory" />
+            </call>
+        </service>
+
         <service id="shop.frontend.controller.cart" class="Shop\FrontendBundle\Controller\CartController">
             <argument type="service" id="shop.frontend.service.cart" />
             <argument type="service" id="shop.common.repository.product" />

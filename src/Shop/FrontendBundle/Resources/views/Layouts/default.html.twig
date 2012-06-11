@@ -69,7 +69,13 @@
         <nav>
             <ul>
                 <li><a href="{{path('shop_frontend_index_index')}}">{% trans %}nav.home{% endtrans %}</a></li>
-                <li><a href="#">{% trans %}nav.allProducts{% endtrans %}</a></li>
+                {% for category in categories %}
+                    <li>
+                        <a href="{{path('shop_frontend_categories_index', {'id': category.id})}}">
+                            {{category.name}}
+                        </a>
+                    </li>
+                {% endfor %}
             </ul>
         </nav>
     </header>

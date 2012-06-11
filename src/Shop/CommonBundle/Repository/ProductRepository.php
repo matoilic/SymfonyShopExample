@@ -22,6 +22,24 @@ class ProductRepository extends Repository
         return $query->getResult();
     }
 
+    /**
+     * @param int $categoryId
+     * @return array
+     */
+    public function findAllPublishedByCategory($categoryId)
+    {
+        $query = $this->_em->createQuery("
+            select p from Shop\CommonBundle\Entity\Product p
+            where p.salesStart <= :now and (p.salesEnd is null or p.salesEnd > :now) and p.category = :categoryId
+            order by p.salesStart desc
+        ");
+
+        $query->setParameter('now', new \DateTime());
+        $query->setParameter('categoryId', $categoryId);
+
+        return $query->getResult();
+    }
+
     public function findFeatured()
     {
         $query = $this->_em->createQuery("
