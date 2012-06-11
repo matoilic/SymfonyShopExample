@@ -2,8 +2,10 @@
 
 namespace Shop\FrontendBundle\FrameworkListener;
 
+use Symfony\Component\HttpKernel\KernelInterface;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Shop\CommonBundle\Entity\Order;
+use Shop\CommonBundle\Presenter\PresenterFactory;
 
 class OrderConfirmation
 {
@@ -12,9 +14,52 @@ class OrderConfirmation
      */
     private $container;
 
-    public function __construct($container)
+    /**
+     * @var string
+     */
+    private $pdfCacheDir;
+
+    /**
+     * @var string
+     */
+    private $pdfBaseDir;
+
+    /**
+     * @var \Shop\CommonBundle\Presenter\PresenterFactory
+     */
+    private $presenterFactory;
+
+    public function __construct($container, KernelInterface $kernel, PresenterFactory $presenterFactory)
     {
         $this->container = $container;
+        $this->pdfCacheDir = $kernel->getCacheDir() . '/pdf/';
+        $this->pdfBaseDir = $kernel->getRootDir() . '/../web/';
+        $this->presenterFactory = $presenterFactory;
+
+        if(!file_exists($this->pdfCacheDir)) {
+            mkdir($this->pdfCacheDir, 0755, true);
+        }
+    }
+
+    /**
+     * @param Order $order
+     * @return string
+     */
+    private function generatePdf(Order $order)
+    {
+        $html = $this->renderView('ShopFrontendBundle:Pdfs:orderConfirmation.html.twig', array(
+            'order' => $this->presenterFactory->present($order)
+        ));
+
+        $pdf = new \DOMPDF();
+        $pdf->set_base_path($this->pdfBaseDir);
+        $pdf->load_html($html);
+        $pdf->render();
+
+        $filePath = $this->pdfCacheDir . $order->getOrderId() . '.pdf';
+        file_put_contents($filePath, $pdf->output(array("compress" => 0)));
+
+        return $filePath;
     }
 
     /**
@@ -42,11 +87,17 @@ class OrderConfirmation
      */
     private function sendConfirmationEmail(Order $order)
     {
+        $pdf = $this->generatePdf($order);
+
         $message = \Swift_Message::newInstance()
             ->setSubject($this->translate('orderConfirmation.subject'))
             ->setFrom('noreply@example.com')
             ->setTo($order->getCustomer()->getEmail())
-            ->setBody($this->renderView('ShopFrontendBundle:Mails:orderConfirmation.html.twig', array('order' => $order)))
+            ->setBody($this->renderView('ShopFrontendBundle:Mails:orderConfirmation.html.twig', array(
+                'order' => $this->presenterFactory->present($order)
+            )))
+            ->attach(\Swift_Attachment::fromPath($pdf))
+            ->setContentType('text/html')
         ;
 
         $this->container->get('mailer')->send($message);

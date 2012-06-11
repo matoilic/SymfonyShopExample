@@ -73,6 +73,8 @@
 
         <service id="shop.frontend.listener.orderConformation" class="Shop\FrontendBundle\FrameworkListener\OrderConfirmation">
             <argument type="service" id="service_container" />
+            <argument type="service" id="kernel" />
+            <argument type="service" id="shop.common.presenter_factory" />
             <tag name="doctrine.event_listener" event="postPersist" />
         </service>
     </services>

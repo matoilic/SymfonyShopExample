@@ -259,6 +259,21 @@
                 <source>orderConfirmation.subject</source>
                 <target>Order confirmation</target>
             </trans-unit>
+            <trans-unit id="orderConfirmation.body">
+                <source>orderConfirmation.body</source>
+                <target>
+                    Dear %name%,
+
+                    Thank you for ordering at Poster Shop. Please find attached your order confirmation.
+
+                    Kind Regards
+                    The Poster Shop Team
+                </target>
+            </trans-unit>
+            <trans-unit id="orderConfirmation.header">
+                <source>orderConfirmation.header</source>
+                <target>Order confirmation</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

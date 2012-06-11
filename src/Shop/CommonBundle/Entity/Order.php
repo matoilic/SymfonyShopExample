@@ -7,12 +7,14 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Shop\CommonBundle\Configuration\PresentedBy;
 
 /**
  * Shop\CommonBundle\Entity\Order
  *
  * @ORM\Table(name="orders")
  * @ORM\Entity(repositoryClass="Shop\CommonBundle\Repository\OrderRepository")
+ * @PresentedBy("Shop\CommonBundle\Presenter\OrderPresenter")
  */
 class Order
 {
@@ -251,6 +253,14 @@ class Order
     public function getItems()
     {
         return $this->items->toArray();
+    }
+
+    /**
+     * @return string
+     */
+    public function getOrderId()
+    {
+        return sprintf('%08d', $this->getId());
     }
 
     /**

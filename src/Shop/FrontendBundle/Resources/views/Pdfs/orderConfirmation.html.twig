@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css">
+        body {
+            font-family: Helvetica;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td, th {
+            text-align: center;
+        }
+
+        td {
+            padding: 0.5em 0.5em 0 0;
+        }
+
+        td:last-child {
+            padding: 0;
+        }
+
+        td:first-child {
+            text-align: left;
+        }
+
+        td:last-child,
+        th:last-child {
+            text-align: right;
+        }
+
+        tbody tr {
+            border-bottom: 1px dotted $dark;
+        }
+
+        tfoot {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        tfoot td:last-child {
+            padding-top: 1em;
+            text-align: right;
+        }
+
+        table img {
+            margin-bottom: 0.5em;
+        }
+
+        .address {
+            float: left;
+            margin-right: 1em;
+            width: 30%;
+        }
+
+        h1 {
+            border-bottom: 3px solid #000000;
+        }
+    </style>
+</head>
+<body>
+    <h1>{% trans %}site.title{% endtrans %}</h1>
+
+    <h2>{% trans %}orderConfirmation.header{% endtrans %}</h2>
+
+    <table cellpadding="0" cellspacing="0" border="0">
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>{% trans %}checkout.unitPrice{% endtrans %}</th>
+            <th>{% trans %}checkout.quantity{% endtrans %}</th>
+            <th>{% trans %}checkout.total{% endtrans %}</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for item in order.items %}
+                <tr>
+                    <td>
+                        <img src="{{ item.product.imageWebPath | apply_filter('checkout') | filter_image_path }}" />
+                    </td>
+                    <td>
+                        {{ item.product.name }}
+                    </td>
+                    <td>{{ item.finalUnitPrice | currency }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.totalAmount | currency }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="5">{% trans %}checkout.total{% endtrans %} {{ order.totalAmount | currency }}</td>
+        </tr>
+        </tfoot>
+    </table>
+
+    <section class="address">
+        <h3>{% trans %}checkout.billingAddress{% endtrans %}</h3>
+
+        {% set address = order.billingAddress %}
+
+        {{address.firstName}} {{address.lastName}}<br>
+        {% if address.company is not empty %}{{address.company}}<br>{% endif %}
+        {{address.addressLine1}}<br>
+        {% if address.addressLine2 is not empty %}{{address.addressLine2}}<br>{% endif %}
+        {{address.zipCode}} {{address.city}}<br>
+    </section>
+
+    <section class="address">
+        <h3>{% trans %}checkout.shippingAddress{% endtrans %}</h3>
+
+        {% set address = order.shippingAddress %}
+
+        {{address.firstName}} {{address.lastName}}<br>
+        {% if address.company is not empty %}{{address.company}}<br>{% endif %}
+        {{address.addressLine1}}<br>
+        {% if address.addressLine2 is not empty %}{{address.addressLine2}}<br>{% endif %}
+        {{address.zipCode}} {{address.city}}<br>
+    </section>
+</body>
+</html>

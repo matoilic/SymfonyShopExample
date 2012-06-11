@@ -4,12 +4,14 @@ namespace Shop\CommonBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Shop\CommonBundle\Configuration\PresentedBy;
 
 /**
  * Shop\CommonBundle\Entity\Order
  *
  * @ORM\Table(name="order_items")
  * @ORM\Entity(repositoryClass="Shop\CommonBundle\Repository\OrderItemRepository")
+ * @PresentedBy("Shop\CommonBundle\Presenter\OrderItemPresenter")
  */
 class OrderItem
 {
@@ -71,6 +73,14 @@ class OrderItem
      * @Assert\NotBlank()
      */
     private $unitPrice;
+
+    /**
+     * @return float
+     */
+    public function getFinalUnitPrice()
+    {
+        return $this->getUnitPrice() - $this->getUnitDiscount();
+    }
 
     /**
      * @return int
