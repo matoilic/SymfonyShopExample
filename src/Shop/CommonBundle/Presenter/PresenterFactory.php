@@ -32,7 +32,7 @@ class PresenterFactory
     public function __construct(Reader $annotationReader, Session $session, ContainerInterface $container)
     {
         $this->annotationReader = $annotationReader;
-        if(strpos($_SERVER['PATH_INFO'], '/en/') > -1) {
+        if(array_key_exists('PATH_INFO', $_SERVER) && strpos($_SERVER['PATH_INFO'], '/en/') > -1) {
             $this->locale = 'en';
         } else {
             $this->locale = 'de';
