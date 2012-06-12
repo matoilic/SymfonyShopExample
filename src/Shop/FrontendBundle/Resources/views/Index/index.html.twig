@@ -4,7 +4,7 @@
 {% block content %}
     <section class="featured-products">
         {% for product in featured %}
-            <article class="product featured-product">
+            <article class="product featured-product{% if product.isSoldOut %} soldOut{% endif %}">
                 <h2>{{product.name}}</h2>
                 <p>
                     <a class="fancybox" href="{{path('shop_frontend_products_show', {'id': product.id})}}">
@@ -19,7 +19,7 @@
         <h2>{% trans %}products.newest{% endtrans %}</h2>
 
         {% for product in newest %}
-            <article class="product">
+            <article class="product{% if product.isSoldOut %} soldOut{% endif %}">
                 <h3>{{product.name}}</h3>
                 <a class="fancybox" href="{{path('shop_frontend_products_show', {'id': product.id})}}">
                     <img src="{{product.imageWebPath | apply_filter('product_preview')}}">

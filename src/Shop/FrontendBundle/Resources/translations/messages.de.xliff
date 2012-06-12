@@ -162,6 +162,10 @@
                 <source>products.newest</source>
                 <target>Neuste Produkte</target>
             </trans-unit>
+            <trans-unit id="product.soldOut">
+                <source>product.soldOut</source>
+                <target>Ausverkauft</target>
+            </trans-unit>
 
             <trans-unit id="checkout.loginMessage">
                 <source>checkout.loginMessage</source>

@@ -249,6 +249,14 @@ class Product
     }
 
     /**
+     * @return bool
+     */
+    public function getIsSoldOut()
+    {
+        return $this->getStock() <= 0;
+    }
+
+    /**
      * @return float
      */
     public function getPrice()

@@ -158,8 +158,12 @@
             </trans-unit>
 
             <trans-unit id="products.newest">
-                <source>products.newest</source>
+                <source>product.newest</source>
                 <target>Newest products</target>
+            </trans-unit>
+            <trans-unit id="product.soldOut">
+                <source>products.soldOut</source>
+                <target>Sold out</target>
             </trans-unit>
 
             <trans-unit id="checkout.loginMessage">

@@ -76,6 +76,14 @@ class ProductPresenter
     }
 
     /**
+     * @return bool
+     */
+    public function getIsSoldOut()
+    {
+        return $this->product->getIsSoldOut();
+    }
+
+    /**
      * @return string
      */
     public function getName()
