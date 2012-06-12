@@ -116,6 +116,8 @@ class CheckoutService
 
             $this->entityManager->getConnection()->commit();
 
+            $this->cartService->truncate();
+
             return $order;
         } catch(\Exception $e) {
             $this->entityManager->getConnection()->rollback();

@@ -19,10 +19,11 @@
     %}
         <link rel="stylesheet" href="{{asset_url}}" type="text/css">
     {% endstylesheets %}
+
     {% stylesheets filter='compass,?yui_css'
         '@ShopBackendBundle/Resources/public/css/login.scss'
     %}
-    <link rel="stylesheet" href="{{asset_url}}" type="text/css">
+        <link rel="stylesheet" href="{{asset_url}}" type="text/css">
     {% endstylesheets %}
 
     <title>Administration | {% trans %}login.header{% endtrans %}</title>

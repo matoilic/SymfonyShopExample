@@ -7,17 +7,18 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 /**
- * @Route("/index", name="index")
+ * @Route("/", name="index")
  */
 class IndexController extends Controller
 {
     /**
      * @Route("")
      * @Method({"GET"})
-     * @Template()
      */
-    public function indexAction($name)
+    public function indexAction()
     {
-        return array('name' => $name);
+        return new \Symfony\Component\HttpFoundation\RedirectResponse(
+            $this->route('shop_backend_products_index')
+        );
     }
 }

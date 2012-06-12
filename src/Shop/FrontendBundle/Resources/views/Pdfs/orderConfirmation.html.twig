@@ -59,6 +59,11 @@
         h1 {
             border-bottom: 3px solid #000000;
         }
+
+        .shipping-payment {
+            margin-top: 0.8em;
+            text-align: right;
+        }
     </style>
 </head>
 <body>
@@ -97,6 +102,11 @@
         </tr>
         </tfoot>
     </table>
+
+    <section class="shipping-payment">
+        <strong>{{ 'checkout.shipment' | trans }}:</strong> {{ order.shippingFee | currency }}<br>
+        {% if order.paymentFee > 0 %}<strong>{{ 'checkout.payment.cod' | trans}}:</strong> {{ order.paymentFee | currency }}{% endif %}
+    </section>
 
     <section class="address">
         <h3>{% trans %}checkout.billingAddress{% endtrans %}</h3>

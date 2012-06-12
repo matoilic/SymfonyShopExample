@@ -129,6 +129,13 @@ class CartService
         $this->cart->removeItem($this->cart->findItemForProduct($product));
     }
 
+    public function truncate()
+    {
+        $this->session->remove(self::CART_SESSION_KEY);
+        $this->session->save();
+        $this->cart = new Cart();
+    }
+
     /**
      * @param \Shop\CommonBundle\Entity\Product $product
      * @param int $quantity
