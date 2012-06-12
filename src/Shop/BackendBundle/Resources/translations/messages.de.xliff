@@ -265,6 +265,24 @@
                 <source>order.total</source>
                 <target>Total</target>
             </trans-unit>
+
+            <!-- CUSTOMERS -->
+            <trans-unit id="customers">
+                <source>customers</source>
+                <target>Kunden</target>
+            </trans-unit>
+            <trans-unit id="customer.firstName">
+                <source>customer.firstName</source>
+                <target>Vorname</target>
+            </trans-unit>
+            <trans-unit id="customer.lastName">
+                <source>customer.lastName</source>
+                <target>Nachname</target>
+            </trans-unit>
+            <trans-unit id="customer.email">
+                <source>customer.email</source>
+                <target>E-Mail</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

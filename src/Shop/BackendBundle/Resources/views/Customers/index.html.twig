@@ -1,0 +1,29 @@
+{% extends "ShopBackendBundle:Layouts:default.html.twig" %}
+
+{% block javascripts %}
+    {% javascripts filter='?closure'
+        '@ShopBackendBundle/Resources/public/js/customers.js'
+    %}
+        <script type="text/javascript" src="{{asset_url}}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block title %}{% trans %}customers{% endtrans %}{% endblock %}
+
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th class="sortable"><span>{% trans %}customer.firstName{% endtrans %}</span></th>
+                <th class="sortable"><span>{% trans %}customer.lastName{% endtrans %}</span></th>
+                <th class="sortable"><span>{% trans %}customer.email{% endtrans %}</span></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="orders">
+            {% for customer in customers %}
+                {% include 'ShopBackendBundle:Customers:customerRow.html.twig' %}
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

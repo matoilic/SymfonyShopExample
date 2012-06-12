@@ -1,0 +1,10 @@
+<tr data-customer="{{customer.id}}">
+    <td>{{customer.firstName}}</td>
+    <td>{{customer.lastName}}</td>
+    <td>{{customer.email}}</td>
+    <td>
+        <a href="{{path('shop_backend_customers_show', {'id': customer.id})}}" class="details">
+            {{ 'details' | trans }}
+        </a>
+    </td>
+</tr>

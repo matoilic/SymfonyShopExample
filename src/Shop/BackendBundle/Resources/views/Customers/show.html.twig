@@ -1,0 +1,10 @@
+<section class="customer">
+    {% set address = customer.address %}
+
+    {{address.firstName}} {{address.lastName}}<br>
+    {% if address.company is not empty %}{{address.company}}<br>{% endif %}
+    {{address.addressLine1}}<br>
+    {% if address.addressLine2 is not empty %}{{address.addressLine2}}<br>{% endif %}
+    {{address.zipCode}} {{address.city}}<br>
+    <a href="mailto:{{customer.email}}">{{customer.email}}</a>
+</section>
