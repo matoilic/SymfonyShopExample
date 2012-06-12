@@ -33,7 +33,8 @@
         <h1>Poster Shop Admin</h1>
         <nav>
             <ul>
-                <li><a href="#">Profil</a></li>
+                <li><a href="{{path('shop_backend_products_index', {'_locale': 'de'})}}">de</a></li>
+                <li><a href="{{path('shop_backend_products_index', {'_locale': 'en'})}}">en</a></li>
                 <li><a href="{{path('shop_backend_sessions_destroy')}}">{% trans %}logout{% endtrans %}</a></li>
             </ul>
         </nav>
@@ -46,6 +47,7 @@
         <ul>
             <li><a href="{{path("shop_backend_categories_index")}}">{% trans %}categories{% endtrans %}</a></li>
             <li><a href="{{path("shop_backend_products_index")}}">{% trans %}products{% endtrans %}</a></li>
+            <li><a href="{{path("shop_backend_orders_index")}}">{% trans %}orders{% endtrans %}</a></li>
         </ul>
     </nav>
 

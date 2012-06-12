@@ -1,0 +1,9 @@
+<tr data-order="{{order.id}}">
+    <td>{{order.orderId}}</td>
+    <td>{{order.billingAddress.firstName}}</td>
+    <td>{{order.billingAddress.lastName}}</td>
+    <td>{{order.totalAmount | currency}}</td>
+    <td>{% if order.isShipped %}{{'yes' | trans}}{% else %}{{ 'no' |trans }}{% endif %}</td>
+    <td>{% if order.isPaid %}{{'yes' | trans}}{% else %}{{ 'no' |trans }}{% endif %}</td>
+    <td><a class="details" href="{{path('shop_backend_orders_show', {'id': order.id})}}">{{ 'details' | trans}}</a></td>
+</tr>

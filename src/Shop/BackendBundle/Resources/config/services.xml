@@ -49,5 +49,15 @@
                 <argument type="service" id="shop.common.presenter_factory" />
             </call>
         </service>
+
+        <service id="shop.backend.controller.orders" class="Shop\BackendBundle\Controller\OrdersController">
+            <argument type="service" id="shop.common.repository.order" />
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+            <call method="setPresenterFactory">
+                <argument type="service" id="shop.common.presenter_factory" />
+            </call>
+        </service>
     </services>
 </container>

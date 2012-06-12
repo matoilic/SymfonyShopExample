@@ -23,6 +23,18 @@
                 <source>delete</source>
                 <target>Delete</target>
             </trans-unit>
+            <trans-unit id="0.6">
+                <source>yes</source>
+                <target>Yes</target>
+            </trans-unit>
+            <trans-unit id="0.7">
+                <source>no</source>
+                <target>No</target>
+            </trans-unit>
+            <trans-unit id="0.8">
+                <source>details</source>
+                <target>Details</target>
+            </trans-unit>
 
             <!-- CATEGORIES MANAGEMENT -->
             <trans-unit id="1.1">
@@ -202,6 +214,44 @@
             <trans-unit id="4.3.1">
                 <source>login.password.hint</source>
                 <target>Please enter you password</target>
+            </trans-unit>
+
+            <!-- ORDERS -->
+            <trans-unit id="orders">
+                <source>orders</source>
+                <target>Orders</target>
+            </trans-unit>
+            <trans-unit id="order.orderId">
+                <source>order.orderId</source>
+                <target>Order#</target>
+            </trans-unit>
+            <trans-unit id="order.firstName">
+                <source>order.firstName</source>
+                <target>First name</target>
+            </trans-unit>
+            <trans-unit id="order.lastName">
+                <source>order.lastName</source>
+                <target>Last name</target>
+            </trans-unit>
+            <trans-unit id="order.totalAmount">
+                <source>order.totalAmount</source>
+                <target>Total</target>
+            </trans-unit>
+            <trans-unit id="order.shipped">
+                <source>order.shipped</source>
+                <target>Shipped</target>
+            </trans-unit>
+            <trans-unit id="order.paid">
+                <source>order.paid</source>
+                <target>Paid</target>
+            </trans-unit>
+            <trans-unit id="order.billingAddress">
+                <source>order.billingAddress</source>
+                <target>Billing address</target>
+            </trans-unit>
+            <trans-unit id="order.shippingAddress">
+                <source>order.shippingAddress</source>
+                <target>Shipping address</target>
             </trans-unit>
         </body>
     </file>

@@ -1,0 +1,32 @@
+{% extends "ShopBackendBundle:Layouts:default.html.twig" %}
+
+{% block javascripts %}
+    {% javascripts filter='?closure'
+        '@ShopBackendBundle/Resources/public/js/orders.js'
+    %}
+        <script type="text/javascript" src="{{asset_url}}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block title %}{% trans %}orders{% endtrans %}{% endblock %}
+
+{% block content %}
+    <table>
+        <thead>
+        <tr>
+            <th class="sortable"><span>{% trans %}order.orderId{% endtrans %}</span></th>
+            <th class="sortable"><span>{% trans %}order.firstName{% endtrans %}</span></th>
+            <th class="sortable"><span>{% trans %}order.lastName{% endtrans %}</span></th>
+            <th class="sortable"><span>{% trans %}order.totalAmount{% endtrans %}</span></th>
+            <th class="sortable"><span>{% trans %}order.shipped{% endtrans %}</span></th>
+            <th class="sortable"><span>{% trans %}order.paid{% endtrans %}</span></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody id="orders">
+            {% for order in orders %}
+                {% include 'ShopBackendBundle:Orders:orderRow.html.twig' %}
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -299,9 +299,9 @@ input[type="submit"]:disabled:hover {
 
 .sortable {
     & > * {
-        background: url('/bundles/shopbackend/images/icons/sortable.png') no-repeat 0 3px;
+        /*background: url('/bundles/shopbackend/images/icons/sortable.png') no-repeat 0 3px;
         cursor: pointer;
-        padding-left: 10px;
+        padding-left: 10px;*/
     }
 
     &.asc > * {
@@ -327,4 +327,59 @@ input[type="submit"]:disabled:hover {
 
 .form-col-2:nth-child(2n) {
     margin-left: 8%;
+}
+
+.order {
+    @extend .clearfix;
+    padding-bottom: 2em;
+    width: 600px;
+
+    table {
+        width: 100%;
+
+        img {
+            margin-bottom: 0.5em;
+        }
+    }
+
+    td, th {
+        text-align: center;
+    }
+
+    td {
+        padding: 0.5em 0.5em 0 0;
+    }
+
+    td:last-child {
+        padding: 0;
+    }
+
+    td:first-child {
+        text-align: left;
+    }
+
+    td:last-child,
+    th:last-child {
+        text-align: right;
+    }
+
+    tbody tr {
+        border-bottom: 1px dotted #000;
+    }
+
+    tfoot {
+        font-weight: bold;
+        text-transform: uppercase;
+
+        td:last-child {
+            padding-top: 1em;
+            text-align: right;
+        }
+    }
+
+    .address {
+        float: left;
+        margin-right: 1em;
+        width: 30%;
+    }
 }

@@ -1,0 +1,64 @@
+<section class="order">
+    <p>
+        <input type="checkbox" id="orderPaid{{order.id}}" data-paid="{{path('shop_backend_orders_markpaid', {'id': order.id})}}"{% if order.isPaid %}checked{% endif %}>
+        <label for="orderPaid{{order.id}}">{{ 'order.paid' | trans }}</label>
+
+        <input type="checkbox" id="orderShipped{{order.id}}" data-paid="{{path('shop_backend_orders_markshipped', {'id': order.id})}}"{% if order.isShipped %}checked{% endif %}>
+        <label for="orderShipped{{order.id}}">{{ 'order.shipped' | trans }}</label>
+    </p>
+    <table cellpadding="0" cellspacing="0" border="0">
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>{% trans %}order.unitPrice{% endtrans %}</th>
+            <th>{% trans %}order.quantity{% endtrans %}</th>
+            <th>{% trans %}order.total{% endtrans %}</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for item in order.items %}
+                <tr>
+                    <td>
+                        <img src="{{ item.product.imageWebPath | apply_filter('checkout') }}" />
+                    </td>
+                    <td>
+                        {{ item.product.name }}
+                    </td>
+                    <td>{{ item.finalUnitPrice | currency }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.totalAmount | currency }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5">{% trans %}checkout.total{% endtrans %} {{ order.totalAmount | currency }}</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <section class="address">
+        <h3>{% trans %}order.billingAddress{% endtrans %}</h3>
+
+        {% set address = order.billingAddress %}
+
+        {{address.firstName}} {{address.lastName}}<br>
+        {% if address.company is not empty %}{{address.company}}<br>{% endif %}
+        {{address.addressLine1}}<br>
+        {% if address.addressLine2 is not empty %}{{address.addressLine2}}<br>{% endif %}
+        {{address.zipCode}} {{address.city}}<br>
+    </section>
+
+    <section class="address">
+        <h3>{% trans %}order.shippingAddress{% endtrans %}</h3>
+
+        {% set address = order.shippingAddress %}
+
+        {{address.firstName}} {{address.lastName}}<br>
+        {% if address.company is not empty %}{{address.company}}<br>{% endif %}
+        {{address.addressLine1}}<br>
+        {% if address.addressLine2 is not empty %}{{address.addressLine2}}<br>{% endif %}
+        {{address.zipCode}} {{address.city}}<br>
+    </section>
+</section>
