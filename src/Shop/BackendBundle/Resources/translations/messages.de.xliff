@@ -253,6 +253,18 @@
                 <source>order.shippingAddress</source>
                 <target>Lieferadresse</target>
             </trans-unit>
+            <trans-unit id="order.unitPrice">
+                <source>order.unitPrice</source>
+                <target>Stückpreis</target>
+            </trans-unit>
+            <trans-unit id="order.quantity">
+                <source>order.quantity</source>
+                <target>Anzahl</target>
+            </trans-unit>
+            <trans-unit id="order.total">
+                <source>order.total</source>
+                <target>Total</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
