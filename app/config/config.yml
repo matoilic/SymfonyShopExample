@@ -35,17 +35,17 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    java: /usr/bin/java
+    java: %java_binary%
     filters:
         cssrewrite: ~
         sass: ~
         compass:
-          bin: /usr/bin/compass
+          bin: %compass_binary%
         cssmin: ~
         closure:
-          jar: %kernel.root_dir%/java/closure-compiler/compiler.jar
+          jar: %kernel.root_dir%/../vendor/closure-compiler.jar
         yui_css:
-          jar: %kernel.root_dir%/java/yuicompressor/yuicompressor-2.4.2.jar
+          jar: %kernel.root_dir%/../vendor/yuicompressor-2.4.2.jar
 
 # Doctrine Configuration
 doctrine:

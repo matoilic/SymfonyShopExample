@@ -1,0 +1,56 @@
+#!/usr/bin/env php
+<?php
+
+function download($sourceAddress, $destinationPath)
+{
+    $src = fopen($sourceAddress, 'rb');
+    $dest = fopen($destinationPath, 'wb');
+
+    while(!feof($src)) {
+        fwrite($dest, fread($src, 512));
+    }
+
+    fclose($src);
+    fclose($dest);
+}
+
+function printMessage($message)
+{
+    print "\033[30;42m $message \033[0m\n";
+}
+
+function unzip($archivePath, $entryName, $destinationPath)
+{
+    $zip = new ZipArchive();
+    $zip->open($archivePath);
+    $fp = fopen($destinationPath, 'wb');
+    fwrite($fp, $zip->getFromName($entryName));
+    fclose($fp);
+}
+
+$basePath = realpath(__DIR__ . '/../') . '/';
+$vendorPath = $basePath . 'vendor/';
+
+if(file_exists($vendorPath)) {
+    mkdir($vendorPath, 0755, true);
+}
+
+printMessage("downloading yui-compressor..."); 
+download('http://yui.zenfs.com/releases/yuicompressor/yuicompressor-2.4.2.zip', $vendorPath . 'yui.zip');
+unzip($vendorPath . 'yui.zip', 'build/yuicompressor-2.4.2.jar', $vendorPath . 'yuicompressor.jar');
+unlink($vendorPath . 'yui.zip');
+
+printMessage("downloading google closure compiler...");
+download('http://closure-compiler.googlecode.com/files/compiler-latest.zip', $vendorPath . 'closure.zip');
+unzip($vendorPath . 'closure.zip', 'compiler.jar', $vendorPath . 'closure-compiler.jar');
+unlink($vendorPath . 'closure.zip');
+
+printMessage("installing bundles...");
+echo passthru('"' . $basePath . 'bin/vendors" install');
+
+printMessage("compiling and installing assets...");
+echo passthru('"' . $basePath . 'app/console" assetic:dump -e prod --no-debug');
+echo passthru('"' . $basePath . 'app/console" assets:install web -e prod --no-debug');
+
+printMessage("warming up the cache...");
+echo passthru('"' . $basePath . 'app/console" cache:warmup -e prod --no-debug');
