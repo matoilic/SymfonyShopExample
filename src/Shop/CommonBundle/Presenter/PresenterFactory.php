@@ -28,11 +28,12 @@ class PresenterFactory
     /**
      * @param \Doctrine\Common\Annotations\Reader $annotationReader
      * @param \Symfony\Component\HttpFoundation\Session $session
+     * @param ContainerInterface $container
      */
     public function __construct(Reader $annotationReader, Session $session, ContainerInterface $container)
     {
         $this->annotationReader = $annotationReader;
-        if(array_key_exists('PATH_INFO', $_SERVER) && strpos($_SERVER['PATH_INFO'], '/en/') > -1) {
+        if(array_key_exists('REQUEST_URI', $_SERVER) && strpos($_SERVER['REQUEST_URI'], '/en/') > -1) {
             $this->locale = 'en';
         } else {
             $this->locale = 'de';
