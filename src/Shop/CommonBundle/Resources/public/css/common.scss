@@ -1,0 +1,6 @@
+@mixin gradient($from, $to) {
+    background: $from;
+    @include background-image(linear-gradient($from, $to));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$from}, endColorstr=#{$to});
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$from}, endColorstr=#{$to});
+}

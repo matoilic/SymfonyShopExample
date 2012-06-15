@@ -1,12 +1,6 @@
 @import "compass/css3";
 @import "compass/css3/images";
-
-@mixin gradient($from, $to) {
-    background: $from;
-    @include background-image(linear-gradient($from, $to));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$from}, endColorstr=#{$to});
-    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$from}, endColorstr=#{$to});
-}
+@import "../../../../CommonBundle/Resources/public/css/common";
 
 html, body {
     height: 100%;
