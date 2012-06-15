@@ -85,7 +85,7 @@
             {% for item in order.items %}
                 <tr>
                     <td>
-                        <img src="{{ item.product.imageWebPath | apply_filter('checkout') | filter_image_path }}" />
+                        <img src="{{ item.product.imageWebPath | apply_filter('checkout') | filter_image_path | inline_image }}" />
                     </td>
                     <td>
                         {{ item.product.name }}
