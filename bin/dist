@@ -1,0 +1,39 @@
+#!/usr/bin/env php
+<?php
+
+$packacgeContents = array(
+    'app',
+    'bin',
+    'deps',
+    'deps.lock',
+    'src',
+    'web'
+);
+
+$basePath = realpath(__DIR__ . '/../');
+$distPath = "$basePath/dist";
+
+if(file_exists($distPath)) {
+    passthru("rm -R '$distPath'");
+}
+
+passthru("mkdir -p '$distPath'");
+passthru("mkdir -p '$distPath/vendor'");
+
+foreach($packacgeContents as $content) {
+    passthru("cp -R '$basePath/$content' '$distPath'");
+}
+
+passthru("find '$distPath' -name .git -exec rm -Rf {} \\;");
+passthru("find '$distPath' -name .sass-cache -exec rm -Rf {} \\;");
+passthru("find '$distPath' -name .idea -exec rm -Rf {} \\;");
+passthru("find '$distPath' -name .DS_Store -exec rm -Rf {} \\;");
+    
+passthru("rm -Rf '$distPath/web/bundles'");
+passthru("rm -Rf '$distPath/web/css'");
+passthru("rm -Rf '$distPath/web/js'");
+passthru("rm -Rf '$distPath/web/cache'");
+passthru("rm -Rf '$distPath/app/cache' && mkdir -p '$distPath/app/cache'");
+passthru("rm -Rf '$distPath/app/logs' && mkdir -p '$distPath/app/logs'");
+
+passthru("cd '$distPath' && tar -czf ilicm1_poster-shop.tgz *");
