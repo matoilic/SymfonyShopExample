@@ -91,6 +91,10 @@
         {% block content %}{% endblock %}
     </div>
 
+    <footer>
+        &copy; 2012 Mato Ilic (<a href="{{ path('shop_backend_index_index') }}">Admin</a>)
+    </footer>
+
     {% javascripts filter='?closure'
         '@ShopCommonBundle/Resources/public/js/jquery.js'
         '@ShopCommonBundle/Resources/public/js/jquery.fancybox.js'

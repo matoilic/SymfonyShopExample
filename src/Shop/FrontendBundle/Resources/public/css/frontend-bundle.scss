@@ -164,6 +164,15 @@ header {
     }
 }
 
+footer {
+    @extend .container;
+    border-top:  2px solid $dark;
+    font-size: 0.8em;
+    margin-bottom: 3em;
+    padding-top: 0.5em;
+    text-align: right;
+}
+
 .langauge-switch {
     left: 50%;
     margin-left: $contentWidth / -2;
@@ -396,8 +405,7 @@ header {
 }
 
 .product {
-    display: inline-block;
-    margin: 0 8px 8px 0;
+    float: left;
     position: relative;
 
     h3 {
@@ -409,6 +417,38 @@ header {
         padding: 0.5em;
         position: absolute;
         right: 0;
+    }
+}
+
+.featured-products {
+    @extend .clearfix;
+
+    .product {
+        margin-right: ($contentWidth - 3 * 300) / 2;
+        width: 300px;
+    }
+
+    .product:last-child {
+        margin-right: 0;
+    }
+}
+
+.newest-products,
+.products {
+    @extend .clearfix;
+    $margin: ($contentWidth - 4 * 225) / 3;
+
+    .product {
+        margin: 0 $margin $margin 0;
+        width: 225px;
+    }
+
+    .product:nth-of-type(4n) {
+        margin-right: 0;
+    }
+
+    .product:nth-of-type(4n+1) {
+        clear: both;
     }
 }
 

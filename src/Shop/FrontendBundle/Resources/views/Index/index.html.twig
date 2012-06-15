@@ -15,9 +15,8 @@
         {% endfor %}
     </section>
 
+    <h2>{% trans %}products.newest{% endtrans %}</h2>
     <section class="newest-products">
-        <h2>{% trans %}products.newest{% endtrans %}</h2>
-
         {% for product in newest %}
             <article class="product{% if product.isSoldOut %} soldOut{% endif %}">
                 <h3>{{product.name}}</h3>

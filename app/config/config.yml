@@ -102,7 +102,7 @@ avalanche_imagine:
             options: { size: [300, 475], mode: inbound, quality: 60, format: jpeg }
         product_preview:
             type:    thumbnail
-            options: { size: [200, 350], mode: inbound, quality: 60, format: jpeg }
+            options: { size: [225, 350], mode: inbound, quality: 60, format: jpeg }
         product_detail:
             type:    thumbnail
             options: { size: [400, 600], mode: inset, quality: 60, format: jpeg }
