@@ -334,6 +334,7 @@ body > footer {
 
 .content {
     @extend .container;
+    min-height: 600px;
 }
 
 .product-details {

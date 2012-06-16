@@ -108,6 +108,13 @@ body {
     }
 }
 
+body > footer {
+    bottom: 5px;
+    font-size: 0.8em;
+    position: absolute;
+    right: 10px;
+}
+
 tbody {
     tr:nth-child(2n) {
         background: #fff;
@@ -274,7 +281,7 @@ input[type="submit"]:disabled:hover {
     @extend .default-box;
     @include border-radius(8px 0 0 8px);
     border-width: 1px 0 1px 1px;
-    bottom: 20px;
+    bottom: 25px;
     left: 260px;
     overflow: auto;
     padding: 20px 10px 20px 20px;

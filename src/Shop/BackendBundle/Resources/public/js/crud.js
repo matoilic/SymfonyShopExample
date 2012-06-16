@@ -1,8 +1,6 @@
 ;(function($) {
     var $doc = $(document), $form, _recordContainer, _dataAttribute, _formName, _callbacks;
 
-    function emptyCallback() { }
-
     function init(recordContainer, entity, callbacks) {
         _recordContainer = recordContainer;
         _dataAttribute =  'data-' + entity;
@@ -62,8 +60,6 @@
             iframe: true,
             dataType: 'json'
         });
-        //$c.disableForm($form);
-        //$.post($form.attr('action'), data, onRecordCreatedOrUpdated, 'json');
     }
 
     function onRecordCreatedOrUpdated(data) {
@@ -105,7 +101,8 @@
     function setupForm(callback) {
         $doc.off('submit', 'form[name="' + _formName + '"]');
         $doc.on('submit', 'form[name="' + _formName + '"]', callback);
-        $form = $('form[name="' + _formName + '"]').tipValidate().localize();
+        $form = $('form[name="' + _formName + '"]').tipValidate()
+        if($.fn.localize) $form.localize();
     }
 
     Common.initCRUD = init;

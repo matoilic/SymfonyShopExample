@@ -1,1 +1,1 @@
-$c.initCRUD('#users', 'user');
+$c.initCRUD('#users', 'user', {});

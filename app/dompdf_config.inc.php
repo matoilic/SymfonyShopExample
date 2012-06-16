@@ -17,17 +17,17 @@ PHP_VERSION >= 5.0 or die("DOMPDF requires PHP 5.0+");
 /**
  * The root of your DOMPDF installation
  */
-define("DOMPDF_DIR", realpath(dirname(__FILE__)) . '/../vendor/dompdf/');
+define("DOMPDF_DIR", realpath(__DIR__ . '/../vendor/dompdf') . '/');
 
 /**
  * The location of the DOMPDF include directory
  */
-define("DOMPDF_INC_DIR", DOMPDF_DIR . "/include");
+define("DOMPDF_INC_DIR", DOMPDF_DIR . "/include/");
 
 /**
  * The location of the DOMPDF lib directory
  */
-define("DOMPDF_LIB_DIR", DOMPDF_DIR . "/lib");
+define("DOMPDF_LIB_DIR", DOMPDF_DIR . "/lib/");
 
 /**
  * Some installations don't have $_SERVER['DOCUMENT_ROOT']
@@ -85,8 +85,7 @@ def("DOMPDF_ADMIN_PASSWORD", "password");
  *
  * *Please note the trailing slash.*
  */
-def("DOMPDF_FONT_DIR", realpath(dirname(__FILE__)) . '/../web/dompdf/fonts/');
-
+def("DOMPDF_FONT_DIR", realpath(__DIR__ . '/Resources/fonts') . '/');
 /**
  * The location of the DOMPDF font cache directory
  *
@@ -95,7 +94,9 @@ def("DOMPDF_FONT_DIR", realpath(dirname(__FILE__)) . '/../web/dompdf/fonts/');
  * It contains the .afm files, on demand parsed, converted to php syntax and cached
  * This folder can be the same as DOMPDF_FONT_DIR
  */
-def("DOMPDF_FONT_CACHE", DOMPDF_FONT_DIR);
+$fontCache = __DIR__ . '/cache/dompdf/';
+if(!file_exists($fontCache)) mkdir($fontCache, 0777, true);
+def("DOMPDF_FONT_CACHE", realpath($fontCache));
 
 /**
  * The location of a temporary directory.
@@ -118,7 +119,7 @@ def("DOMPDF_TEMP_DIR", sys_get_temp_dir());
  * direct class use like:
  * $dompdf = new DOMPDF();	$dompdf->load_html($htmldata); $dompdf->render(); $pdfdata = $dompdf->output();
  */
-def("DOMPDF_CHROOT", realpath(DOMPDF_DIR));
+def("DOMPDF_CHROOT", realpath(__DIR__ . '/..') . '/');
 
 /**
  * Whether to use Unicode fonts or not.
@@ -291,7 +292,7 @@ def("DOMPDF_ENABLE_REMOTE", true);
  * The debug output log
  * @var string
  */
-def("DOMPDF_LOG_OUTPUT_FILE", realpath(dirname(__FILE__)) . '/logs/dompdf-log.htm');
+def("DOMPDF_LOG_OUTPUT_FILE", realpath(__DIR__ . '/logs/dompdf-log.htm'));
 
 /**
  * A ratio applied to the fonts height to be more like browsers' line height

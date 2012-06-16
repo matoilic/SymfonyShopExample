@@ -18,7 +18,7 @@ class IndexController extends Controller
     public function indexAction()
     {
         return new \Symfony\Component\HttpFoundation\RedirectResponse(
-            $this->route('shop_backend_products_index')
+            $this->route('shop_backend_orders_index')
         );
     }
 }

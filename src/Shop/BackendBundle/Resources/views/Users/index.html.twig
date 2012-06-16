@@ -1,6 +1,7 @@
 {% extends "ShopBackendBundle:Layouts:default.html.twig" %}
 {% block javascripts %}
     {% javascripts
+        '@ShopBackendBundle/Resources/public/js/jquery.form.js'
         '@ShopBackendBundle/Resources/public/js/crud.js'
         '@ShopBackendBundle/Resources/public/js/users.js'
     %}
@@ -23,9 +24,9 @@
         </tr>
         </thead>
         <tbody id="users">
-        {% for user in users %}
-            {% include 'ShopBackendBundle:Users:userRow.html.twig' %}
-        {% endfor %}
+            {% for user in users %}
+                {% include 'ShopBackendBundle:Users:userRow.html.twig' %}
+            {% endfor %}
         </tbody>
     </table>
     <p>

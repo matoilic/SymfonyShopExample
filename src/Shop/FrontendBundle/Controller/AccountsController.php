@@ -124,7 +124,7 @@ class AccountsController extends Controller
      */
     public function successAction()
     {
-
+        return array();
     }
 
     /**

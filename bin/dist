@@ -36,4 +36,4 @@ passthru("rm -Rf '$distPath/web/cache'");
 passthru("rm -Rf '$distPath/app/cache' && mkdir -p '$distPath/app/cache'");
 passthru("rm -Rf '$distPath/app/logs' && mkdir -p '$distPath/app/logs'");
 
-passthru("cd '$distPath' && tar -czf ilicm1_poster-shop.tgz *");
+passthru("cd '$distPath' && tar -czf ilicm1_project.tgz *");

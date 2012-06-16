@@ -39,7 +39,7 @@
             <!-- CATEGORIES MANAGEMENT -->
             <trans-unit id="1.1">
                 <source>categories</source>
-                <target>Categoried</target>
+                <target>Categories</target>
             </trans-unit>
             <trans-unit id="1.2">
                 <source>category.name</source>
